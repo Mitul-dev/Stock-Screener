@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "inventory_id": "NSE_FIXED_ENGINEERING_20_SOURCE_PREP_V1",
+  "prepared_on": "2026-10-20",
+  "based_on_commit": "02915d7c1e292c2405f403810ecb369ad2f0e021",
+  "depends_on_pull_request": 1,
+  "cohort": {
+    "path": "research/pilot/cohort_v1.json",
+    "sha256": "2c68a8c2e52764a700be26ac9815e3988bffdf66c0fcb78550f9c100dab7c214",
+    "member_count": 20
+  },
+  "status": "PREPARED_ACQUISITION_BLOCKED",
+  "readiness": "NOT READY FOR REAL-DATA PILOT",
+  "paper_research_approved": false,
+  "proposed_window": {
+    "start": "2023-01-01",
+    "end": "2026-10-08",
+    "status": "PLANNING_TARGET_NOT_AN_ADMISSION_DECISION",
+    "selection_reason": "A multi-year engineering span ending at the already-retained official fixture; no new strategy outcomes were inspected to choose these dates."
+  },
+  "coverage": {
+    "retained_official_trade_dates": [
+      "2026-10-08"
+    ],
+    "retained_official_sessions": 1,
+    "new_historical_dates_acquired_this_step": 0,
+    "authenticated_calendar_path": null,
+    "expected_sessions": null,
+    "missing_sessions": null,
+    "historical_partition_boundaries": null,
+    "interval_coverage_status": "UNMEASURED_WITHOUT_CALENDAR_AND_HISTORY"
+  },
+  "unchanged_methodology": {
+    "setup_versions": [
+      "BREAKOUT_V1.0",
+      "VCB_V1.0"
+    ],
+    "max_setup_lookback_sessions": 252,
+    "discovery_pct": 0.6,
+    "validation_pct": 0.2,
+    "holdout_pct": 0.2,
+    "watch_expiry_sessions": 5,
+    "holding_timeout_sessions": 20,
+    "source": "Existing configuration and runner defaults at the based_on_commit; do not change to obtain more events."
+  },
+  "source_families": [
+    {
+      "id": "cm_udiff",
+      "role": "REQUIRED_RAW_OHLCV",
+      "listing_source": "nse_daily_reports",
+      "fetcher": "scripts/fetch_official_nse_fixture.py",
+      "status": "ONE_RETAINED_DAILY_SCHEMA_VERIFIED",
+      "retained_dates": [
+        "2026-10-08"
+      ],
+      "historical_date_range": "On/after the 2024-07-08 legacy discontinuation boundary; earlier UDiFF availability is not inferred.",
+      "canonical_turnover": "TtlTrfVal",
+      "delivery": "ABSENT_IN_RETAINED_FIXTURE"
+    },
+    {
+      "id": "cm_legacy",
+      "role": "REQUIRED_FOR_PROPOSED_PRE_TRANSITION_RANGE",
+      "listing_source": "nse_daily_reports",
+      "status": "GENUINE_FIXTURE_AND_ACQUISITION_PATH_PENDING",
+      "parser": "NSE_LEGACY_V2 exists but lacks genuine legacy reconciliation",
+      "fetcher": null,
+      "canonical_turnover": "TOTTRDVAL only after original header/units reconciliation",
+      "limitation": "Do not send pre-transition dates through the UDiFF-only fetcher or infer that a guessed archive URL exists."
+    },
+    {
+      "id": "delivery",
+      "role": "OPTIONAL_AVAILABILITY_MUST_BE_RECORDED",
+      "listing_source": "nse_daily_reports",
+      "status": "LISTING_LOCATED_CONTENT_NOT_ACQUIRED",
+      "parser_status": "NO_VERIFIED_FULL_BHAVCOPY_DELIVERY_ADAPTER",
+      "missing_policy": "Remain null; do not infer zero, reconstruct values or certify no delivery."
+    },
+    {
+      "id": "calendar",
+      "role": "REQUIRED_COMPLETENESS_REFERENCE",
+      "listing_source": "nse_calendar",
+      "status": "NOT_ACQUIRED",
+      "years_required": [
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "must_include": "CM annual trading closures, subsequent ad-hoc amendments, special live/Muhurat sessions and segment scope.",
+      "weekday_calendar_allowed_as_authority": false,
+      "clearing_calendar_allowed_as_trading_calendar": false
+    },
+    {
+      "id": "corporate_actions",
+      "role": "REQUIRED_RECONCILIATION",
+      "listing_source": "nse_actions",
+      "status": "INCOMPLETE_DOCUMENT_DISCOVERY",
+      "all_cohort_members_require_review": true,
+      "supported_runner_types": [
+        "SPLIT",
+        "BONUS"
+      ],
+      "unsupported_restructurings": "DEMERGER and other unsupported actions block affected histories until a documented V1 methodology decision; never relabel them SPLIT or BONUS."
+    },
+    {
+      "id": "identity_history",
+      "role": "REQUIRED_SOURCE_CONTINUITY",
+      "listing_source": "nse_security_downloads",
+      "status": "UNVERIFIED",
+      "historical_validity_intervals": null,
+      "do_not_invent_old_isins": true,
+      "limitation": "Daily source IDs, current listing files and the SecurityMaster class alone do not establish dated economic-entity continuity, delistings or survivorship."
+    },
+    {
+      "id": "official_index",
+      "role": "REGIME_CONTEXT",
+      "listing_source": "official_nifty_history",
+      "status": "NOT_ACQUIRED",
+      "existing_yahoo_file_acceptable_as_official_source": false,
+      "missing_policy": "UNKNOWN regime stays visible; do not fabricate context."
+    }
+  ],
+  "checkpoint_requests": [
+    {
+      "market_date": "2023-01-02",
+      "purpose": "Early proposed-window legacy sample; confirm actual trading session first",
+      "source_family": "cm_legacy",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-03-02",
+      "purpose": "Special Saturday-session reconciliation",
+      "source_family": "cm_legacy",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-05-18",
+      "purpose": "Special Saturday-session reconciliation",
+      "source_family": "cm_legacy",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-07-05",
+      "purpose": "Legacy side of the official schema-discontinuation boundary",
+      "source_family": "cm_legacy",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-07-08",
+      "purpose": "UDiFF side of the boundary; availability must be acquired, not inferred",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-10-25",
+      "purpose": "Candidate pre-RELIANCE-bonus source check",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2024-10-28",
+      "purpose": "RELIANCE bonus ex-date source check",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2025-01-03",
+      "purpose": "Candidate pre-ITC-demerger source check",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2025-01-06",
+      "purpose": "ITC demerger/record-date source check; confirm cash-market ex-date",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2025-06-13",
+      "purpose": "Candidate pre-BAJFINANCE split/bonus source check",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2025-06-16",
+      "purpose": "BAJFINANCE combined split/bonus ex-date source check",
+      "source_family": "cm_udiff",
+      "status": "UNFETCHED_SESSION_AND_AVAILABILITY_NOT_VERIFIED",
+      "sha256": null
+    },
+    {
+      "market_date": "2026-10-08",
+      "purpose": "Retained current-schema and cohort anchor",
+      "source_family": "cm_udiff",
+      "status": "RETAINED_BYTES_VERIFIED",
+      "sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39"
+    }
+  ],
+  "positive_action_cases": [
+    {
+      "symbol": "RELIANCE",
+      "event_date": "2023-07-20",
+      "event_type": "DEMERGER",
+      "source_id": "ril_demerger_20230720",
+      "status": "BLOCKED_UNSUPPORTED_RESTRUCTURING",
+      "approved_factor": null,
+      "required_review": "Retain CM notice and original surrounding bars; no split/bonus factor can be assumed."
+    },
+    {
+      "symbol": "RELIANCE",
+      "event_date": "2024-10-28",
+      "event_type": "BONUS",
+      "source_id": "ril_bonus_20241028",
+      "observed_ratio": "1:1",
+      "candidate_factor": 2,
+      "approved_factor": null,
+      "status": "DOCUMENT_FOUND_RAW_BAR_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "ITC",
+      "event_date": null,
+      "record_date": "2025-01-06",
+      "scheme_effective_date": "2025-01-01",
+      "event_type": "DEMERGER",
+      "source_ids": [
+        "itc_demerger",
+        "itc_demerger_issuer_filing"
+      ],
+      "status": "BLOCKED_UNSUPPORTED_RESTRUCTURING",
+      "approved_factor": null,
+      "required_review": "Confirm CM ex-date; scheme effective, record and ex-dates are distinct fields. Retain notice and economic-continuity decision."
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "event_date": "2025-06-16",
+      "event_type": "SPLIT_AND_BONUS",
+      "source_id": "bajfinance_split_bonus_20250616",
+      "observed_components": [
+        {
+          "action_type": "SPLIT",
+          "candidate_factor": 2
+        },
+        {
+          "action_type": "BONUS",
+          "candidate_factor": 5
+        }
+      ],
+      "candidate_combined_factor": 10,
+      "approved_factor": null,
+      "status": "DOCUMENT_FOUND_CM_IDENTITY_AND_RAW_BAR_RECONCILIATION_PENDING",
+      "required_review": "Resolve dated source identities first; apply factors once and preserve original IDs. Do not assign the combined factor to each component."
+    }
+  ],
+  "action_review_queue": [
+    {
+      "symbol": "RELIANCE",
+      "observed_isin": "INE002A01018",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "TCS",
+      "observed_isin": "INE467B01029",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "observed_isin": "INE040A01034",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "INFY",
+      "observed_isin": "INE009A01021",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "observed_isin": "INE090A01021",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "observed_isin": "INE030A01027",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "ITC",
+      "observed_isin": "INE154A01025",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "SBIN",
+      "observed_isin": "INE062A01020",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "observed_isin": "INE397D01024",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "observed_isin": "INE237A01036",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "LT",
+      "observed_isin": "INE018A01030",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "observed_isin": "INE021A01026",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "AXISBANK",
+      "observed_isin": "INE238A01034",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "MARUTI",
+      "observed_isin": "INE585B01010",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "observed_isin": "INE044A01036",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "TITAN",
+      "observed_isin": "INE280A01028",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "observed_isin": "INE296A01032",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "observed_isin": "INE081A01020",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "observed_isin": "INE481G01011",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    },
+    {
+      "symbol": "WIPRO",
+      "observed_isin": "INE075A01022",
+      "status": "FULL_INTERVAL_ACTION_AND_IDENTITY_RECONCILIATION_PENDING"
+    }
+  ],
+  "acquisition_contract": {
+    "original_bytes": "Retain entire official responses, requested/final URLs, UTC acquisition time, HTTP metadata, exact hashes, source dates and archive members. Keep changed versions.",
+    "calendar": "Acquire original CM calendar notices and all applicable amendments; derive a separately versioned date CSV with source links. Absence of source bars cannot prove a holiday.",
+    "identities": "Resolve dated changes from official CM security files and notices. Do not filter all historical rows by the 2026 ISIN, join only on ticker, or silently stitch ISINs.",
+    "actions": "Separate announcement, record, ex-date and availability timestamps. Keep unresolved cases blocking; no automatic unsupported-action conversion.",
+    "prices": "Keep source OHLCV, approved factors and adjusted research prices separate; preserve the existing price-basis cutoff limitations.",
+    "calendar_counts": "Expected/missing session counts remain null until authenticated expected sessions exist.",
+    "inference": "No strategy validity, matched controls, survivorship safety or paper-research approval follows from source preparation."
+  },
+  "execution_limits": {
+    "execution_environment": "UNAVAILABLE",
+    "python_tests": "NOT_RUN",
+    "archive_downloads_to_disk": "NOT_RUN",
+    "new_historical_source_bytes_retained": false,
+    "live_telegram": "NOT_SENT"
+  }
+}

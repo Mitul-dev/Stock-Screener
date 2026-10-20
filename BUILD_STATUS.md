@@ -1,11 +1,26 @@
 # Build Status
 
-Current milestone: CURRENT-RUN QUALITY AND EVIDENCE CONSUMERS VERIFIED
+Current milestone: HISTORICAL SOURCE PREPARATION; ACQUISITION BLOCKED
 Readiness: NOT READY FOR REAL-DATA PILOT
-Last verified: 2026-10-20
+Source-preparation review: 2026-10-20
+Last executed Python verification: prior consumer milestone, 2026-10-20
 Paper research approval: NOT GRANTED.
 
-## Verified implementation
+## Current historical-source preparation
+
+- The existing 20-stock engineering cohort is now frozen from original retained source rows in `research/pilot/cohort_v1.json`; source ISIN/security IDs are not invented historical validity ranges.
+- Original ZIP SHA-256, member SHA-256 and CRC, 3,733 rows, all 2,681 EQ rows and the unchanged 20-member smoke cohort were independently checked in the code runtime.
+- A proposed 2023-01-01 through 2026-10-08 source window, official source catalogue, 12 checkpoint requests and action/identity reconciliation queues are recorded.
+- Official documents identify a schema transition, special Saturday sessions, and cohort restructurings requiring review beyond the current split/bonus handler.
+- Only one official session is retained. Expected/missing session counts and historical partition boundaries remain unknown; no `calendar.csv` or approved action feed is fabricated.
+- Execution workspace is unavailable. Historical archive downloads, Python tests and historical production runs were not executed in this step.
+- Runtime code, configuration, original fixtures and frozen outputs are unchanged by source preparation. This work depends on still-unmerged draft PR #1.
+
+See `docs/historical_sources.md`,
+`research/pilot/historical_inventory_v1.json` and
+`research/reports/historical_source_preparation_2026-10-20.md`.
+
+## Previously verified implementation
 
 - Official original NSE CM UDiFF ZIP for 2026-10-08 remains unchanged with its acquisition receipt and source reconciliation tests.
 - Source identifiers, reported turnover, raw and adjusted OHLCV, content-addressed archives, safe replay and chronological production partitions remain intact.
@@ -19,7 +34,7 @@ Paper research approval: NOT GRANTED.
 - Existing outbox rows and older reports/frozen evidence are preserved. Legacy run manifests require regeneration to use current consumers.
 - Existing configuration and strategy thresholds remain unchanged. The deprecated CSV date cast was replaced for Polars 2.0 compatibility.
 
-## Fresh test execution
+## Prior consumer milestone test execution (not rerun in source preparation)
 
 Environment: Python 3.12.14; Polars 2.0.0; NumPy 2.3.5; DuckDB 1.5.6;
 PyYAML 6.0.3; Streamlit 1.66.0; requests 2.34.2; pytest 9.1.1; Hypothesis 6.170.5.
@@ -63,7 +78,8 @@ See `research/reports/run_consumers_verification_2026-10-20.json` and
 - Review adequate-sample/dependence and point-in-time adjustment methodology before a separate paper-research decision. The existing row bootstrap, STATIC hurdle and cohort breadth do not validate a strategy.
 - Live Telegram delivery was not exercised. No real notifications were sent.
 
-Next action: assemble an authenticated historical source inventory and expected
-session coverage for the fixed cohort, then reconcile the unresolved source gates
-before running a genuine historical engineering pilot. Passing software checks
-does not change the admission decision.
+Next action: when execution is available, retain authenticated calendar/CM notice
+bytes and real legacy/UDiFF checkpoints, reconcile dated identities and unsupported
+restructurings, then measure complete historical coverage. The source inventory
+is prepared; acquisition and historical pilot verification are not complete.
+Passing software checks does not change the admission decision.

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-20",
+  "evidence_scope": "Official pages/PDF text were inspected through web retrieval. New source response bytes, original CSV downloads and PDF files were not retained in this turn.",
+  "retained_market_data": [
+    {
+      "path": "tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip",
+      "provenance_path": "tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip.provenance.json",
+      "market_date": "2026-10-08",
+      "sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39",
+      "bytes": 208947,
+      "member": "BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv",
+      "member_sha256": "3bfb33cd4a0eb55b77ed2b24fd95cac6803edf00256bee65796ede4ee7549e53",
+      "member_crc32": "12e2ccf7",
+      "acquired_at_utc": "2026-10-20T04:23:25.690707+00:00",
+      "official_url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip"
+    }
+  ],
+  "sources": [
+    {
+      "id": "nse_daily_reports",
+      "url": "https://www.nseindia.com/all-reports",
+      "status": "OFFICIAL_LISTING_READ",
+      "findings": [
+        "The legacy CM Bhavcopy and Common Bhavcopy listings say they were discontinued from 2024-07-08, citing circular 62424 dated 2024-06-12.",
+        "Current CM UDiFF, full bhavcopy/delivery and MII security-file families are listed."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_udiff_formats",
+      "url": "https://www.nseindia.com/static/resources/forms-formats-members",
+      "status": "OFFICIAL_DOCUMENT_INDEX_READ",
+      "findings": [
+        "An exchange-provided UDiFF format/catalogue and sample-file index is available; samples do not prove authentic trading-day history."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_calendar",
+      "url": "https://www.nseindia.com/resources/exchange-communication-holidays",
+      "status": "OFFICIAL_CALENDAR_INDEX_READ",
+      "findings": [
+        "Annual CM trading holidays and special-session circulars must be combined. Clearing/bank holidays are a separate concept."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_calendar_2025_index",
+      "url": "https://www.nseindia.com/static/holidays-for-the-calendar-year-2025",
+      "status": "OFFICIAL_CALENDAR_INDEX_READ",
+      "findings": [
+        "Separate trading and clearing holiday categories are listed; this is not an acquired, complete 2025 session calendar."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_special_session_20240302",
+      "url": "https://nsearchives.nseindia.com/content/circulars/MSD60677.pdf",
+      "status": "OFFICIAL_PDF_TEXT_READ",
+      "publication_date": "2024-02-14",
+      "findings": [
+        "CM live sessions were scheduled on Saturday 2024-03-02."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_special_session_20240518",
+      "url": "https://nsearchives.nseindia.com/content/circulars/MSD61893.pdf",
+      "status": "OFFICIAL_PDF_TEXT_READ",
+      "publication_date": "2024-05-07",
+      "findings": [
+        "CM live sessions were scheduled on Saturday 2024-05-18; the notice distinguishes the T+0 settlement holiday."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_security_downloads",
+      "url": "https://www.nseindia.com/static/market-data/securities-available-for-trading",
+      "status": "OFFICIAL_LINK_INDEX_READ",
+      "links": [
+        {
+          "url": "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv",
+          "status": "LINK_RESOLVED_CSV_CONTENT_UNAVAILABLE"
+        },
+        {
+          "url": "https://nsearchives.nseindia.com/content/equities/symbolchange.csv",
+          "status": "LINK_RESOLVED_CSV_CONTENT_UNAVAILABLE"
+        },
+        {
+          "url": "https://nsearchives.nseindia.com/content/equities/namechange.csv",
+          "status": "LINK_RESOLVED_CSV_CONTENT_UNAVAILABLE"
+        }
+      ],
+      "findings": [
+        "Current securities, symbol-change and name-change download links were resolved. CSV content was unsupported by the web retrieval tool; no rows or historical completeness are certified."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "nse_actions",
+      "url": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
+      "status": "OFFICIAL_DYNAMIC_PAGE_LOCATED",
+      "findings": [
+        "Date-filtered action exports and issuer notices still need original-byte acquisition. A blank dynamic view is not evidence of no corporate actions."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "ril_demerger_20230720",
+      "url": "https://nsearchives.nseindia.com/web/sites/default/files/2023-07/ind_prs17072023.pdf",
+      "status": "OFFICIAL_PDF_TEXT_READ",
+      "publication_date": "2023-07-17",
+      "findings": [
+        "NSE Indices identifies the RELIANCE capital-market special pre-open on 2023-07-20 for its financial-services demerger."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "ril_bonus_20241028",
+      "url": "https://nsearchives.nseindia.com/content/circulars/FAOP64621.pdf",
+      "status": "OFFICIAL_PDF_TEXT_READ",
+      "publication_date": "2024-10-18",
+      "findings": [
+        "The NSE notice cross-checks the underlying RELIANCE 1:1 bonus, 2024-10-28 ex-date and factor 2."
+      ],
+      "scope_limit": "F&O notice used only as underlying-equity action cross-check; no derivatives data/logic is introduced.",
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "itc_demerger",
+      "url": "https://itcportal.com/investors/proposed-demerger-hotels-business.html",
+      "status": "ISSUER_DOCUMENT_INDEX_READ",
+      "findings": [
+        "Issuer documentation lists the hotels demerger, record-date notice and scheme. It does not supply an approved cash-equity adjustment factor here."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "itc_demerger_issuer_filing",
+      "url": "https://nsearchives.nseindia.com/corporate/ixbrl/INTEGRATED_FILING_INDAS_92862_22052025181843_iXBRL_WEB.html",
+      "status": "OFFICIAL_HOSTED_ISSUER_FILING_SEARCH_TEXT_READ",
+      "findings": [
+        "The issuer filing distinguishes the 2025-01-01 scheme effective date from the 2025-01-06 record date."
+      ],
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "bajfinance_split_bonus_20250616",
+      "url": "https://nsearchives.nseindia.com/content/circulars/FAOP68547.pdf",
+      "status": "OFFICIAL_PDF_TEXT_READ",
+      "publication_date": "2025-06-13",
+      "findings": [
+        "The underlying BAJFINANCE split and bonus share the 2025-06-16 ex-date. Components 2 and 5 give a stated combined factor of 10."
+      ],
+      "scope_limit": "F&O notice used only as underlying-equity action cross-check; CM identity notices and raw price reconciliation remain required.",
+      "raw_bytes_retained": false
+    },
+    {
+      "id": "official_nifty_history",
+      "url": "https://www.niftyindices.com/reports/historical-data",
+      "status": "OFFICIAL_DATA_INTERFACE_READ",
+      "findings": [
+        "Historical index/date export controls are available. No NIFTY history was acquired; the earlier Yahoo script does not establish an official source."
+      ],
+      "raw_bytes_retained": false
+    }
+  ]
+}
