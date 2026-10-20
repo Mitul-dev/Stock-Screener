@@ -72,22 +72,28 @@ class EvidenceSnapshot:
             
         return snapshot_id
         
-    def load_snapshot(self, snapshot_id: str) -> tuple[dict, pl.DataFrame]:
+    def load_snapshot(self, snapshot_id: str, *, metadata_sha256=None,
+                      outcomes_sha256=None) -> tuple[dict, pl.DataFrame]:
         if not re.fullmatch(r"[A-Za-z0-9_-]+", snapshot_id):
             raise ValueError("Invalid snapshot identity")
         meta_path = self.snapshots_dir / f"{snapshot_id}_meta.json"
         if not meta_path.exists():
             raise FileNotFoundError(f"Snapshot metadata not found for {snapshot_id}")
-        with open(meta_path, "r") as f:
-            metadata = json.load(f)
+        metadata_bytes = meta_path.read_bytes()
+        if metadata_sha256 and hashlib.sha256(metadata_bytes).hexdigest() != metadata_sha256:
+            raise ValueError(f"Snapshot metadata integrity error for {snapshot_id}")
+        metadata = json.loads(metadata_bytes)
+        if metadata.get("evidence_snapshot_id") != snapshot_id:
+            raise ValueError(f"Snapshot identity mismatch for {snapshot_id}")
             
         outcomes_path = self.snapshots_dir / f"{snapshot_id}_outcomes.parquet"
         if outcomes_path.exists():
-            df = pl.read_parquet(outcomes_path)
-            actual_hash = hashlib.sha256(outcomes_path.read_bytes()).hexdigest()
+            outcome_bytes = outcomes_path.read_bytes()
+            actual_hash = hashlib.sha256(outcome_bytes).hexdigest()
             recorded_hash = metadata.get("output_hash")
-            if not recorded_hash or actual_hash != recorded_hash:
+            if not recorded_hash or actual_hash != recorded_hash or (outcomes_sha256 and actual_hash != outcomes_sha256):
                 raise ValueError(f"Snapshot integrity error: output_hash mismatch for {snapshot_id}")
+            df = pl.read_parquet(io.BytesIO(outcome_bytes))
             if "outcomes_count" in metadata and df.height != metadata["outcomes_count"]:
                 raise ValueError(f"Snapshot integrity error: outcome count mismatch for {snapshot_id}")
         else:

@@ -12,6 +12,7 @@ import yaml
 
 from equity_engine.ingestion.nse_importer import NSEImporter
 from equity_engine.ingestion.validator import DataValidator
+from equity_engine.ingestion.quality import assess_quality
 from equity_engine.corporate_actions.adjustor import CorporateActionAdjustor
 from equity_engine.features.calculator import FeatureCalculator
 from equity_engine.universe.builder import UniverseBuilder
@@ -46,9 +47,12 @@ def _json_bytes(value):
     return json.dumps(value, sort_keys=True, indent=2, default=str).encode("utf-8")
 
 
-def _file_record(path):
+def _file_record(path, run_dir=None):
     path = Path(path).resolve()
-    return {"path": str(path), "sha256": _hash_bytes(path.read_bytes())}
+    record = {"path": str(path), "sha256": _hash_bytes(path.read_bytes())}
+    if run_dir is not None:
+        record["relative_path"] = path.relative_to(run_dir).as_posix()
+    return record
 
 
 def _load_actions(path):
@@ -86,6 +90,15 @@ def _load_index(path):
     return frame.sort("date")
 
 
+def _load_calendar(path):
+    if path is None:
+        return None
+    calendar = pl.read_csv(path).select(pl.col("date").str.to_date("%Y-%m-%d"))
+    if calendar.is_empty() or calendar["date"].null_count() or calendar["date"].n_unique() != calendar.height:
+        raise ValueError("Calendar must contain unique non-null session dates")
+    return calendar.sort("date")
+
+
 def _regime(day, index, features, eligible, configuration):
     history = index.filter(pl.col("date") <= day)
     if history.height < 200 or history["date"].max() != day:
@@ -108,7 +121,7 @@ def _empty_statistics():
 
 def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
               config_dir=None, output_dir=None, raw_dir=None,
-              source_provenance_path=None, seed=42, cohort=None):
+              source_provenance_path=None, seed=42, cohort=None, calendar_path=None):
     """Preserve source fields and execute each partition with bounded outcomes.
 
     input_path accepts one CSV/ZIP or a sequence of daily files. Earlier bars
@@ -190,7 +203,9 @@ def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
         raise ValueError("Production data must retain source identity, turnover and provenance")
     actions = _load_actions(corporate_actions_path)
     index = _load_index(index_path)
-    for kind, path in (("corporate_actions", corporate_actions_path), ("index", index_path)):
+    calendar = _load_calendar(calendar_path)
+    for kind, path in (("corporate_actions", corporate_actions_path), ("index", index_path),
+                       ("calendar", calendar_path)):
         if path is not None:
             inputs.append({"kind": kind, **_file_record(path)})
     if "instrument_id" not in actions.columns and actions.height:
@@ -260,12 +275,26 @@ def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
     trial_id = f"pilot-{fingerprint[:16]}-{uuid.uuid4().hex[:8]}"
     run_dir = Path(output_dir or "data/processed/pilot_runs").resolve() / trial_id
     run_dir.mkdir(parents=True, exist_ok=False)
-    outputs = {}
+    quality = assess_quality(raw, features, inputs, cohort=cohort, calendar=calendar,
+                             actions=actions, index=index,
+                             warmup_sessions=max(settings["parameters"]["lookback_days"]
+                                 for settings in configuration["setups"]["setups"].values()))
+    quality.update(trial_id=trial_id, input_hash=input_hash, configuration_hash=configuration_hash,
+                   code_hash=code_hash, run_fingerprint=fingerprint)
+    quality_path = run_dir / "quality.json"
+    quality_path.write_bytes(_json_bytes(quality))
+    quality_record = _file_record(quality_path, run_dir)
+    outcomes = outcomes.with_columns(pl.lit(
+        None if quality["evidence_allowed"] else "DATA_QUALITY_FAILED", dtype=pl.String
+    ).alias("evidence_withheld_reason"))
+    if not quality["evidence_allowed"]:
+        outcomes = outcomes.with_columns(pl.lit(False).alias("evidence_eligible"))
+    outputs = {"quality": quality_record}
     for name, frame in (("features", features), ("universe", universe), ("events", events),
                          ("outcomes", outcomes), ("regime", regime_frame)):
         path = run_dir / f"{name}.parquet"
         frame.write_parquet(path)
-        outputs[name] = _file_record(path)
+        outputs[name] = _file_record(path, run_dir)
     snapshot_manager = EvidenceSnapshot(str(run_dir))
     snapshots, statistics, partition_results = [], [], {}
     versions = [f"BREAKOUT_V{configuration['setups']['setups']['BREAKOUT_V1']['version']}",
@@ -276,7 +305,7 @@ def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
                                    "censored": partition_outcomes.filter(pl.col("censored")).height,
                                    "eligible": partition_outcomes.filter(pl.col("evidence_eligible")).height,
                                    "status": "NO_SESSIONS" if frame.is_empty() else "EXECUTED"}
-        if frame.is_empty():
+        if frame.is_empty() or not quality["evidence_allowed"]:
             continue
         for version in versions:
             family = partition_outcomes.filter((pl.col("setup") == version) & pl.col("evidence_eligible"))
@@ -290,13 +319,14 @@ def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
                 trial_id=trial_id, partition=name, configuration=configuration, cost_model=costs,
                 date_boundaries=boundaries, input_hash=input_hash, configuration_hash=configuration_hash,
                 code_hash=code_hash, random_seed=seed, price_basis_cutoff=str(raw["date"].max()),
+                quality_sha256=quality_record["sha256"],
             )
             snapshots.append({"partition": name, "setup_version": version, "snapshot_id": snapshot_id,
-                              "metadata": _file_record(snapshot_manager.snapshots_dir / f"{snapshot_id}_meta.json"),
-                              "outcomes": _file_record(snapshot_manager.snapshots_dir / f"{snapshot_id}_outcomes.parquet")})
+                              "metadata": _file_record(snapshot_manager.snapshots_dir / f"{snapshot_id}_meta.json", run_dir),
+                              "outcomes": _file_record(snapshot_manager.snapshots_dir / f"{snapshot_id}_outcomes.parquet", run_dir)})
     statistics_path = run_dir / "statistics.json"
     statistics_path.write_bytes(_json_bytes(statistics))
-    outputs["statistics"] = _file_record(statistics_path)
+    outputs["statistics"] = _file_record(statistics_path, run_dir)
     warnings = []
     if corporate_actions_path is None:
         warnings.append("No corporate-action source supplied; this is not proof of action-free history.")
@@ -304,10 +334,13 @@ def run_pilot(input_path=None, *, corporate_actions_path=None, index_path=None,
         warnings.append("No index source supplied; event regime is UNKNOWN.")
     if any(not item.get("acquisition") for item in inputs if item["kind"] == "ohlcv"):
         warnings.append("Some source files have no recorded acquisition provenance.")
-    manifest = {"trial_id": trial_id, "run_dir": str(run_dir), "run_fingerprint": fingerprint,
+    manifest = {"schema_version": 2, "artifact_path_contract": "run-relative-v1",
+                "trial_id": trial_id, "run_dir": str(run_dir), "run_fingerprint": fingerprint,
                 "manifest_path": str(run_dir / "manifest.json"),
                 "created_at": datetime.now(timezone.utc).isoformat(), "execution_status": "COMPLETED",
-                "status": "INSUFFICIENT EVIDENCE" if not outcomes.filter(pl.col("evidence_eligible")).height else "EXPERIMENTAL",
+                "status": "DATA QUALITY FAILED" if not quality["evidence_allowed"] else (
+                    "INSUFFICIENT EVIDENCE" if not outcomes.filter(pl.col("evidence_eligible")).height else "EXPERIMENTAL"),
+                "quality_status": quality["status"],
                 "methodology_version": METHODOLOGY_VERSION, "setup_versions": versions,
                 "universe_version": f"universe-{configuration['universe'].get('version', 'unversioned')}",
                 "random_seed": seed, "configuration": configuration, "cost_model": costs,
@@ -335,6 +368,7 @@ def main():
     parser.add_argument("input", nargs="*", type=Path)
     parser.add_argument("--corporate-actions", type=Path)
     parser.add_argument("--index", type=Path)
+    parser.add_argument("--calendar", type=Path, help="CSV date column: explicit expected sessions covering this run")
     parser.add_argument("--config-dir", type=Path)
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--raw-dir", type=Path)
@@ -345,7 +379,7 @@ def main():
     run_pilot(args.input or None, corporate_actions_path=args.corporate_actions,
               index_path=args.index, config_dir=args.config_dir, output_dir=args.output_dir,
               raw_dir=args.raw_dir, source_provenance_path=args.provenance,
-              seed=args.seed, cohort=args.cohort)
+              seed=args.seed, cohort=args.cohort, calendar_path=args.calendar)
 
 
 if __name__ == "__main__":

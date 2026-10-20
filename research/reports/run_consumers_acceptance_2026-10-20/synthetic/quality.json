@@ -1,0 +1,184 @@
+{
+  "blocking_issues": [],
+  "checks": [
+    {
+      "blocking": false,
+      "counts": {
+        "rows_checked": 5980
+      },
+      "detail": "Existing DataValidator accepted the supplied market rows.",
+      "examples": [],
+      "name": "ohlcv",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "invalid_rows": 0,
+        "rows_checked": 5980,
+        "source_files": 1
+      },
+      "detail": "Row source hashes and source dates must match the ingested inputs.",
+      "examples": [],
+      "name": "source_identity",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "instruments_observed": 5,
+        "missing": 0,
+        "requested": 0
+      },
+      "detail": "Every explicitly requested cohort member must have source bars.",
+      "examples": [],
+      "name": "requested_cohort",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "ambiguous_symbol_dates": 0
+      },
+      "detail": "Concurrent identities for a symbol require explicit source reconciliation.",
+      "examples": [],
+      "name": "identifier_collisions",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "instruments_with_gaps": 1,
+        "missing_instrument_sessions": 20,
+        "observed_sessions": 1200
+      },
+      "detail": "Relative to dates observed in this cohort, not an official exchange calendar.",
+      "examples": [
+        {
+          "instrument_id": "INE005A01011",
+          "missing_sessions": 20
+        }
+      ],
+      "name": "observed_session_coverage",
+      "status": "WARNING"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "instruments_ending_early": 0
+      },
+      "detail": "Relative to the last supplied cohort session, not today's date or a live freshness guarantee.",
+      "examples": [],
+      "name": "stale_history",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "instruments_below_lookback": 0,
+        "required_setup_lookback_sessions": 252
+      },
+      "detail": "Measured against the longest configured setup lookback; short history and zero setups are not fabricated evidence.",
+      "examples": [],
+      "name": "history_depth",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "rows_checked": 5980,
+        "unexplained_jumps": 0
+      },
+      "detail": "Absolute adjusted close return at or above 50% requires source/action review; no automatic repair.",
+      "examples": [],
+      "name": "abnormal_adjusted_returns",
+      "status": "PASSED"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "percentage_nulls": 5980,
+        "quantity_nulls": 5980,
+        "rows_with_delivery": 0,
+        "rows_without_delivery": 5980
+      },
+      "detail": "Missing optional delivery is retained as null; availability does not certify authentic delivery parsing.",
+      "examples": [],
+      "name": "delivery_availability",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "files_missing_acquisition_fields": 1
+      },
+      "detail": "Acquisition fields and input bytes are recorded; a supplied URL is not source authentication.",
+      "examples": [],
+      "name": "acquisition_provenance",
+      "status": "WARNING"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "observed_sessions": 1200
+      },
+      "detail": "No session calendar supplied; whole-cohort missing days cannot be detected.",
+      "examples": [],
+      "name": "calendar_completeness",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "supplied_actions": 0
+      },
+      "detail": "Factor application is checked, but official action dates, notices and completeness are not reconciled.",
+      "examples": [],
+      "name": "corporate_action_reconciliation",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "instruments_with_symbol_changes": 0,
+        "reused_symbols": 0
+      },
+      "detail": "Observed changes are counted; official identity history, delistings and survivorship remain unverified.",
+      "examples": [],
+      "name": "identifier_history",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "blocking": false,
+      "counts": {
+        "supplied_rows": 1200
+      },
+      "detail": "Regime input availability only; eligible-cohort breadth is not full-market breadth.",
+      "examples": [],
+      "name": "index_availability",
+      "status": "PASSED"
+    }
+  ],
+  "code_hash": "f31ebed61fbf38e85f6c56e098dcf56cd8c32cccc466d41f983cefa81fe39b52",
+  "configuration_hash": "80fc38215f2e6fe01e6330b7e4b2b7643f8a5da17ed8929bfcf20591032c6c9f",
+  "evidence_allowed": true,
+  "evidence_scope": "ENGINEERING_ONLY",
+  "input_hash": "6c756980ee7f7b8e87315bcad31f680e5ed8aa1c1733bdb69a59a22e1f7e97dd",
+  "limitations": [
+    "Relative to dates observed in this cohort, not an official exchange calendar.",
+    "Missing optional delivery is retained as null; availability does not certify authentic delivery parsing.",
+    "Acquisition fields and input bytes are recorded; a supplied URL is not source authentication.",
+    "No session calendar supplied; whole-cohort missing days cannot be detected.",
+    "Factor application is checked, but official action dates, notices and completeness are not reconciled.",
+    "Observed changes are counted; official identity history, delistings and survivorship remain unverified."
+  ],
+  "paper_research_approved": false,
+  "policy": {
+    "abnormal_return_threshold": 0.5
+  },
+  "policy_version": "pilot-quality-1",
+  "run_fingerprint": "dca17bb37af4ed6230c9e0c61a250d345e18622a2ef0fb6bb310b33c5458a72c",
+  "schema_version": 1,
+  "status": "PASSED_WITH_WARNINGS",
+  "trial_id": "pilot-dca17bb37af4ed62-32b17fc5"
+}

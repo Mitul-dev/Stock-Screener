@@ -1,77 +1,80 @@
-import streamlit as st
+"""Minimal dashboard for verified, explicitly selected research runs."""
+
 from pathlib import Path
-import polars as pl
+
+import streamlit as st
+
+from equity_engine.evidence.run import RunEvidence
+
 
 def main():
     st.set_page_config(page_title="Indian Equity Evidence Engine", layout="wide")
-    
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio(
-        "Select Page",
-        ["Overview", "Scanner", "Setup Detail", "Research", "Forward Test"]
-    )
-    
-    if page == "Overview":
-        render_overview()
-    elif page == "Scanner":
-        render_scanner()
-    elif page == "Setup Detail":
-        render_setup_detail()
-    elif page == "Research":
-        render_research()
-    elif page == "Forward Test":
-        render_forward_test()
+    st.sidebar.title("Research runs")
+    root = Path(st.sidebar.text_input("Runs folder", "data/processed/pilot_runs"))
+    paths = sorted(root.glob("*/manifest.json"), reverse=True)
+    if not paths:
+        st.title("System Overview")
+        st.info("No run manifests found in the selected folder.")
+        st.metric("Data Quality", "UNAVAILABLE")
+        return
+    selected = st.sidebar.selectbox("Run", paths, format_func=lambda path: path.parent.name)
+    render_overview(selected)
 
-def render_overview():
+
+def render_overview(manifest_path=None):
     st.title("System Overview")
-    
-    regime = "UNKNOWN"
-    detected_count = "0"
-    data_quality = "UNKNOWN"
-    
-    outcomes_path = Path("data/processed/pilot_outcomes.parquet")
-    if outcomes_path.exists():
-        try:
-            outcomes = pl.read_parquet(outcomes_path)
-            detected_count = str(len(outcomes))
-            data_quality = "VALIDATED" if len(outcomes) > 0 else "UNKNOWN"
-        except Exception:
-            pass
-            
-    nifty_path = Path("data/raw/NIFTY50.csv")
-    if nifty_path.exists():
-        try:
-            nifty = pl.read_csv(nifty_path)
-            if "close" in nifty.columns and len(nifty) >= 200:
-                sma_200 = float(nifty["close"].tail(200).mean())
-                latest_close = float(nifty["close"][-1])
-                regime = "UPTREND" if latest_close >= sma_200 else "NEUTRAL"
-        except Exception:
-            pass
-
+    if manifest_path is None:
+        st.metric("Data Quality", "UNAVAILABLE")
+        st.info("Select a run manifest to inspect its recorded quality and evidence.")
+        return
+    try:
+        run = RunEvidence(manifest_path)
+    except Exception as error:
+        st.metric("Data Quality", "FAILED")
+        st.error(f"Run verification failed: {error}")
+        return
+    manifest = run.manifest
+    events, regime = run.frames["events"], run.frames["regime"]
+    regime_value = regime.sort("date")["regime"][-1] if regime.height else "UNKNOWN"
     col1, col2, col3 = st.columns(3)
-    col1.metric("Market Regime", regime)
-    col2.metric("Detected Setups", detected_count)
-    col3.metric("Data Quality", data_quality)
-    
-    st.subheader("Recent Alerts")
-    st.info("No recent alerts in the outbox.")
+    col1.metric("Market Regime", regime_value)
+    col2.metric("Detected Setups", events.height)
+    col3.metric("Data Quality", run.quality_status)
+    st.write({"Run": manifest["trial_id"], "Research status": manifest["status"],
+              "Created": manifest["created_at"], "Input hash": manifest["input_hash"],
+              "Price basis cutoff": manifest["price_basis"]["cutoff"]})
+    st.warning("Engineering research only. Real-data pilot admission remains incomplete; paper research is not approved.")
+    st.subheader("Partitions and cutoffs")
+    st.dataframe([{"partition": name, **boundary, **manifest["partition_results"][name]}
+                  for name, boundary in manifest["date_boundaries"].items()])
+    st.subheader("Sources")
+    st.dataframe([{"kind": item["kind"], "path": item["path"], "sha256": item["sha256"],
+                   "acquisition": item.get("acquisition", {})} for item in manifest["inputs"]])
+    st.subheader("Recorded quality")
+    if run.quality is None:
+        st.error("Quality results are unavailable. Evidence use and alerts are withheld.")
+    else:
+        st.dataframe([{"check": check["name"], "status": check["status"],
+                       "blocking": check["blocking"], "counts": str(check["counts"]),
+                       "detail": check["detail"]} for check in run.quality["checks"]])
+        for limitation in run.quality["limitations"]:
+            st.caption(limitation)
+        if not run.quality["evidence_allowed"]:
+            st.error("Blocking data-quality checks failed. Frozen evidence and alerts are withheld.")
+    st.subheader("Candidates")
+    st.dataframe(events)
+    st.subheader("Frozen evidence")
+    if run.quality is None or not run.quality["evidence_allowed"]:
+        st.info("Frozen evidence is unavailable for consumer use.")
+    else:
+        st.dataframe([{"snapshot_id": identity, "partition": metadata["partition"],
+                       "setup_version": metadata["setup_version"], "cutoff": metadata["data_cutoff"],
+                       "observations": frozen.height, "recorded_statistics": str(metadata["statistics"])}
+                      for identity, (metadata, frozen) in run.snapshots.items()])
+        st.caption("Recorded statistical labels are not a strategy-validity or paper-research admission decision.")
+    for warning in manifest["warnings"]:
+        st.caption(warning)
 
-def render_scanner():
-    st.title("Scanner")
-    st.write("Filter eligible setups by regime, liquidity, and state.")
-    
-def render_setup_detail():
-    st.title("Setup Detail")
-    st.write("Detailed chart and evidence for a specific setup.")
-    
-def render_research():
-    st.title("Research & Evidence")
-    st.write("Historical evidence snapshots and holdout statistics.")
-
-def render_forward_test():
-    st.title("Forward Test")
-    st.write("Live tracker of all out-of-sample detected events.")
 
 if __name__ == "__main__":
     main()

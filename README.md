@@ -43,3 +43,16 @@ configuration, applies event-date universe eligibility and runs discovery,
 validation and holdout separately. Each invocation preserves a run directory with
 source hashes, configuration, date boundaries, typed outcomes and linked frozen
 snapshots. See `docs/pilot_pipeline.md` for usage and limits of the verified milestone.
+
+## Current-run quality and consumers
+
+New runs persist hashed quality reports and portable run-local artifact references.
+The dashboard selects a run and verifies its quality/evidence instead of reading
+legacy outcomes. Start it with `python -m streamlit run src/equity_engine/dashboard/app.py`.
+
+Prepare local alerts with `python scripts/preview_run_alerts.py path/to/run/manifest.json`.
+The preview checks the actual event and matching earlier frozen evidence and never
+sends Telegram messages. Critical quality failures withhold snapshots and alerts.
+See `research/reports/run_consumers_integration_2026-10-20.md` for actual test
+results and saved examples. **Not ready for a real-data pilot; paper research is
+not approved.**

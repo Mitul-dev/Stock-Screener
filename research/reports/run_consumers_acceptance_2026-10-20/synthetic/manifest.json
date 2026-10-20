@@ -1,0 +1,332 @@
+{
+  "artifact_path_contract": "run-relative-v1",
+  "code_hash": "f31ebed61fbf38e85f6c56e098dcf56cd8c32cccc466d41f983cefa81fe39b52",
+  "configuration": {
+    "cohort": null,
+    "costs": {
+      "costs": {
+        "brokerage_pct": 0.0003,
+        "exchange_charges_pct": 3.25e-05,
+        "gst_pct": 0.18,
+        "sebi_charges_pct": 1e-06,
+        "slippage_pct": 0.001,
+        "stamp_duty_pct": 0.00015,
+        "stt_pct": 0.001
+      }
+    },
+    "regime": {
+      "regimes": {
+        "NEUTRAL": null,
+        "RISK_OFF": {
+          "nifty_below_200_dma": true,
+          "vix_min": 25.0
+        },
+        "UPTREND": {
+          "breadth_pct_above_50_dma_min": 0.5,
+          "nifty_above_200_dma": true
+        }
+      }
+    },
+    "research": {
+      "discovery_pct": 0.6,
+      "timeout_days": 20,
+      "validation_pct": 0.2,
+      "watch_expiry_days": 5
+    },
+    "setups": {
+      "setups": {
+        "BREAKOUT_V1": {
+          "parameters": {
+            "close_near_high_pct": 0.02,
+            "lookback_days": 252,
+            "min_volume_relative": 1.5
+          },
+          "version": "1.0"
+        },
+        "VCB_V1": {
+          "parameters": {
+            "lookback_days": 60,
+            "max_atr_percentile": 0.2,
+            "min_consolidation_days": 10
+          },
+          "version": "1.0"
+        }
+      }
+    },
+    "universe": {
+      "liquidity_tiers": {
+        "tier_1": {
+          "min_median_traded_value": 500000000,
+          "min_price": 50.0,
+          "min_trading_days_coverage": 0.95
+        },
+        "tier_2": {
+          "min_median_traded_value": 100000000,
+          "min_price": 20.0,
+          "min_trading_days_coverage": 0.9
+        }
+      },
+      "version": "1.0"
+    }
+  },
+  "configuration_files": {
+    "costs": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/costs.yaml",
+      "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+    },
+    "regime": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/regime.yaml",
+      "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+    },
+    "setups": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/setups.yaml",
+      "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+    },
+    "universe": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/universe.yaml",
+      "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+    }
+  },
+  "configuration_hash": "80fc38215f2e6fe01e6330b7e4b2b7643f8a5da17ed8929bfcf20591032c6c9f",
+  "cost_model": {
+    "brokerage_pct": 0.0003,
+    "exchange_charges_pct": 3.25e-05,
+    "gst_pct": 0.18,
+    "sebi_charges_pct": 1e-06,
+    "slippage_pct": 0.001,
+    "stamp_duty_pct": 0.00015,
+    "stt_pct": 0.001
+  },
+  "cost_rate_per_side": 0.00254353,
+  "counts": {
+    "candidate_events": 11,
+    "eligible_outcomes": 6,
+    "evaluated_events": 8
+  },
+  "created_at": "2026-10-20T13:20:20.915233+00:00",
+  "date_boundaries": {
+    "discovery": {
+      "end": "2020-10-05",
+      "sessions": 721,
+      "start": "2018-01-01"
+    },
+    "holdout": {
+      "end": "2022-08-05",
+      "sessions": 215,
+      "start": "2021-10-11"
+    },
+    "validation": {
+      "end": "2021-09-06",
+      "sessions": 216,
+      "start": "2020-11-09"
+    }
+  },
+  "execution_status": "COMPLETED",
+  "input_hash": "6c756980ee7f7b8e87315bcad31f680e5ed8aa1c1733bdb69a59a22e1f7e97dd",
+  "inputs": [
+    {
+      "acquisition": {},
+      "acquisition_receipt": null,
+      "archived_raw": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/raw/consumer_acceptance_synthetic/archive/db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7/synthetic_nse.csv",
+        "sha256": "db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7"
+      },
+      "ingestion_receipt": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/normalized/receipts/normalized_db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7_NSE_CONSOLIDATED_V2.json",
+        "sha256": "013b80c671f41f00afba7e0a69abe7dc7ee83b8090058d7108675e861d6299c7"
+      },
+      "kind": "ohlcv",
+      "normalized": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/normalized/normalized_db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7_NSE_CONSOLIDATED_V2.parquet",
+        "sha256": "bf7ccfcf1922af9aa1a2a24fb0628f596cb0d60c40ba08450f9c4949a3286e18"
+      },
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/research/reports/production_acceptance_2026-10-20/synthetic_inputs/synthetic_nse.csv",
+      "sha256": "db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7"
+    },
+    {
+      "kind": "corporate_actions",
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/research/reports/production_acceptance_2026-10-20/synthetic_inputs/actions.csv",
+      "sha256": "eb7b5866e8a3489a978531f1c9fa4f1da662e3c69acee2b34054f4e797d829df"
+    },
+    {
+      "kind": "index",
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/research/reports/production_acceptance_2026-10-20/synthetic_inputs/nifty.csv",
+      "sha256": "c47ec4ff205f7548f9886ee44a734d32f097d922a0b0093e96e7fd9a9d8c8288"
+    }
+  ],
+  "manifest_path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/manifest.json",
+  "methodology_version": "V1-partitioned-pilot-1",
+  "outcome_boundary_policy": "censor_incomplete_windows_at_each_partition_end",
+  "outputs": {
+    "events": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/events.parquet",
+      "relative_path": "events.parquet",
+      "sha256": "b6a709c9af3723d65dab0765a9df5a66cb0d655f3b9700f11fb297b36e3832df"
+    },
+    "features": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/features.parquet",
+      "relative_path": "features.parquet",
+      "sha256": "beb2aef5f92e6651e4f675635bef92937f7dd9509483995853647323983fc85a"
+    },
+    "outcomes": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/outcomes.parquet",
+      "relative_path": "outcomes.parquet",
+      "sha256": "05714af29b1c973a0b3c8c08c434a41405bc2b73d502f598ede0734180c41034"
+    },
+    "quality": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/quality.json",
+      "relative_path": "quality.json",
+      "sha256": "d229cfe6c46b6bba6f119abcddc9b443ae1b06607c11541430b5cd7ddad8eea0"
+    },
+    "regime": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/regime.parquet",
+      "relative_path": "regime.parquet",
+      "sha256": "b96bd120f89d0503f3b09d9949a86e694abfb2dcd3f8f595b909bac76cc04901"
+    },
+    "statistics": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/statistics.json",
+      "relative_path": "statistics.json",
+      "sha256": "a7c6c5adccc4562f0ef562209c89ce49847609dbd319d2b7ef874a2e2e2351cc"
+    },
+    "universe": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/universe.parquet",
+      "relative_path": "universe.parquet",
+      "sha256": "282015e667ace0be2ed26b7a9f99bca8a2ccbe6aa52e7c58a17882eb706ef42a"
+    }
+  },
+  "paper_research_approved": false,
+  "partition_results": {
+    "discovery": {
+      "censored": 2,
+      "eligible": 2,
+      "events": 4,
+      "status": "EXECUTED"
+    },
+    "holdout": {
+      "censored": 0,
+      "eligible": 2,
+      "events": 2,
+      "status": "EXECUTED"
+    },
+    "validation": {
+      "censored": 0,
+      "eligible": 2,
+      "events": 2,
+      "status": "EXECUTED"
+    }
+  },
+  "price_basis": {
+    "cutoff": "2022-08-05",
+    "method": "backward_split_bonus_adjustment",
+    "raw_ohlcv_retained": true
+  },
+  "quality_status": "PASSED_WITH_WARNINGS",
+  "random_seed": 42,
+  "regime_breadth_population": "eligible_instruments_in_supplied_pilot_cohort",
+  "run_dir": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5",
+  "run_fingerprint": "dca17bb37af4ed6230c9e0c61a250d345e18622a2ef0fb6bb310b33c5458a72c",
+  "schema_version": 2,
+  "setup_versions": [
+    "BREAKOUT_V1.0",
+    "VCB_V1.0"
+  ],
+  "snapshots": [
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/46f64c6e-131b-4a62-97ad-3ba1c6aefa4a_meta.json",
+        "relative_path": "snapshots/46f64c6e-131b-4a62-97ad-3ba1c6aefa4a_meta.json",
+        "sha256": "36e5c961b10e0504e6517434726673b00d997b544d4f22df9e5e7897091036a6"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/46f64c6e-131b-4a62-97ad-3ba1c6aefa4a_outcomes.parquet",
+        "relative_path": "snapshots/46f64c6e-131b-4a62-97ad-3ba1c6aefa4a_outcomes.parquet",
+        "sha256": "877ddefb6bbeb052e19b3fddb653e581e6f39c288210440e5e3ef20e5499cbce"
+      },
+      "partition": "discovery",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "46f64c6e-131b-4a62-97ad-3ba1c6aefa4a"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7_meta.json",
+        "relative_path": "snapshots/3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7_meta.json",
+        "sha256": "89b2181ce744f24637e463416afad8053afcb9ea3d4e2a5525aea99953f84aad"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7_outcomes.parquet",
+        "relative_path": "snapshots/3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7_outcomes.parquet",
+        "sha256": "8d23f1183045aa04b59096e9cd0b6be322448bc6a24aeefda6f7b7a248d5c6bd"
+      },
+      "partition": "discovery",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/98abfa0b-0ec5-4a25-bc09-9bb346fd375d_meta.json",
+        "relative_path": "snapshots/98abfa0b-0ec5-4a25-bc09-9bb346fd375d_meta.json",
+        "sha256": "c21379e80b3ee07a7d41afc35c17c1457ce122522af1cdb2b4147c582c0e4c8f"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/98abfa0b-0ec5-4a25-bc09-9bb346fd375d_outcomes.parquet",
+        "relative_path": "snapshots/98abfa0b-0ec5-4a25-bc09-9bb346fd375d_outcomes.parquet",
+        "sha256": "f1ea8d95b528fea0c19483c3b2d024378b2ad80de188e32beb63fcad5b10abac"
+      },
+      "partition": "validation",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "98abfa0b-0ec5-4a25-bc09-9bb346fd375d"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/26c91ce3-8a03-4775-ac98-356cdbeae76d_meta.json",
+        "relative_path": "snapshots/26c91ce3-8a03-4775-ac98-356cdbeae76d_meta.json",
+        "sha256": "6ad2d1d443c6b193d108678608b965f8c554ebc967c618b5af6fed9350d58ac7"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/26c91ce3-8a03-4775-ac98-356cdbeae76d_outcomes.parquet",
+        "relative_path": "snapshots/26c91ce3-8a03-4775-ac98-356cdbeae76d_outcomes.parquet",
+        "sha256": "eb61bcd7ddbf38cf9bfa2cbcbd9adefb0e7591847c57f86b03cfc5961d6ae9c7"
+      },
+      "partition": "validation",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "26c91ce3-8a03-4775-ac98-356cdbeae76d"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/e95b41f4-53f2-4450-a768-03fbdeee9c8c_meta.json",
+        "relative_path": "snapshots/e95b41f4-53f2-4450-a768-03fbdeee9c8c_meta.json",
+        "sha256": "3e3af9d72fe4c570102701890dd0d67b44291fcb638c64ab6b423fb825d890bc"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/e95b41f4-53f2-4450-a768-03fbdeee9c8c_outcomes.parquet",
+        "relative_path": "snapshots/e95b41f4-53f2-4450-a768-03fbdeee9c8c_outcomes.parquet",
+        "sha256": "44dc739f5a0a6ddf4a70179496e7cab54a4ae68e3468dadfde28dad51c25c9dd"
+      },
+      "partition": "holdout",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "e95b41f4-53f2-4450-a768-03fbdeee9c8c"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/3da02265-5f82-4a58-bbef-fe630e54885e_meta.json",
+        "relative_path": "snapshots/3da02265-5f82-4a58-bbef-fe630e54885e_meta.json",
+        "sha256": "117752d22c3cbc715980dc29be29f1dbdbb94112a3a5ac59472398ba2cfd2f3b"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_synthetic/pilot-dca17bb37af4ed62-32b17fc5/snapshots/3da02265-5f82-4a58-bbef-fe630e54885e_outcomes.parquet",
+        "relative_path": "snapshots/3da02265-5f82-4a58-bbef-fe630e54885e_outcomes.parquet",
+        "sha256": "f51557907afdcf7297337e1424b1c30d6a6095755cb4dffc035b5d890c959bc9"
+      },
+      "partition": "holdout",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "3da02265-5f82-4a58-bbef-fe630e54885e"
+    }
+  ],
+  "status": "EXPERIMENTAL",
+  "trial_id": "pilot-dca17bb37af4ed62-32b17fc5",
+  "universe_evaluation": "as_of_each_candidate_detection_date_using_reported_turnover",
+  "universe_version": "universe-1.0",
+  "warnings": [
+    "Some source files have no recorded acquisition provenance."
+  ]
+}

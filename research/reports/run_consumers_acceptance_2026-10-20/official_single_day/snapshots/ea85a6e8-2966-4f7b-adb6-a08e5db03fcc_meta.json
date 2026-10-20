@@ -1,0 +1,141 @@
+{
+  "evidence_snapshot_id": "ea85a6e8-2966-4f7b-adb6-a08e5db03fcc",
+  "setup_version": "VCB_V1.0",
+  "universe_version": "universe-1.0",
+  "methodology_version": "V1-partitioned-pilot-1",
+  "data_cutoff": "2026-10-08",
+  "created_at": "2026-10-20T09:20:21.269299",
+  "statistics": {
+    "effective_n": 0,
+    "distinct_time_blocks": 0,
+    "mean_r": null,
+    "baseline_type": "STATIC",
+    "status": "INSUFFICIENT EVIDENCE",
+    "dependence_limitation": "No completed eligible observations; no edge inference is available."
+  },
+  "configuration": {
+    "setups": {
+      "setups": {
+        "BREAKOUT_V1": {
+          "version": "1.0",
+          "parameters": {
+            "lookback_days": 252,
+            "min_volume_relative": 1.5,
+            "close_near_high_pct": 0.02
+          }
+        },
+        "VCB_V1": {
+          "version": "1.0",
+          "parameters": {
+            "lookback_days": 60,
+            "max_atr_percentile": 0.2,
+            "min_consolidation_days": 10
+          }
+        }
+      }
+    },
+    "universe": {
+      "version": "1.0",
+      "liquidity_tiers": {
+        "tier_1": {
+          "min_median_traded_value": 500000000,
+          "min_trading_days_coverage": 0.95,
+          "min_price": 50.0
+        },
+        "tier_2": {
+          "min_median_traded_value": 100000000,
+          "min_trading_days_coverage": 0.9,
+          "min_price": 20.0
+        }
+      }
+    },
+    "costs": {
+      "costs": {
+        "brokerage_pct": 0.0003,
+        "stt_pct": 0.001,
+        "exchange_charges_pct": 3.25e-05,
+        "sebi_charges_pct": 1e-06,
+        "stamp_duty_pct": 0.00015,
+        "gst_pct": 0.18,
+        "slippage_pct": 0.001
+      }
+    },
+    "regime": {
+      "regimes": {
+        "UPTREND": {
+          "nifty_above_200_dma": true,
+          "breadth_pct_above_50_dma_min": 0.5
+        },
+        "RISK_OFF": {
+          "vix_min": 25.0,
+          "nifty_below_200_dma": true
+        },
+        "NEUTRAL": null
+      }
+    },
+    "research": {
+      "discovery_pct": 0.6,
+      "validation_pct": 0.2,
+      "timeout_days": 20,
+      "watch_expiry_days": 5
+    },
+    "cohort": [
+      "ASIANPAINT",
+      "AXISBANK",
+      "BAJFINANCE",
+      "BHARTIARTL",
+      "HDFCBANK",
+      "HINDUNILVR",
+      "ICICIBANK",
+      "INFY",
+      "ITC",
+      "KOTAKBANK",
+      "LT",
+      "MARUTI",
+      "RELIANCE",
+      "SBIN",
+      "SUNPHARMA",
+      "TATASTEEL",
+      "TCS",
+      "TITAN",
+      "ULTRACEMCO",
+      "WIPRO"
+    ]
+  },
+  "cost_model": {
+    "brokerage_pct": 0.0003,
+    "stt_pct": 0.001,
+    "exchange_charges_pct": 3.25e-05,
+    "sebi_charges_pct": 1e-06,
+    "stamp_duty_pct": 0.00015,
+    "gst_pct": 0.18,
+    "slippage_pct": 0.001
+  },
+  "date_boundaries": {
+    "discovery": {
+      "start": "2026-10-08",
+      "end": "2026-10-08",
+      "sessions": 1
+    },
+    "validation": {
+      "start": null,
+      "end": null,
+      "sessions": 0
+    },
+    "holdout": {
+      "start": null,
+      "end": null,
+      "sessions": 0
+    }
+  },
+  "input_hash": "6566da09dac23ab2d982914ba536a0d1e65cba2990935ba7aeaf0ae57b369b82",
+  "output_hash": "e646ae86a243e164daaaaae87ce31188fc71f5d81e710c8865c38c3c642240ae",
+  "random_seed": 42,
+  "trial_id": "pilot-d6dd9f7fc7064bf8-acf99bab",
+  "partition": "discovery",
+  "configuration_hash": "a3d48af8bddeb919faf61765c21b72b838e106cc5bd73e5218873ba496b7ea91",
+  "code_hash": "f31ebed61fbf38e85f6c56e098dcf56cd8c32cccc466d41f983cefa81fe39b52",
+  "price_basis_cutoff": "2026-10-08",
+  "quality_sha256": "283a9708af2db490f6cc9694032c91ec695aa947babb89b499961ae50669f62d",
+  "outcomes_count": 0
+}

@@ -1,0 +1,96 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "dependencies": {
+    "polars": "2.0.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "duckdb": "1.5.6",
+    "pyyaml": "6.0.3",
+    "streamlit": "1.66.0",
+    "requests": "2.34.2",
+    "pytest": "9.1.1",
+    "hypothesis": "6.170.5"
+  },
+  "source_baseline": "ef91f777104ee647f25ed72b66fdfb8650142db4",
+  "official_fixture_sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39",
+  "config_sha256": {
+    "costs.yaml": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f",
+    "regime.yaml": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364",
+    "setups.yaml": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8",
+    "universe.yaml": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+  },
+  "paper_research_approved": false,
+  "readiness": "NOT READY FOR REAL-DATA PILOT",
+  "synthetic": {
+    "manifest": "research/reports/run_consumers_acceptance_2026-10-20/synthetic/manifest.json",
+    "trial_id": "pilot-dca17bb37af4ed62-32b17fc5",
+    "quality_status": "PASSED_WITH_WARNINGS",
+    "status": "EXPERIMENTAL",
+    "counts": {
+      "candidate_events": 11,
+      "evaluated_events": 8,
+      "eligible_outcomes": 6
+    },
+    "instruments": 5,
+    "source_rows": 5980,
+    "snapshots": 6,
+    "preview_prepared": 4,
+    "preview_rejected": 7,
+    "preview_records": [
+      {
+        "event_id": "1b7a083486fb057fe655de24f2d5f65f",
+        "snapshot_id": "98abfa0b-0ec5-4a25-bc09-9bb346fd375d",
+        "delivery_mode": "DRY_RUN"
+      },
+      {
+        "event_id": "449ecd46c7a9432e976ca612d23908d6",
+        "snapshot_id": "46f64c6e-131b-4a62-97ad-3ba1c6aefa4a",
+        "delivery_mode": "DRY_RUN"
+      },
+      {
+        "event_id": "5876cb2db0c7725eb5058f603d9e3602",
+        "snapshot_id": "3a8a94bb-fefc-4dff-bf96-602a0f6ec9f7",
+        "delivery_mode": "DRY_RUN"
+      },
+      {
+        "event_id": "df1725dee96ccfb1aef1017c57d3ac6c",
+        "snapshot_id": "26c91ce3-8a03-4775-ac98-356cdbeae76d",
+        "delivery_mode": "DRY_RUN"
+      }
+    ],
+    "quality_limitations": [
+      "Relative to dates observed in this cohort, not an official exchange calendar.",
+      "Missing optional delivery is retained as null; availability does not certify authentic delivery parsing.",
+      "Acquisition fields and input bytes are recorded; a supplied URL is not source authentication.",
+      "No session calendar supplied; whole-cohort missing days cannot be detected.",
+      "Factor application is checked, but official action dates, notices and completeness are not reconciled.",
+      "Observed changes are counted; official identity history, delistings and survivorship remain unverified."
+    ]
+  },
+  "official_single_day": {
+    "manifest": "research/reports/run_consumers_acceptance_2026-10-20/official_single_day/manifest.json",
+    "trial_id": "pilot-d6dd9f7fc7064bf8-acf99bab",
+    "quality_status": "PASSED_WITH_WARNINGS",
+    "status": "INSUFFICIENT EVIDENCE",
+    "counts": {
+      "candidate_events": 0,
+      "evaluated_events": 0,
+      "eligible_outcomes": 0
+    },
+    "instruments": 20,
+    "source_rows": 20,
+    "snapshots": 2,
+    "preview_prepared": 0,
+    "preview_rejected": 0,
+    "preview_records": [],
+    "quality_limitations": [
+      "Measured against the longest configured setup lookback; short history and zero setups are not fabricated evidence.",
+      "Missing optional delivery is retained as null; availability does not certify authentic delivery parsing.",
+      "No session calendar supplied; whole-cohort missing days cannot be detected.",
+      "Factor application is checked, but official action dates, notices and completeness are not reconciled.",
+      "Observed changes are counted; official identity history, delistings and survivorship remain unverified.",
+      "Regime input availability only; eligible-cohort breadth is not full-market breadth."
+    ]
+  }
+}
