@@ -1,412 +1,541 @@
-# PROJECT HANDOFF — INDIAN EQUITY EVIDENCE ENGINE
+# PROJECT HANDOFF - INDIAN EQUITY EVIDENCE ENGINE
 
-Prepared: **2026-10-20** (Asia/Calcutta). Intended recipient: another ChatGPT
-account using Astra with access to the GitHub repository.
+Updated: **2026-10-21 (Asia/Calcutta)**.
+Recipient: **Desktop Astra**, continuing the Stock Screener Engine project.
+Repository filename: **`hanout.md`** (the existing historical spelling).
 
-## Start here
+## Start here: use the continuation branch
 
-You are continuing an existing project. **The current repository is the source
-of truth.** Inspect the actual code, configuration and collected tests before
-accepting any report. Continue from the implementation; preserve working parts.
+The repository is the source of truth. Inspect current code, configuration,
+actual test collection, branch state and changes after the baselines below.
+Preserve working components and earlier evidence.
 
 - Repository: https://github.com/Mitul-dev/Stock-Screener
-- Branch: `main`
-- Verified implementation baseline: `9e310ec741c72f5db125f5f0bd4f3ea6bf7f827e`
-- That commit contains the project at the **repository root**. There is no extra
-  `equity-evidence-engine/` directory inside the GitHub checkout.
-- This handoff may be delivered in a subsequent documentation commit. Check the
-  current branch and changes after the implementation baseline before acting.
+- **Continuation branch: `codex/historical-source-inventory`**
+- The latest source-preparation baseline before this handoff-only commit is
+  **`045c0ce4dab613f3648775457799a48f7aefaf66`**.
+- The latest executed software-verification baseline is
+  **`02915d7c1e292c2405f403810ecb369ad2f0e021`**.
+- This updated handoff is a subsequent documentation-only commit on the
+  continuation branch. Use its current HEAD; inspect any later changes.
+- The project is at the repository root. There is no nested
+  `equity-evidence-engine/` checkout directory.
+
+At this transfer, the PR stack is:
+
+| PR/ref | Branch relationship | State at transfer | Baseline |
+|---|---|---|---|
+| [PR #1](https://github.com/Mitul-dev/Stock-Screener/pull/1) | `codex/run-quality-evidence-consumers` -> `main` | Open draft; unmerged | `02915d7c1e292c2405f403810ecb369ad2f0e021` |
+| [PR #2](https://github.com/Mitul-dev/Stock-Screener/pull/2) | `codex/historical-source-inventory` -> `codex/run-quality-evidence-consumers` | Open draft; unmerged | `045c0ce4dab613f3648775457799a48f7aefaf66`, then this handoff commit |
+| `main` | Original implementation plus original handoff | Does not yet contain either draft milestone | `ef91f777104ee647f25ed72b66fdfb8650142db4` |
+
+**The continuation branch includes both milestones. A checkout of main alone
+does not.** Recheck remote PR/ref state on arrival; it may change after transfer.
+No PR was merged as part of this handoff.
 
 **Current decision: NOT READY FOR REAL-DATA PILOT.**
+**Paper research: NOT APPROVED.**
 
-The official-fixture/ingestion milestone and production-pipeline integration
-milestone have been implemented and tested. A genuine historical 20–30-stock
-pilot has not been completed. Paper research has not been approved.
+The current-run quality/dashboard/dry-run alert milestone is implemented and was
+tested. Historical source preparation is saved, but genuine multi-year acquisition,
+calendar/action/identity reconciliation and a historical pilot are incomplete.
 
-Your next intended assignment is **connect evidence consumers to current run
-manifests and persisted data-quality results**, then prepare genuine historical
-source coverage for the fixed cohort. The concrete scope is below.
+**Next assignment: resume actual historical source acquisition and reconciliation
+on the fixed cohort, after verifying the Desktop execution environment and
+rerunning the software baseline.** The old assignment to build the current-run
+consumers is completed on PR #1; inspect and preserve that work.
 
-If your GitHub access is read-only or cannot execute code, inspect what you can
-and deliver concrete findings/patches. State which checks were not executed.
-Never claim tests passed because an earlier report or XML says so.
+## Execution context and what was blocked
 
-## Project purpose and boundaries
+The first Work session had a usable Linux/Python workspace and executed tests.
+Before the next source-preparation step, that execution workspace became
+unavailable. GitHub and an in-memory JavaScript code runtime remained usable.
 
-This is a personal-use Indian cash-equity EOD research and alerting engine. It
-asks: when a precisely defined technical setup appeared, what happened afterward
-under the recorded outcome and cost assumptions?
+During source preparation:
 
-The intended progression remains:
+- Existing original fixture bytes were read from GitHub, verified and parsed in
+  memory; the cohort and source inventory were committed.
+- Official web page/PDF text and CSV download links were researched.
+- **No new historical NSE archive/date was acquired to disk.**
+- **Python tests, calendar derivation, multi-year ingestion and a historical
+  production run were not executed.**
+- No real Telegram messages were sent.
 
-```text
-Genuine NSE historical EOD data
-  -> fixed 20–30-stock engineering pilot
-  -> data validation
-  -> complete V1 pipeline and reproducible evidence
-  -> separate paper-research admission decision
-```
+This limitation belonged to the prior Work execution environment. It is not a
+claim that Desktop Astra lacks Python, terminal access, downloads or network
+access. Inspect the actual Desktop environment and use available execution
+capabilities. If execution works, proceed with real retained-byte acquisition and
+validation; source planning alone does not finish the next milestone.
 
-User constraints:
+If access is read-only or execution remains unavailable, report the exact
+limitation and deliver concrete findings/patches without claiming downloads or
+tests occurred. Previous XML is historical evidence, never a substitute for
+executing checks on the current checkout.
 
-- Stay within V1. Do not add ML, new strategies, intraday, F&O or BSE scope.
-- Keep the existing BREAKOUT_V1 and VCB_V1 strategy thresholds unchanged.
-- Do not optimize parameters because signals are rare or results look attractive
-  or disappointing. Do not tune against holdout.
-- Preserve raw source bytes and earlier experiments/evidence.
-- Keep raw OHLCV, adjustment factors and adjusted research prices distinguishable.
-- Never invent identifiers, turnover, delivery values or identifier history.
-- Missing delivery remains null. A static baseline must remain labelled STATIC.
-- Do not equate passing software checks with a validated strategy.
-- A correct pilot may have zero setups, losses or INSUFFICIENT EVIDENCE.
-- Do not send real Telegram alerts without explicit authorization. Local dry-run
-  and mocked tests are sufficient for the next consumer integration milestone.
-- Do not approve paper research as a consequence of this handoff.
+## Purpose and fixed boundaries
+
+This is a personal-use Indian cash-equity EOD research and alerting engine:
+when a precisely defined technical setup appeared, what happened afterward
+under recorded outcome and cost assumptions?
+
+The intended progression remains genuine historical NSE data -> fixed cohort
+engineering pilot -> validation and reproducible evidence -> separate
+paper-research admission decision.
+
+User constraints carried forward:
+
+- Stay within V1. No ML, new strategies, intraday, F&O or BSE expansion.
+- Preserve BREAKOUT_V1 and VCB_V1 thresholds and the existing YAML configuration.
+  Current setup versions are BREAKOUT_V1.0 and VCB_V1.0.
+- Do not optimize parameters, substitute cohort members or tune against holdout
+  because signals are rare or outcomes are attractive/disappointing.
+- Preserve original source bytes, changed input versions and earlier experiments.
+- Keep raw OHLCV, source identity, adjustment factors and adjusted research
+  prices distinguishable.
+- Never invent identifiers, identifier history, turnover or delivery values.
+  Missing delivery remains null. A static hurdle remains labelled STATIC.
+- Software checks and engineering quality permission do not validate a strategy.
+  Zero setups, losses and INSUFFICIENT EVIDENCE are legitimate outcomes.
+- Use local dry-run alerts or mocked delivery. Real Telegram delivery still
+  requires explicit authorization, which has not been given.
+- This handoff does not approve paper research.
 
 ## Read in this order
 
-1. `BUILD_STATUS.md`
-2. `README.md`, `docs/data.md`, `docs/pilot_pipeline.md`
-3. `research/reports/production_pipeline_integration_2026-10-20.md`
-4. `research/reports/official_fixture_ingestion_2026-10-20.md`
-5. Actual source/configuration and current tests listed below.
+1. This file, `BUILD_STATUS.md`, and the actual PR/ref state.
+2. `research/reports/historical_source_preparation_2026-10-20.md`.
+3. `research/pilot/README.md`, `cohort_v1.json`,
+   `historical_inventory_v1.json`, `source_catalog_2026-10-20.json` and
+   `verification_2026-10-20.json` in `research/pilot/`.
+4. `docs/historical_sources.md`.
+5. `research/reports/run_consumers_integration_2026-10-20.md`,
+   `run_consumers_verification_2026-10-20.json`, and the actual consumer code/tests.
+6. `README.md`, `docs/data.md`, `docs/pilot_pipeline.md`.
+7. Earlier `production_pipeline_integration_2026-10-20.md` and
+   `official_fixture_ingestion_2026-10-20.md` under `research/reports/`, then
+   relevant actual source/configuration/tests.
 
-The older `V1_COMPLETION_REPORT.md`, `V1_AUDIT_REPORT.md`,
-`V1_REPAIR_REPORT.md` and September review artifacts are retained history.
-Some claim readiness that independent execution disproved; others describe bugs
-that later work repaired. They are not current admission decisions. In particular,
-the earlier ingestion report's remaining-work section predates the production
-integration milestone and is superseded where that work is now implemented.
+Older `V1_COMPLETION_REPORT.md`, `V1_AUDIT_REPORT.md`,
+`V1_REPAIR_REPORT.md` and September review material are preserved history.
+Some readiness claims were disproved by independent execution; some described
+defects were later repaired. They are not current admission decisions.
+The older production/ingestion reports' remaining-work lists predate the consumer
+milestone. The historical-source report's next task is current.
 
 ## Repository map
 
-| Area | Files |
+| Area | Paths |
 |---|---|
-| Ingestion | `src/equity_engine/ingestion/nse_importer.py`, `validator.py` |
-| Official acquisition/import commands | `scripts/fetch_official_nse_fixture.py`, `scripts/import_nse_eod.py` |
+| Source preparation | `research/pilot/`, `docs/historical_sources.md` |
+| Official acquisition/import | `scripts/fetch_official_nse_fixture.py`, `scripts/import_nse_eod.py` |
+| Ingestion/engineering quality | `src/equity_engine/ingestion/nse_importer.py`, `validator.py`, `quality.py` |
 | Production orchestration | `scripts/run_pilot_pipeline.py` |
 | Corporate actions | `src/equity_engine/corporate_actions/adjustor.py` |
-| Features | `src/equity_engine/features/calculator.py` |
-| Universe | `src/equity_engine/universe/builder.py` |
-| Regime | `src/equity_engine/regime/classifier.py` |
+| Features/universe/regime | `src/equity_engine/features/calculator.py`, `universe/builder.py`, `regime/classifier.py` |
 | Setups | `src/equity_engine/setups/breakout.py`, `vcb.py` |
-| Outcomes | `src/equity_engine/outcomes/engine.py` |
-| Research/statistics | `src/equity_engine/backtest/engine.py`, `controls.py` |
-| Evidence | `src/equity_engine/evidence/snapshot.py` |
-| Consumers | `src/equity_engine/dashboard/app.py`, `alerts/telegram.py` |
+| Outcomes/research | `src/equity_engine/outcomes/engine.py`, `backtest/engine.py`, `backtest/controls.py` |
+| Frozen evidence/current-run verification | `src/equity_engine/evidence/snapshot.py`, `evidence/run.py` |
+| Dashboard/alerts | `src/equity_engine/dashboard/app.py`, `alerts/telegram.py`, `scripts/preview_run_alerts.py` |
 | Identity helper | `src/equity_engine/security_master/master.py` |
 | Configuration | `config/setups.yaml`, `universe.yaml`, `costs.yaml`, `regime.yaml` |
-| Current tests | `tests/unit/`, `tests/integration/`, `tests/leakage/`, `tests/e2e/` |
+| Tests | `tests/unit/`, `tests/integration/`, `tests/leakage/`, `tests/e2e/` |
 
-Python 3.11+, Polars, NumPy, DuckDB, YAML, Streamlit and requests are already used.
-Dependencies are declared in `pyproject.toml`. Avoid adding infrastructure or
-rebuilding working components merely to implement the next milestone.
+Python 3.11+ and the existing Polars, NumPy, DuckDB, YAML, Streamlit and requests
+stack are declared in `pyproject.toml`. Dependencies are not lockfile-pinned.
+Reuse working infrastructure/components.
 
-## What was implemented and verified
+## Implemented before and during PR #1
 
-### Genuine official NSE fixture
+### Original official NSE fixture and repeatable ingestion
 
-Retained unchanged file:
+Unchanged retained source:
+`tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip`.
 
-`tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip`
-
+- Market date: 2026-10-08. Original acquisition: 2026-10-20.
 - Official listing: https://www.nseindia.com/all-reports
-- Direct acquisition URL: https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip
-- Market date: **2026-10-08**. Actual acquisition date: 2026-10-20.
-- Original ZIP size: **208,947 bytes**.
-- SHA-256: `07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39`.
-- One original CSV member, 3,733 rows total, **2,681 EQ rows**.
-- Adjacent `.zip.provenance.json` records source URLs, acquisition timestamp,
-  response metadata, original columns, hashes, counts and reference rows.
-- All selected EQ rows were independently reconciled to original CSV fields.
-- `TtlTrfVal` is the actual source turnover column; it is not reconstructed from
-  close multiplied by volume.
-- No delivery fields occur in this file. Normalized delivery remains null.
+- Acquisition URL: https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip
+- ZIP size: 208,947 bytes.
+- ZIP SHA-256:
+  `07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39`.
+- One CSV member; 3,733 rows, including 2,681 EQ rows.
+- CSV-member SHA-256:
+  `3bfb33cd4a0eb55b77ed2b24fd95cac6803edf00256bee65796ede4ee7549e53`.
+- ZIP member CRC-32: `12e2ccf7`.
+- Adjacent `.zip.provenance.json` retains the original acquisition time,
+  URLs/headers, hashes, columns, counts and reference rows.
+- `TtlTrfVal` is actual reported turnover, not close times volume.
+- No authentic delivery fields occur in this fixture; normalized delivery is null.
 
-This is authentic-file proof for one current daily schema. It does not establish
-legacy historical schema support, authentic delivery parsing, corporate-action
-source reconciliation or multi-year historical coverage.
+This proves one current daily schema, not multi-year history, authentic legacy
+or delivery parsing, identity-history integration or action reconciliation.
 
-### Repeatable ingestion
+The importer validates before publishing, archives exact source bytes by SHA-256,
+versions normalized files by input hash/parser revision, and binds outputs to
+immutable receipts. Identical replays verify/reuse intact pairs. Changed bytes
+produce separate preserved versions. Corrupt/incomplete raw/output/receipt
+artifacts, HTML/malformed input, ambiguous multi-CSV ZIPs, invalid OHLCV/required
+fields and invalid supplied delivery are rejected. Older manifests are preserved;
+locking prevents lost concurrent appends. Unknown acquisition time is not replaced
+with import time.
 
-- Exact input bytes are archived under `raw_dir/archive/<sha256>/<original-name>`.
-- Normalized filenames include input SHA-256 and parser revision.
-- Identical input safely reuses its intact output and receipt without rewriting.
-- Changed bytes produce separate preserved versions.
-- Receipts link input/output hashes, raw source, parser, dates, counts and supplied
-  acquisition provenance. Unknown acquisition time is not replaced by import time.
-- Raw/output/receipt corruption is rejected. Incomplete artifact pairs fail
-  rather than silently replacing evidence.
-- Validation precedes normalized publication. HTML, unsupported/malformed input,
-  ambiguous multi-CSV archives, invalid OHLCV and invalid required source fields fail.
-- Optional absent/blank delivery remains null; supplied delivery bounds are checked.
-- Older manifest schemas are preserved; locking prevents lost concurrent appends.
+### Configured chronological production execution
 
-### Actual production integration
+The runner preserves raw identifiers, reported turnover, source fields and
+raw/adjusted prices through features, events and outcomes. It does not manufacture
+ticker-shaped ISINs.
 
-- The runner retains source identity, turnover, provenance, raw prices and adjusted
-  prices throughout the computation. It no longer creates ticker-shaped ISINs.
-- Existing YAML setup/universe/cost/regime configuration is loaded unchanged.
-- Universe eligibility is calculated as of each candidate detection date using
-  reported turnover, configured coverage and raw-price thresholds. It is not only
-  a last-date diagnostic. Excluded candidates and reasons remain auditable.
-- Features group by source instrument identity and preserve historical symbols.
-- Adjustment handles a missing ex-date bar and rejects invalid factors or repeat
-  adjustment. Unsupported/null action identities and supplied action types fail.
-- The runner actually calls `ResearchEngine.split_data`, then calls
-  `run_backtest` separately on discovery, validation and holdout frames.
-- Existing 60/20/20 allocation and watch-plus-holding gap are retained. Small
-  datasets have empty later partitions instead of overlapping dates.
-- Outcome engines cannot consume bars beyond the active partition end.
-- Incomplete WATCH/CONFIRMED outcomes are labelled censored and cannot enter
-  frozen trade-R evidence. Terminal COMPLETED and FAILED trades remain eligible.
-- Expired/invalidated candidates remain records but do not become trade-R evidence.
-- Setup families and partitions are analyzed separately. Controls reject pooled
-  partitions and no longer accept one OOS row as proof that all rows are OOS.
-- Configured costs are used, including configured GST applied to brokerage,
-  exchange and SEBI components.
-- Typed empty outputs and explicit no-evidence snapshots make zero-event runs valid.
-- Frozen snapshot bytes are required and hashed even for zero rows. Missing,
-  corrupt, future-dated or mismatched-partition evidence is rejected. Existing
-  snapshot identities cannot be overwritten.
+Existing YAML setup/universe/cost/regime settings are loaded. Universe eligibility
+uses reported turnover, coverage and raw-price thresholds at each candidate's
+detection date; exclusions and reasons remain auditable.
 
-### Run provenance
+Features group by source instrument identity and preserve historical symbols.
+Split/bonus adjustment handles missing ex-date bars, rejects invalid factors and
+repeat adjustment, and rejects unsupported/null supplied action types/identities.
+Official historical continuity across source ISIN changes remains unresolved.
 
-Each execution preserves a directory under `data/processed/pilot_runs/` by
-default. The run includes:
+The actual runner invokes `ResearchEngine.split_data` and separate bounded
+backtests for discovery, validation and holdout. Existing 60/20/20 allocation,
+five-session watch expiry and 20-session holding timeout remain unchanged.
+Small datasets have disjoint/empty later partitions. Incomplete WATCH/CONFIRMED
+outcomes are censored and excluded from frozen trade-R evidence. Eligible terminal
+COMPLETED/FAILED trades, including losses, remain. Expired/invalidated candidates
+remain records without becoming trade-R evidence.
 
-```text
-features.parquet
-universe.parquet
-events.parquet
-outcomes.parquet
-regime.parquet
-statistics.json
-snapshots/<id>_meta.json
-snapshots/<id>_outcomes.parquet
-manifest.json
-manifest.sha256
+Families and partitions remain separate. Configured costs/GST are applied.
+Typed empty outputs and explicit insufficient-evidence snapshots support
+zero-event runs. Frozen metadata/outcome hashes and partition/cutoff provenance
+are required; snapshot identities cannot be overwritten.
+
+### Persisted quality, verified consumers and portability: completed
+
+`ingestion/quality.py` reuses `DataValidator` and writes 14 engineering checks
+with counts, examples, limitations and blocking issues. The report binds to
+trial/input/configuration/code hashes and the run fingerprint.
+
+Checks cover OHLCV, source/date identity, requested cohort, concurrent symbol
+ambiguity, observed-session gaps, relative staleness, setup lookback depth,
+adjusted-return flags, delivery/acquisition availability, optional supplied
+calendar, unresolved action/identity reconciliation and index availability.
+
+- Missing delivery, short history and zero setups are not arbitrary failures.
+- The versioned absolute adjusted-return review trigger is at least 50%;
+  this is a quality diagnostic, not a strategy parameter or a complete anomaly
+  detector. A smaller return cannot clear a known unsupported restructuring.
+- Supplied calendar discrepancies, invalid source/identity, absent requested
+  cohort members, ambiguity and unexplained flagged returns are blocking.
+- Failed-quality runs retain diagnostic outcomes but mark evidence ineligible
+  with a withholding reason, publish no snapshots and withhold alerts.
+- Gaps/staleness and missing optional/source-history information remain visible.
+  PASSED_WITH_WARNINGS permits engineering inspection, not pilot admission.
+
+New run manifests are **schema version 2**, with
+**`artifact_path_contract: run-relative-v1`**.
+`RunEvidence(manifest_path)` checks the manifest hash, required artifact bytes,
+quality binding/decision, and frozen identity/setup/version/partition/cutoff and
+statistics. Original absolute paths remain historical metadata; verified run-local
+references make new bundles portable. These hashes detect changed bytes, not a
+trusted author or authenticated external raw source.
+
+The dashboard now selects a current run and displays its actual quality, sources,
+partitions, cutoffs and evidence. It no longer derives validation from a nonempty
+legacy outcome file. Missing quality is UNAVAILABLE; failed/corrupt evidence
+cannot yield an honest validated status. Legacy schema-1 runs are preserved and
+require regeneration for the current quality/consumer contract.
+
+`TelegramAlerter.send_alert` requires a manifest and recorded event/instrument/
+setup/version/EOD date. An explicit snapshot must match; otherwise it selects the
+latest matching frozen evidence with cutoff **strictly before** the event date.
+Event and snapshot IDs are different. A partition-end snapshot cannot justify its
+own earlier event. Delivery defaults to `dry_run=True`, including with populated
+credentials. Dry-run and sent identities are separate. Repeats reverify evidence,
+and existing outbox rows survive migration. `TEST_ENV` does not bypass the run
+contract. `last_error` records rejection reasons.
+
+Conceptual call:
+
+```python
+alerter.send_alert(
+    event_id, instrument_id, setup_version, message,
+    snapshot_id=None, manifest_path=manifest_path,
+    event_time=source_eod_date, dry_run=True,
+)
 ```
 
-The manifest persists trial identity, resolved configuration/costs, setup/universe/
-methodology versions, date boundaries, random seed, real source/config/code hashes,
-and links/hashes for outputs and snapshots. Run fingerprints are stable for the
-same inputs/configuration/code/seed; individual run IDs remain unique. No global
-paper-research hypothesis registry is claimed by this engineering run record.
+`scripts/preview_run_alerts.py` wires real run candidates to this local-only
+consumer. The separate explicit send path was mocked in tests, never exercised
+against real Telegram delivery.
 
-Universe artifacts describe candidate detection dates, not a full NSE membership
-database. Regime breadth reflects eligible stocks in the supplied cohort. Missing
-index/VIX/breadth availability must remain visible. Regime context does not add a
-new setup filter absent from the strategy configuration.
+The CSV provider's removed string-to-date cast was replaced by explicit ISO
+`str.to_date` parsing, fixing the observed Polars 2.0 compatibility failure.
+All four original YAML files and original official fixture/provenance bytes were
+unchanged by these milestones.
 
-Adjusted absolute prices use a recorded dataset basis cutoff distinct from each
-research evidence cutoff. Later split factors rescale earlier adjusted absolute
-values. Raw execution values are retained. Do not claim all historical adjusted
-absolute prices were knowable on their event date; further corporate-action
-source/point-in-time methodology review remains necessary.
+## Last actual Python verification: scope and reproduction
 
-## Test evidence and how to reproduce it
+| Stage | What happened |
+|---|---|
+| Original pre-handoff implementation | Historical Windows report: 135 passed, one old date-cast warning. |
+| Fresh baseline before PR #1 edits | Linux/Python 3.12.14 with Polars 2.0: 135 collected, 134 passed, one CSV-provider failure; one SQLite adapter warning. |
+| PR #1 final consumer subset | 55 collected, 55 passed; no warnings. |
+| PR #1 final full selection | **189 collected, 189 passed; no warnings.** |
+| PR #2 source preparation | No Python execution. In-memory source-byte/row and inventory checks only. |
+| This 2026-10-21 handoff update | Documentation only; no new Python/test/download execution. |
 
-Last executed full verification at the implementation baseline:
+The 189-case result belongs to the software at
+`02915d7c1e292c2405f403810ecb369ad2f0e021`. PR #2 added source-preparation
+JSON/docs without runtime/configuration changes. Do not present that previous
+189-case run as newly executed on Desktop. Rerun and report the actual result.
 
-**135 collected, 135 passed** — 122 cases under `tests/` plus 13 cases from the
-original readiness file. One existing Polars String-to-Date deprecation warning
-occurs in `csv_provider.py`.
+Execution evidence:
 
-This is historical execution evidence for that commit. Rerun on your checkout.
+- `research/reports/run_consumers_baseline_tests_2026-10-20.xml`
+- `research/reports/run_consumers_tests_2026-10-20.xml`
+- `research/reports/run_consumers_full_tests_2026-10-20.xml`
+- `research/reports/run_consumers_integration_2026-10-20.md`
+- `research/reports/run_consumers_verification_2026-10-20.json`
+
+Last environment: Python 3.12.14, Polars 2.0.0, NumPy 2.3.5, pandas 2.2.3,
+DuckDB 1.5.6, PyYAML 6.0.3, Streamlit 1.66.0, requests 2.34.2, pytest 9.1.1,
+Hypothesis 6.170.5. Installation on Desktop may resolve different versions.
+
+For a new Windows/PowerShell checkout:
 
 ```powershell
-git clone https://github.com/Mitul-dev/Stock-Screener.git
+git clone --branch codex/historical-source-inventory https://github.com/Mitul-dev/Stock-Screener.git
 cd Stock-Screener
+git status --short --branch
+git log -5 --oneline
+git rev-parse HEAD
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -e ".[test]"
 $env:TELEGRAM_BOT_TOKEN = ""
 $env:TELEGRAM_CHAT_ID = ""
-.venv\Scripts\python.exe -m pytest tests research/reviews/2026-09-28/test_v1_readiness.py -p no:cacheprovider -q
+.venv\Scripts\python.exe -m pytest tests research/reviews/2026-09-28/test_v1_readiness.py -p no:cacheprovider -q --junitxml=research/reports/desktop_baseline_tests_2026-10-21.xml
 ```
 
-On Linux/macOS use `.venv/bin/python` and the equivalent environment-variable
-syntax. Tests use retained fixtures and temporary data; no live Telegram delivery
-or NSE download is required. Report actual Python/dependency versions and test
-collection. Dependencies are currently not pinned in a lockfile.
+For an existing checkout, inspect/preserve local changes and fetch the correct
+remote branch before switching/updating. Do not reset user work.
+On Linux/macOS use `.venv/bin/python` and equivalent environment-variable syntax.
 
-Important current suites:
+Tests use retained fixtures and temporary data; no live NSE download or Telegram
+delivery is needed for the offline suite. Use a new XML name for a later execution
+rather than overwriting previous evidence.
 
-- `tests/integration/test_official_nse.py`: four genuine-file reconciliation cases.
-- `tests/integration/test_nse_replay.py`: 19 replay/publication/integrity cases.
-- `tests/integration/test_pilot_pipeline.py`: 15 real-entry-point acceptance cases.
-- `tests/unit/test_research_partitions.py`: 30 boundary/empty/cost cases.
-- `tests/unit/test_pilot_inputs.py`: ten action/universe cases.
-- `tests/unit/test_partition_evidence.py`: ten evidence/provenance cases.
+The consumer suite is `tests/integration/test_run_consumers.py` (54 new integration
+cases) plus the updated Telegram unit case. It exercises actual Streamlit views
+and real production/frozen files, absent/failed quality, missing/corrupt artifacts,
+wrong setup/version/identity/date, future evidence, eligibility, moved runs,
+outbox migration and repeat-alert verification.
 
-The fresh XML committed for that execution is
-`research/reports/production_pipeline_tests_2026-10-20.xml`.
-Do not count function declarations as test cases; parameterization affects collection.
-The older September 17-case review suite was not rerun or rewritten during the
-latest milestones and is not claimed to pass the changed runner contract.
+Default pytest collection is only `tests/`; the full command above additionally
+includes the original 13 readiness cases. The separate historical September
+17-case review suite was not rerun/updated in these milestones. At least one
+older leakage test has a `pass` body. Green tests are not proof of every gate.
+Count collected parameterized cases, not test function declarations.
 
-The default pytest collection is only `tests/`; it does not automatically include
-all historical review scripts. At least one old corporate-action leakage test has
-a `pass` body. A green suite therefore remains insufficient proof of every gate.
+## Preserved run evidence and usable inspection commands
 
-## Persisted acceptance evidence
+The latest portable, quality-bearing examples are committed under
+`research/reports/run_consumers_acceptance_2026-10-20/`:
 
-Synthetic production inputs and a complete example run are committed under:
+| Run | Rows / source IDs | Candidates | Evaluated / eligible outcomes | Snapshots | Prepared local previews |
+|---|---:|---:|---:|---:|---:|
+| `synthetic/` | 5,980 / 5 | 11 | 8 / 6 | 6 | 4 |
+| `official_single_day/` | 20 / 20 | 0 | 0 / 0 | 2 | 0 |
 
-`research/reports/production_acceptance_2026-10-20/`
+The synthetic run has 1,200 supplied sessions, separate family/partition evidence
+and two censored discovery outcomes. Its seven rejected previews include
+discovery candidates without earlier frozen evidence and universe-ineligible
+candidates. It is engineering evidence, never an official strategy sample.
+Synthetic status is EXPERIMENTAL. The official one-session run is INSUFFICIENT
+EVIDENCE, with no validation/holdout sessions. Both quality reports are
+PASSED_WITH_WARNINGS, with unresolved source/history limits.
 
-The base synthetic example has 1,200 sessions, 11 candidates, eight evaluated
-outcomes, six eligible completed outcomes and two censored discovery records.
-Each partition has one completed BREAKOUT and one completed VCB result. Three
-illiquid candidates are excluded using source turnover. Six separate snapshots
-are produced. Additional automated cases exercise stopped losses, expiry,
-invalidation and end-of-data censoring through the production runner.
+The earlier `research/reports/production_acceptance_2026-10-20/` bundle and
+earlier reports remain preserved. Some older local runs in ignored `data/`
+directories are not available in a clean clone. The latest two examples above
+are committed and portable; do not describe them as missing from a clone.
 
-`research/reports/production_pipeline_verification_2026-10-20.json` links this
-example and the genuine-file smoke check. These synthetic outcomes are engineering
-acceptance evidence, never official historical strategy evidence.
+After environment setup, inspect the current examples:
 
-An actual production smoke check selected 20 stocks from the genuine one-day NSE
-fixture. It preserved 20 distinct source IDs and completed with zero events and
-INSUFFICIENT EVIDENCE. There was one discovery session and no validation/holdout
-sessions. This proves handling of the genuine input and short history only.
+```powershell
+.venv\Scripts\python.exe -m streamlit run src/equity_engine/dashboard/app.py
+.venv\Scripts\python.exe scripts/preview_run_alerts.py research/reports/run_consumers_acceptance_2026-10-20/synthetic/manifest.json --outbox data/processed/desktop_preview.sqlite
+```
 
-The smoke cohort was:
+Select `research/reports/run_consumers_acceptance_2026-10-20` as the dashboard's
+runs folder. The preview command never sends externally.
+
+New production runs retain `features.parquet`, `universe.parquet`,
+`events.parquet`, `outcomes.parquet`, `regime.parquet`, `statistics.json`,
+`quality.json`, frozen snapshot metadata/outcomes, `manifest.json` and
+`manifest.sha256`. Manifests retain trial identity, input/config/code hashes,
+resolved configuration/costs, seed, boundaries and methodology/setup versions.
+Stable fingerprints do not replace unique execution/run IDs or a global
+paper-research hypothesis registry.
+
+## Historical source preparation: saved in PR #2, not an acquired history
+
+The fixed cohort is `research/pilot/cohort_v1.json`, ID
+`NSE_FIXED_ENGINEERING_20_V1`:
 
 ```text
 RELIANCE TCS HDFCBANK INFY ICICIBANK HINDUNILVR ITC SBIN BHARTIARTL KOTAKBANK
 LT ASIANPAINT AXISBANK MARUTI SUNPHARMA TITAN BAJFINANCE TATASTEEL ULTRACEMCO WIPRO
 ```
 
-Reproduce a short genuine-file run with:
+Each member's observed ISIN, source security ID and company name was extracted
+from the original 2026-10-08 EQ source row, not filled from memory. Historical
+`valid_from`/`valid_to` remain null and continuity is UNVERIFIED. This is a
+current-survivor engineering cohort, not a historical membership universe,
+matched-control sample or survivorship-safe research sample.
+
+`research/pilot/historical_inventory_v1.json` records:
+
+- Proposed source window: **2023-01-01 through 2026-10-08**. This is a planning
+  target chosen before new outcomes, not a completed or admitted evaluation span.
+- Seven source families; 12 checkpoint requests, of which only the 2026-10-08
+  anchor is retained. The other requests are unfetched and their session/archive
+  availability is not verified.
+- A full 20-member action/identity review queue and positive restructuring cases.
+- **One retained official session. Zero new historical market dates acquired.**
+- Expected/missing session counts and historical partition boundaries remain null.
+  No authority `calendar.csv` or approved engine-ready action feed was produced.
+
+The 14-source catalogue, `source_catalog_2026-10-20.json`, distinguishes official
+page/PDF text read, resolved but unread CSV links, and original bytes actually
+retained. Web lookup text is not a saved original PDF/CSV acquisition receipt;
+do not invent hashes for those documents.
+
+`verification_2026-10-20.json` and the source-preparation report record the
+in-memory JavaScript checks: original ZIP/member hashes and CRC, all original
+columns/3,733 rows, all 2,681 EQ rows' date/source/identity/duplicate/numeric OHLCV
+and reported turnover checks, exact 20-member equality to the previous smoke
+cohort, null historical validity, inventory/source-reference checks, and saved
+artifact hashes. These were **not Python pipeline or regression tests**.
+The Python reproduction snippet in the report was provided, not executed then.
+
+**The new source-inventory JSON is planning data. The production runner does not
+load it or automatically enforce all its unresolved admission gates.**
+
+### Source and methodology blockers that must be resolved
+
+| Gate | Current fact / required next work |
+|---|---|
+| Historical schema boundary | NSE's report listing says legacy CM Bhavcopy/Common Bhavcopy were discontinued from 2024-07-08. Existing official acquisition command validates UDiFF only. Acquire a genuine legacy checkpoint and independently reconcile header, dates, identifiers, OHLCV and turnover/units. |
+| Authority calendar | Retain each year's CM trading-closure notices and subsequent amendments; reconcile special live/Muhurat sessions. Verified document examples include Saturday 2024-03-02 and 2024-05-18. Weekdays, downloaded bars and clearing holidays are not an authority trading calendar. |
+| RELIANCE 2023 restructuring | Official source identifies the 2023-07-20 financial-services demerger. Existing split/bonus handling does not reconcile it. No factor is approved. |
+| ITC 2025 restructuring | Scheme effective date and record date are different fields; confirm CM ex-date from retained notice. Hotels demerger remains unsupported/unreconciled. No factor is approved. |
+| Documented split/bonus examples | RELIANCE 2024-10-28 has candidate factor 2; BAJFINANCE 2025-06-16 components 2 and 5 give candidate combined factor 10. These are unapproved until CM identity/notice/raw-bar reconciliation. Apply components once, not a combined factor twice. |
+| Source identity changes | Current runner groups by raw ISIN. Resolve dated economic continuity while retaining original IDs; do not filter all years by the 2026 ISIN, stitch reused tickers or invent a stable identity. |
+| Complete action coverage | Positive cases are discovery examples, not a complete feed or proof that other members are action-free. Review the full interval for all 20 stocks. |
+| Delivery/index inputs | Authentic delivery parsing and official index history remain unacquired/unverified. Preserve null delivery and visible UNKNOWN regime; older Yahoo files are not official evidence. |
+
+Official links and exact discovery limits are in `docs/historical_sources.md`
+and the source catalogue. Some NSE derivatives-department notices were used only
+to cross-check underlying equity actions; no derivatives data/logic/scope was
+introduced.
+
+Unsupported restructurings cannot be relabelled SPLIT/BONUS, ignored because
+their return is below 50%, or bypassed by silently dropping stocks/dates.
+Address affected histories through a documented V1 methodology decision and
+appropriate source-backed withholding; preserve raw data and record unresolved
+coverage. Do not infer permission to expand strategies.
+
+## Desktop's next concrete sequence
+
+1. **Verify checkout and capabilities.** Fetch the continuation branch, inspect
+   repository/AGENTS instructions and working-tree changes, confirm Python and
+   network/source access, and inspect changes after the listed commits.
+2. **Rerun the actual baseline.** Use the full test selection above with empty
+   Telegram credentials; record collection, failures, versions and a new XML.
+   Reproduce the cohort/fixture verification with Python using the retained
+   original ZIP and the source-preparation report's read-only snippet.
+3. **Retain authority source bytes.** Acquire original annual CM calendar notices
+   for 2023-2026, amendments/special-session notices, relevant CM action and dated
+   identity notices. Preserve filenames/bytes, requested and final URLs, acquisition
+   time, status/headers and hashes. Do not convert an access failure into a holiday,
+   an absent action or fabricated data.
+4. **Acquire/reconcile real checkpoints.** Begin with genuine legacy and UDiFF
+   transition samples from the inventory and relevant special-session/action
+   surroundings. Verify date/source/schema/identity/turnover independently.
+   Do not run pre-transition dates through the UDiFF-only fetcher.
+5. **Resolve dated identities and unsupported actions.** Determine the V1 treatment
+   of affected histories before treating complete raw downloads as usable adjusted
+   research history. Add meaningful source/production tests for actual changes.
+   Planning JSON does not itself implement that treatment.
+6. **Extend to every reviewed expected session.** Retain originals and versions;
+   measure cohort completeness, gaps/suspensions/staleness, action discontinuities,
+   source schemas, warmup and actual nonoverlapping evaluation/follow-up coverage.
+   Missing delivery stays null; missing index/VIX context remains explicit.
+7. **Run a genuine historical engineering pilot only after critical gates pass.**
+   Persist run quality, bounded outcomes, snapshots/manifests, actual commands,
+   test results and remaining limitations. Preserve zero-event/loss/insufficient
+   results. Reassess engineering admission separately from paper research.
+
+An existing UDiFF checkpoint command, once execution is available and its session
+has been checked against calendar sources, is:
 
 ```powershell
-.venv\Scripts\python.exe scripts/run_pilot_pipeline.py tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip --cohort RELIANCE TCS HDFCBANK INFY ICICIBANK HINDUNILVR ITC SBIN BHARTIARTL KOTAKBANK LT ASIANPAINT AXISBANK MARUTI SUNPHARMA TITAN BAJFINANCE TATASTEEL ULTRACEMCO WIPRO
+.venv\Scripts\python.exe scripts/fetch_official_nse_fixture.py --market-date 2024-07-08 --destination data/raw/historical_checkpoints/udiff
 ```
 
-No corporate-action/index source is supplied in that smoke command; warnings are
-expected. Do not label that history action-free or its regime verified.
+This checkpoint command was **not run** during source preparation or this transfer.
+It is not a legacy downloader or a complete historical/calendar acquisition.
+Use `docs/historical_sources.md` for the full acquisition/reconciliation contract.
 
-## Known gaps — do not claim these are solved
+## Remaining statistical and point-in-time limitations
 
-### 1. Dashboard consumption and honest data-quality status
+- Current metrics use deterministic row bootstrap and a STATIC hurdle. The old
+  pure-OOS/minimum-distinct-date rule can still label a small sufficiently
+  positive sample VALIDATED. It is not independently approved adequate-sample or
+  dependence-adjusted validation.
+- `effective_n` currently means observation count, not a demonstrated
+  dependence-adjusted sample size. Overlapping holdings/market clustering remain.
+- Quality is assessed over the supplied run, not independently reconstructed
+  historical as-of quality. Caller-supplied calendar content is not automatically
+  authenticated.
+- Adjustment basis cutoff is distinct from evidence/partition cutoff. Later split
+  factors rescale earlier adjusted absolute values; raw execution prices remain.
+  Strict earlier evidence selection does not resolve broader point-in-time
+  corporate-action methodology.
+- Universe artifacts describe candidate detection dates, not a full historical
+  NSE membership database. Regime breadth describes eligible supplied-cohort
+  stocks, not the whole market. Missing index/VIX/breadth is not manufactured.
+- Do not claim profitability, calibrated probabilities, matched controls,
+  survivorship safety, a production-ready trading tool or approved paper research.
 
-`src/equity_engine/dashboard/app.py` still reads the old fixed path
-`data/processed/pilot_outcomes.parquet`. The new runner writes isolated run folders.
-The dashboard still sets Data Quality to VALIDATED merely because a nonempty
-outcome file exists. This is a concrete remaining defect.
+## Portability and evidence preservation
 
-It should load a selected current run manifest, resolve and verify its artifacts,
-show actual run/partition/source/cutoff information, and show unavailable or failed
-quality status when quality results are missing or failed. Outcome count must not
-be used as a substitute for data validation. UI polish is not required.
+- `data/raw/`, `data/processed/`, virtual environments, credentials, caches and
+  runtime locks are ignored. Local desktop data does not appear in another
+  account simply because reports mention its absolute paths.
+- The original official fixture/provenance, latest portable acceptance bundles,
+  source-preparation artifacts and XML/reports are committed.
+- Older reports/frozen metadata contain absolute Windows/Linux paths. Current
+  schema-2 consumers follow run-local artifact references; older schema-1 bundles
+  are retained history. Regenerate a new run where a current contract is required.
+- Never rewrite frozen metadata just to fix an old absolute path: that changes
+  hashes. Preserve originals, receipts, changed-input versions and earlier runs.
+- `.gitattributes` preserves bytes. Avoid blanket line-ending conversion, source
+  fixture repacking and mass formatting.
+- Atomic publication uses filesystem link/rename behavior. An older restricted
+  sandbox denied those operations; that did not justify removing safeguards.
+  Use an appropriate supported local filesystem on Desktop.
+- `.env.example` has placeholders. Credentials are unnecessary for offline tests
+  and local preview. Keep real Telegram environment values empty during verification.
 
-### 2. Persisted pilot data-quality results
+## What to return after continuing
 
-Importer validation is useful but does not establish calendar completeness,
-stale-history acceptability, abnormal-return explanations, corporate-action
-reconciliation, source completeness or identifier continuity.
+Report concrete behavior/data acquired, files changed, actual commands/test
+collection, failures, unexecuted checks, source hashes/provenance and remaining
+gates. Link fresh evidence and preserve the distinction among software
+integration, original-source coverage, engineering admission and paper research.
 
-Implement explicit persisted checks and counts that the run and consumers can
-reference. Distinguish warnings, unavailable optional data and blocking failures.
-Do not turn missing delivery or legitimate no-setup runs into fabricated values
-or arbitrary failures. Suspicious returns should be flagged/reconciled without
-changing the strategy. Fail or withhold evidence when critical checks fail.
+The first new result sought is **actual retained historical/calendar/notice
+bytes and reconciled checkpoint coverage**, not another declaration that the
+already-completed consumer milestone should be started.
 
-### 3. Run-scoped alert eligibility
-
-`TelegramAlerter.send_alert` now accepts an explicit `snapshot_id`, rejects missing
-or corrupt evidence, appends frozen statistics/limitations, and retains outbox
-idempotency. Those repairs exist; do not describe alerts as accepting missing
-evidence anymore.
-
-What remains is actual consumer wiring and verification: select the correct
-run-scoped frozen snapshot, verify setup/version and event-time/cutoff eligibility,
-and reject mismatches. The event ID and snapshot ID are different identities.
-Use dry-run/mocked delivery; do not send actual notifications.
-
-### 4. Genuine historical cohort and sources
-
-One authentic daily fixture is not several years of history. The actual fixed
-20–30-stock historical engineering cohort still needs sufficient warmup,
-evaluation partitions and follow-up, with original source provenance.
-
-Reconcile authentic corporate actions, source dates/ex-dates, identifier changes,
-actual turnover and delivery availability. Do not assume current schemas cover
-all historical formats. Legacy parsing exists but lacks genuine legacy-fixture
-proof. `SecurityMaster` exists, but end-to-end official identity-history integration
-and survivorship completeness must not be inferred from that class alone.
-
-`scripts/fetch_pilot_data.py` is an older Yahoo-derived simulation with fabricated
-NSE-like fields. `scripts/fetch_nifty.py` also uses Yahoo. They do not close official
-NSE source gates. Use the new official acquisition/import path where supported.
-
-### 5. Statistical/paper-research admission
-
-Current metrics use a deterministic row bootstrap and a STATIC hurdle. Families
-and partitions remain separate. The small-sample/OOS checks have improved, but
-an existing rule can still label a sufficiently positive pure-OOS sample with at
-least five distinct detection dates VALIDATED. That rule is not an independently
-approved adequate-sample/dependence methodology.
-
-`effective_n` currently represents observation count; it is not a demonstrated
-dependence-adjusted sample size. Overlapping holdings and market clustering remain
-limitations. Do not call the baseline matched controls or claim profitability,
-calibrated probabilities, survivorship safety or a production-ready trading tool.
-The engineering runner's aggregate status is EXPERIMENTAL or INSUFFICIENT EVIDENCE,
-and its manifest explicitly does not approve paper research.
-
-## Recommended next implementation milestone
-
-Complete a small, reviewable **current-run quality and evidence-consumer path**:
-
-1. Inspect dashboard, alerts, snapshot loader, run manifest structure and current
-   validator. Rerun relevant baseline tests before changes.
-2. Define and persist a quality result tied to the actual run/input hashes, with
-   check names, counts, status, limitations and blocking issues. Reuse existing
-   validation rather than introducing a parallel engine.
-3. Make the dashboard select/load a run and show its recorded quality and evidence.
-   Stop reading the legacy output as if it were the current run.
-4. Bind dry-run alerts to the appropriate frozen setup/version evidence and quality
-   result. Verify identity, integrity and event-time eligibility explicitly.
-5. Add meaningful integration tests for a valid run, no events, absent/failed quality,
-   missing/corrupt artifacts, setup/version mismatch, future evidence and repeat
-   alert idempotency. Exercise consumers with actual frozen files.
-6. Run the relevant tests and full suite, update BUILD_STATUS and a concise milestone
-   report with actual results and remaining gates. Preserve previous evidence.
-
-After that, proceed to genuine historical cohort acquisition/validation. Keep
-configuration and strategy parameters fixed while measuring data/pipeline behavior.
-
-## Portability and repository caveats
-
-- `data/raw/`, `data/processed/`, virtual environments, real environment files,
-  packaging metadata, caches and runtime lock files are ignored by Git.
-- The official source fixture and its acquisition receipt are committed under
-  `tests/fixtures/nse/`. They are available to the new account through the repo.
-- The genuine one-day smoke run under `data/processed/...` was local and is not in
-  a clean clone; the committed report/summary describes it, and it can be regenerated.
-- The committed synthetic acceptance bundle contains example outputs/receipts.
-- Existing reports/manifests contain absolute Windows paths from the original
-  machine. Those paths do not grant access from another account. Resolve the
-  corresponding committed artifact by its repository-relative location, or generate
-  a new run locally. Do not require that old Windows directory to exist.
-- Do not rewrite frozen metadata just to replace local paths: that changes hashes.
-  Design any new portable path contract as an explicit versioned improvement.
-- `.gitattributes` preserves original bytes. Avoid automatic line-ending conversion,
-  fixture repacking or mass formatting that invalidates recorded source/evidence hashes.
-- The local full-suite test command used normal Windows filesystem access because
-  a restricted execution sandbox denied atomic link/rename operations. This was an
-  environment restriction, not a reason to remove atomic publication safeguards.
-- The committed `.env.example` contains placeholders. Credentials are not needed
-  to run the offline verification suite.
-
-## What to return after your work
-
-Report the concrete behavior changed, files touched, actual commands/test collection,
-failures, any unexecuted checks and the remaining gates. Link the evidence.
-Keep the distinction between software integration, genuine source coverage,
-engineering pilot admission and paper-research approval explicit.
-
-Do not repeat old READY claims. Change the readiness decision only when the actual
-critical gates have been independently verified against the current implementation.
+Do not repeat old READY claims or count earlier XML as freshly executed tests.
+Change admission only after independently verifying the actual critical gates
+against the current implementation and genuine sources.
