@@ -1,0 +1,193 @@
+{
+  "synthetic": {
+    "input_kind": "SYNTHETIC_ACCEPTANCE_ONLY",
+    "manifest_path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\manifest.json",
+    "trial_id": "pilot-e963cbb8e3aa9ca5-bf9b48b2",
+    "date_boundaries": {
+      "discovery": {
+        "start": "2018-01-01",
+        "end": "2020-10-05",
+        "sessions": 721
+      },
+      "validation": {
+        "start": "2020-11-09",
+        "end": "2021-09-06",
+        "sessions": 216
+      },
+      "holdout": {
+        "start": "2021-10-11",
+        "end": "2022-08-05",
+        "sessions": 215
+      }
+    },
+    "partition_results": {
+      "discovery": {
+        "events": 4,
+        "censored": 2,
+        "eligible": 2,
+        "status": "EXECUTED"
+      },
+      "validation": {
+        "events": 2,
+        "censored": 0,
+        "eligible": 2,
+        "status": "EXECUTED"
+      },
+      "holdout": {
+        "events": 2,
+        "censored": 0,
+        "eligible": 2,
+        "status": "EXECUTED"
+      }
+    },
+    "counts": {
+      "candidate_events": 11,
+      "evaluated_events": 8,
+      "eligible_outcomes": 6
+    },
+    "states": [
+      {
+        "partition": "discovery",
+        "final_state": "COMPLETED",
+        "len": 2
+      },
+      {
+        "partition": "discovery",
+        "final_state": "CONFIRMED",
+        "len": 1
+      },
+      {
+        "partition": "discovery",
+        "final_state": "WATCH",
+        "len": 1
+      },
+      {
+        "partition": "holdout",
+        "final_state": "COMPLETED",
+        "len": 2
+      },
+      {
+        "partition": "validation",
+        "final_state": "COMPLETED",
+        "len": 2
+      }
+    ],
+    "eligible_by_partition_setup": [
+      {
+        "partition": "discovery",
+        "setup": "BREAKOUT_V1.0",
+        "len": 1
+      },
+      {
+        "partition": "discovery",
+        "setup": "VCB_V1.0",
+        "len": 1
+      },
+      {
+        "partition": "holdout",
+        "setup": "BREAKOUT_V1.0",
+        "len": 1
+      },
+      {
+        "partition": "holdout",
+        "setup": "VCB_V1.0",
+        "len": 1
+      },
+      {
+        "partition": "validation",
+        "setup": "BREAKOUT_V1.0",
+        "len": 1
+      },
+      {
+        "partition": "validation",
+        "setup": "VCB_V1.0",
+        "len": 1
+      }
+    ],
+    "censored": [
+      {
+        "instrument_id": "INE005A01011",
+        "partition": "discovery",
+        "detection_date": "2020-10-02",
+        "final_state": "CONFIRMED",
+        "censor_reason": "PARTITION_END",
+        "exit_date": null,
+        "evidence_eligible": false
+      },
+      {
+        "instrument_id": "INE004A01011",
+        "partition": "discovery",
+        "detection_date": "2020-10-05",
+        "final_state": "WATCH",
+        "censor_reason": "PARTITION_END",
+        "exit_date": null,
+        "evidence_eligible": false
+      }
+    ],
+    "snapshots": 6
+  },
+  "official_single_day_smoke": {
+    "manifest_path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\data\\processed\\pilot_runs\\official_smoke\\pilot-a8531e874c3e9b24-de0f1873\\manifest.json",
+    "trial_id": "pilot-a8531e874c3e9b24-de0f1873",
+    "market_date": "2026-10-08",
+    "rows": 20,
+    "unique_instruments": 20,
+    "symbols": [
+      "ASIANPAINT",
+      "AXISBANK",
+      "BAJFINANCE",
+      "BHARTIARTL",
+      "HDFCBANK",
+      "HINDUNILVR",
+      "ICICIBANK",
+      "INFY",
+      "ITC",
+      "KOTAKBANK",
+      "LT",
+      "MARUTI",
+      "RELIANCE",
+      "SBIN",
+      "SUNPHARMA",
+      "TATASTEEL",
+      "TCS",
+      "TITAN",
+      "ULTRACEMCO",
+      "WIPRO"
+    ],
+    "status": "INSUFFICIENT EVIDENCE",
+    "counts": {
+      "candidate_events": 0,
+      "eligible_outcomes": 0,
+      "evaluated_events": 0
+    },
+    "date_boundaries": {
+      "discovery": {
+        "end": "2026-10-08",
+        "sessions": 1,
+        "start": "2026-10-08"
+      },
+      "holdout": {
+        "end": null,
+        "sessions": 0,
+        "start": null
+      },
+      "validation": {
+        "end": null,
+        "sessions": 0,
+        "start": null
+      }
+    },
+    "warnings": [
+      "No corporate-action source supplied; this is not proof of action-free history.",
+      "No index source supplied; event regime is UNKNOWN."
+    ],
+    "historical_pilot_complete": false
+  },
+  "tests": {
+    "collected": 135,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit_xml": "research/reports/production_pipeline_tests_2026-10-20.xml"
+  }
+}

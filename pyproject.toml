@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equity-evidence-engine"
+version = "0.1.0"
+description = "Indian Equity Evidence Engine - V1"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "polars",
+    "pandas",
+    "numpy",
+    "duckdb",
+    "pyyaml",
+    "streamlit",
+    "plotly",
+    "python-dotenv",
+    "requests"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "hypothesis"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"

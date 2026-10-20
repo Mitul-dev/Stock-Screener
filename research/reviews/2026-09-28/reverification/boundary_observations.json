@@ -1,0 +1,21 @@
+{
+  "existing_e2e_outcomes": {
+    "EXPIRED": 47,
+    "WATCH": 1
+  },
+  "original_raw_and_processed_files_unchanged_since_prior_review": true,
+  "n1_status": "INSUFFICIENT EVIDENCE",
+  "n2_same_day_same_family_status": {
+    "effective_n": 2,
+    "distinct_time_blocks": 1,
+    "mean_r": 1.0,
+    "ci_lower": 1.0,
+    "ci_upper": 1.0,
+    "win_rate": 1.0,
+    "baseline_mean_r": 0.0,
+    "baseline_type": "STATIC",
+    "lift": 1.0,
+    "status": "VALIDATED"
+  },
+  "source_changes_during_this_review": []
+}

@@ -1,0 +1,18 @@
+{
+  "market_date": "2026-10-08",
+  "eq_rows": 2681,
+  "input_sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39",
+  "output_sha256": "4ece8ee9cb331c28cabd573b4505c0632796b5365d29ae0f1f947b2becaeacf7",
+  "output_path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\data\\processed\\official\\normalized_07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39_NSE_CONSOLIDATED_V2.parquet",
+  "replay_hash_unchanged": true,
+  "replay_mtime_unchanged": true,
+  "manifest_statuses": [
+    "PROCESSED",
+    "REUSED"
+  ],
+  "test_command": ".venv/Scripts/python.exe -m pytest tests research/reviews/2026-09-28/test_v1_readiness.py -p no:cacheprovider -q",
+  "collected": 70,
+  "passed": 70,
+  "failed": 0,
+  "junit_xml": "research/reports/official_ingestion_tests_2026-10-20.xml"
+}

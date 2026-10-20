@@ -1,0 +1,10 @@
+version: "1.0"
+liquidity_tiers:
+  tier_1:
+    min_median_traded_value: 500000000 # 50 Cr
+    min_trading_days_coverage: 0.95
+    min_price: 50.0
+  tier_2:
+    min_median_traded_value: 100000000 # 10 Cr
+    min_trading_days_coverage: 0.90
+    min_price: 20.0

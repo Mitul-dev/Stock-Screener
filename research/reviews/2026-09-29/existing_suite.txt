@@ -1,0 +1,62 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine\.venv\Scripts\python.exe
+hypothesis profile 'default'
+rootdir: C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1, hypothesis-6.168.2, platformdirs-4.12.1
+collecting ... collected 26 items
+
+tests/e2e/test_synthetic_e2e.py::test_synthetic_e2e PASSED               [  3%]
+tests/leakage/test_ca.py::test_ca PASSED                                 [  7%]
+tests/leakage/test_leakage.py::test_no_future_leakage_in_features PASSED [ 11%]
+tests/leakage/test_leakage.py::test_no_future_leakage_in_adjustments PASSED [ 15%]
+tests/leakage/test_truncation_deep.py::test_truncation PASSED            [ 19%]
+tests/unit/test_breakout.py::test_breakout_detector PASSED               [ 23%]
+tests/unit/test_controls.py::test_control_metrics PASSED                 [ 26%]
+tests/unit/test_controls.py::test_control_metrics_empty PASSED           [ 30%]
+tests/unit/test_corporate_actions.py::test_corporate_action_adjustor PASSED [ 34%]
+tests/unit/test_corporate_actions.py::test_no_actions PASSED             [ 38%]
+tests/unit/test_dashboard.py::test_dashboard_import PASSED               [ 42%]
+tests/unit/test_env.py::test_environment_setup PASSED                    [ 46%]
+tests/unit/test_evidence.py::test_evidence_snapshot PASSED               [ 50%]
+tests/unit/test_features.py::test_feature_calculator PASSED              [ 53%]
+tests/unit/test_ingestion.py::test_validator_valid_data PASSED           [ 57%]
+tests/unit/test_ingestion.py::test_validator_invalid_high_low PASSED     [ 61%]
+tests/unit/test_ingestion.py::test_csv_provider PASSED                   [ 65%]
+tests/unit/test_ingestion.py::test_data_storage PASSED                   [ 69%]
+tests/unit/test_outcomes.py::test_outcome_engine FAILED                  [ 73%]
+tests/unit/test_regime.py::test_regime_classifier PASSED                 [ 76%]
+tests/unit/test_research.py::test_research_engine_split PASSED           [ 80%]
+tests/unit/test_research.py::test_research_engine_backtest FAILED        [ 84%]
+tests/unit/test_security_master.py::test_security_master_lifecycle PASSED [ 88%]
+tests/unit/test_telegram.py::test_telegram_alerter PASSED                [ 92%]
+tests/unit/test_universe.py::test_universe_builder PASSED                [ 96%]
+tests/unit/test_vcb.py::test_vcb_detector PASSED                         [100%]
+
+================================== FAILURES ===================================
+_____________________________ test_outcome_engine _____________________________
+tests\unit\test_outcomes.py:34: in test_outcome_engine
+    assert res["final_state"] == SetupState.COMPLETED.value
+E   AssertionError: assert 'FAILED' == 'COMPLETED'
+E     
+E     - COMPLETED
+E     + FAILED
+________________________ test_research_engine_backtest ________________________
+tests\unit\test_research.py:50: in test_research_engine_backtest
+    assert results["final_state"][0] == "COMPLETED"
+E   AssertionError: assert 'FAILED' == 'COMPLETED'
+E     
+E     - COMPLETED
+E     + FAILED
+============================== warnings summary ===============================
+tests/unit/test_ingestion.py::test_csv_provider
+  C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine\src\equity_engine\ingestion\csv_provider.py:15: DeprecationWarning: Casting from String to Date is deprecated and will be removed in Polars 2.0.
+  Use `str.to_date()` instead.
+    df = pl.read_csv(file_path).with_columns(pl.col("date").cast(pl.Date))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_outcomes.py::test_outcome_engine - AssertionError: ass...
+FAILED tests/unit/test_research.py::test_research_engine_backtest - Assertion...
+=================== 2 failed, 24 passed, 1 warning in 6.34s ===================

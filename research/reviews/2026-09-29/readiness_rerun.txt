@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine\.venv\Scripts\python.exe
+hypothesis profile 'default'
+rootdir: C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.168.2, platformdirs-4.12.1
+collecting ... collected 13 items
+
+research/reviews/2026-09-28/test_v1_readiness.py::test_validator_rejects_missing_nonfinite_or_zero_prices[open-None] PASSED [  7%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_validator_rejects_missing_nonfinite_or_zero_prices[volume-inf] PASSED [ 15%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_validator_rejects_missing_nonfinite_or_zero_prices[close-0.0] PASSED [ 23%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_multi_instrument_bars_are_not_duplicate_dates PASSED [ 30%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_importer_preserves_available_delivery PASSED [ 38%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_universe_excludes_stale_history_outside_window PASSED [ 46%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_universe_uses_reported_turnover PASSED [ 53%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_incomplete_watch_is_censored_not_expired PASSED [ 61%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_stop_uses_confirmation_atr PASSED [ 69%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_one_profitable_observation_cannot_validate_evidence PASSED [ 76%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_existing_adjustment_to_feature_composition_uses_adjusted_prices PASSED [ 84%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_next_session_entry_and_executable_gap_stop_work PASSED [ 92%]
+research/reviews/2026-09-28/test_v1_readiness.py::test_confirm_requires_strict_close_above_level PASSED [100%]
+
+============================= 13 passed in 0.91s ==============================

@@ -1,0 +1,124 @@
+{
+  "evidence_snapshot_id": "3c63ae2e-a8d9-444b-aa13-c026d570cd9e",
+  "setup_version": "VCB_V1.0",
+  "universe_version": "universe-1.0",
+  "methodology_version": "V1-partitioned-pilot-1",
+  "data_cutoff": "2022-08-05",
+  "created_at": "2026-10-20T14:09:09.411330",
+  "statistics": {
+    "effective_n": 1,
+    "distinct_time_blocks": 1,
+    "mean_r": -0.51379306,
+    "ci_lower": -0.51379306,
+    "ci_upper": -0.51379306,
+    "win_rate": 0.0,
+    "baseline_mean_r": 0.0,
+    "baseline_type": "STATIC",
+    "lift": -0.51379306,
+    "status": "NEGATIVE EDGE",
+    "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+  },
+  "configuration": {
+    "setups": {
+      "setups": {
+        "BREAKOUT_V1": {
+          "version": "1.0",
+          "parameters": {
+            "lookback_days": 252,
+            "min_volume_relative": 1.5,
+            "close_near_high_pct": 0.02
+          }
+        },
+        "VCB_V1": {
+          "version": "1.0",
+          "parameters": {
+            "lookback_days": 60,
+            "max_atr_percentile": 0.2,
+            "min_consolidation_days": 10
+          }
+        }
+      }
+    },
+    "universe": {
+      "version": "1.0",
+      "liquidity_tiers": {
+        "tier_1": {
+          "min_median_traded_value": 500000000,
+          "min_trading_days_coverage": 0.95,
+          "min_price": 50.0
+        },
+        "tier_2": {
+          "min_median_traded_value": 100000000,
+          "min_trading_days_coverage": 0.9,
+          "min_price": 20.0
+        }
+      }
+    },
+    "costs": {
+      "costs": {
+        "brokerage_pct": 0.0003,
+        "stt_pct": 0.001,
+        "exchange_charges_pct": 3.25e-05,
+        "sebi_charges_pct": 1e-06,
+        "stamp_duty_pct": 0.00015,
+        "gst_pct": 0.18,
+        "slippage_pct": 0.001
+      }
+    },
+    "regime": {
+      "regimes": {
+        "UPTREND": {
+          "nifty_above_200_dma": true,
+          "breadth_pct_above_50_dma_min": 0.5
+        },
+        "RISK_OFF": {
+          "vix_min": 25.0,
+          "nifty_below_200_dma": true
+        },
+        "NEUTRAL": null
+      }
+    },
+    "research": {
+      "discovery_pct": 0.6,
+      "validation_pct": 0.2,
+      "timeout_days": 20,
+      "watch_expiry_days": 5
+    },
+    "cohort": null
+  },
+  "cost_model": {
+    "brokerage_pct": 0.0003,
+    "stt_pct": 0.001,
+    "exchange_charges_pct": 3.25e-05,
+    "sebi_charges_pct": 1e-06,
+    "stamp_duty_pct": 0.00015,
+    "gst_pct": 0.18,
+    "slippage_pct": 0.001
+  },
+  "date_boundaries": {
+    "discovery": {
+      "start": "2018-01-01",
+      "end": "2020-10-05",
+      "sessions": 721
+    },
+    "validation": {
+      "start": "2020-11-09",
+      "end": "2021-09-06",
+      "sessions": 216
+    },
+    "holdout": {
+      "start": "2021-10-11",
+      "end": "2022-08-05",
+      "sessions": 215
+    }
+  },
+  "input_hash": "6c756980ee7f7b8e87315bcad31f680e5ed8aa1c1733bdb69a59a22e1f7e97dd",
+  "output_hash": "dd071219626f48a26421a1320d50a91bc692e10bf5df103267d5230a46f6805e",
+  "random_seed": 42,
+  "trial_id": "pilot-e963cbb8e3aa9ca5-bf9b48b2",
+  "partition": "holdout",
+  "configuration_hash": "80fc38215f2e6fe01e6330b7e4b2b7643f8a5da17ed8929bfcf20591032c6c9f",
+  "code_hash": "a8543e1cd3b50016455701069aaa7482c9b39e07d033386eb4d8d8b51a8bf06a",
+  "price_basis_cutoff": "2022-08-05",
+  "outcomes_count": 1
+}

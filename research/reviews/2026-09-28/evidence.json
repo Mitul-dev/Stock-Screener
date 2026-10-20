@@ -1,0 +1,553 @@
+{
+  "review_date": "2026-09-28",
+  "root": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine",
+  "existing_suite": {
+    "passed": 26,
+    "warnings": 1,
+    "runtime_seconds": 5.48,
+    "note": "Recorded from independent pytest run; not rerun by this script."
+  },
+  "pilot_input": {
+    "rows": 32880,
+    "symbols": 20,
+    "distinct_dates": 1644,
+    "first_date": "2018-01-01",
+    "last_date": "2024-08-30",
+    "duplicate_symbol_date_rows": 0,
+    "rows_matching_fabricated_isin_formula": 32880,
+    "invalid_isin_format_rows": 29592,
+    "symbols_and_counts": [
+      {
+        "TckrSymb": "ASIANPAINT",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "AXISBANK",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "BAJFINANCE",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "BHARTIARTL",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "HDFCBANK",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "HINDUNILVR",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "ICICIBANK",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "INFY",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "ITC",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "KOTAKBANK",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "LT",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "MARUTI",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "RELIANCE",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "SBIN",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "SUNPHARMA",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "TATASTEEL",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "TCS",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "TITAN",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "ULTRACEMCO",
+        "len": 1644
+      },
+      {
+        "TckrSymb": "WIPRO",
+        "len": 1644
+      }
+    ],
+    "session_coverage_note": "No independent exchange session calendar was available; row counts do not verify no missing sessions."
+  },
+  "saved_outcome_states": [
+    {
+      "final_state": "COMPLETED",
+      "len": 980
+    },
+    {
+      "final_state": "CONFIRMED",
+      "len": 11
+    },
+    {
+      "final_state": "EXPIRED",
+      "len": 120
+    },
+    {
+      "final_state": "INVALIDATED",
+      "len": 10
+    }
+  ],
+  "saved_completed_outcome_statistics": {
+    "gross_mean_r": 0.07014728214119408,
+    "net_mean_r": -0.19931843633821308,
+    "net_median_r": -1.152935069503196,
+    "unique_instruments": 20,
+    "unique_detection_dates": 571
+  },
+  "existing_synthetic_e2e_actual_outcome_states": {
+    "EXPIRED": 48
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "size": 74,
+      "sha256": "87bf0920bf57774901eeacc724297c4a3866399765d0faf368dbe121a8f1a635"
+    },
+    {
+      "path": ".gitignore",
+      "size": 209,
+      "sha256": "137c7dd1783f0ce70ca1def8bf12bd48507d38a8baed756af51e2227a9b4a89d"
+    },
+    {
+      "path": "BUILD_STATUS.md",
+      "size": 434,
+      "sha256": "e78fc544b4809d4d2ec7c18c35fa13975fde0fecef76584a8c1cbe91c3893181"
+    },
+    {
+      "path": "config\\costs.yaml",
+      "size": 216,
+      "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+    },
+    {
+      "path": "config\\regime.yaml",
+      "size": 175,
+      "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+    },
+    {
+      "path": "config\\setups.yaml",
+      "size": 279,
+      "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+    },
+    {
+      "path": "config\\universe.yaml",
+      "size": 258,
+      "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+    },
+    {
+      "path": "data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet",
+      "size": 743519,
+      "sha256": "f3712e3b974734f37188b894ca0b1459f5b297bd1906db524d49afbc9e8450ad"
+    },
+    {
+      "path": "data\\processed\\pilot_outcomes.parquet",
+      "size": 75407,
+      "sha256": "7be6d6491a5f95a34db2660181614b1bdff5351e187c74dcccd16f1d87db1423"
+    },
+    {
+      "path": "data\\raw\\manifest.csv",
+      "size": 590,
+      "sha256": "800a6014aa881685f8243b3a21eb114fe5fcd16475198f7d42b613121e44a3a1"
+    },
+    {
+      "path": "data\\raw\\NIFTY50.csv",
+      "size": 86594,
+      "sha256": "adedfe2bb3db62223d2d253e09139ac5f913e050b9280686b7f5cb7a8e84476e"
+    },
+    {
+      "path": "data\\raw\\NSE_Pilot_Bhavcopy.csv",
+      "size": 4473636,
+      "sha256": "9b8d9473f6d36b30f27c55110d30b2e16d52f5b0252f842b7cc191e2855ab73a"
+    },
+    {
+      "path": "data\\raw\\NSE_Pilot_CorpActions.csv",
+      "size": 194,
+      "sha256": "83260ba79355d39845c987212a81ac0f88e307ef7c56765ebb93481a67976b3c"
+    },
+    {
+      "path": "docs\\data.md",
+      "size": 1113,
+      "sha256": "53393d2b0dc278ad809258d62f17dc4e261943409783b9cd61962d3ebadf44b7"
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 573,
+      "sha256": "9e7b1515cfe2a417b220bdf91ce0806b4332f5e4ab497195aa68621220d28ff8"
+    },
+    {
+      "path": "README.md",
+      "size": 648,
+      "sha256": "021a45935fb3e73dcb216107dcfad808a8a14264c2c693af295efaacb86e4e51"
+    },
+    {
+      "path": "research\\reports\\data_quality_report.md",
+      "size": 2150,
+      "sha256": "1b1389522b9f3f33034b38c0a993a59d5707e00f82eb506f2dfdd1f1e78e5fae"
+    },
+    {
+      "path": "research\\reports\\pilot_data_report.md",
+      "size": 2252,
+      "sha256": "56ecafbfcedf8fd2d45f10c77ed7590ad5141261e2ef5a9c109f3aec9588ea34"
+    },
+    {
+      "path": "scripts\\fetch_nifty.py",
+      "size": 930,
+      "sha256": "0e20392c34fe85fdbe8684dce3d4c3417b8b83ef594a5bffff819966c6a08e4e"
+    },
+    {
+      "path": "scripts\\fetch_pilot_data.py",
+      "size": 3555,
+      "sha256": "c64f4cae4670b432af3be4ea239501d1ed956723f2fe4810236be0bebc22c0e4"
+    },
+    {
+      "path": "scripts\\run_pilot_pipeline.py",
+      "size": 4868,
+      "sha256": "68eeac839753220a0f9b7a722401cd6ecca1145d8a6533c387daca2cf174d946"
+    },
+    {
+      "path": "src\\equity_engine\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\alerts\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\alerts\\telegram.py",
+      "size": 2304,
+      "sha256": "9e5fd5a2f33b3dae6f23fd01123abe024d7fdf016b0455e7eccc46be9f02a4b8"
+    },
+    {
+      "path": "src\\equity_engine\\backtest\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\backtest\\controls.py",
+      "size": 2105,
+      "sha256": "b42747887b6814bc2f9353c6e1bf249c36dd292bc9981934c37a931e1c793342"
+    },
+    {
+      "path": "src\\equity_engine\\backtest\\engine.py",
+      "size": 2225,
+      "sha256": "40d023e7df291e91ca298d7e5fb994effda6a8df92f8613b51b0f0e7c6f07164"
+    },
+    {
+      "path": "src\\equity_engine\\corporate_actions\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\corporate_actions\\adjustor.py",
+      "size": 2138,
+      "sha256": "d9f53c005988b1e71c0356622bd3d66b2eeb893d95938e1082329ed31372d797"
+    },
+    {
+      "path": "src\\equity_engine\\dashboard\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\dashboard\\app.py",
+      "size": 1431,
+      "sha256": "bddf688fa4b63a7873218039192824576f6aad0ed7dc0574f600dd738d5e1a74"
+    },
+    {
+      "path": "src\\equity_engine\\evidence\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\evidence\\snapshot.py",
+      "size": 1868,
+      "sha256": "3a6ba5ba92d3363ae9f999293eb5fb578787ac2854ca7f10c9eec661bb563e4b"
+    },
+    {
+      "path": "src\\equity_engine\\features\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\features\\calculator.py",
+      "size": 1711,
+      "sha256": "9e6c87b4ddc4c11332afe956e3955e4293ee8627a826787b1f9edaef4e31adca"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\csv_provider.py",
+      "size": 1246,
+      "sha256": "bff292212e7ad129ebd66c47dec74f6c4f1f80c955d24a45f3fb4a0be3046513"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\nse_importer.py",
+      "size": 4349,
+      "sha256": "d9d5ecbbc1450b874b682f0069c26ccd594e0969aa8fd1ada16849c886e1bbf7"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\provider.py",
+      "size": 690,
+      "sha256": "d92dbe77e35cfbdfcc4fd7e57e07f2981a8b0cdb634ece48bd2661ed68dd24b3"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\storage.py",
+      "size": 1729,
+      "sha256": "855b6872e9832916ebfb9632e1cd3f9c9e67c8beba21df8f73cfd839fdd5b624"
+    },
+    {
+      "path": "src\\equity_engine\\ingestion\\validator.py",
+      "size": 1222,
+      "sha256": "7e55b4b4e4270f60a20eaaa1e9327df9c4e1aefd959ed1de09f10f36dd8f9a10"
+    },
+    {
+      "path": "src\\equity_engine\\notifications\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\outcomes\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\outcomes\\engine.py",
+      "size": 4468,
+      "sha256": "463b5de12564e3c705d9227565750fbbc65cab901effa278c295ad1dc0dc24e6"
+    },
+    {
+      "path": "src\\equity_engine\\regime\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\regime\\classifier.py",
+      "size": 2520,
+      "sha256": "5f0d6f2b5e6276bb5e682db48924870457ec595123deaf2a928de64244c0e9e1"
+    },
+    {
+      "path": "src\\equity_engine\\security_master\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\security_master\\master.py",
+      "size": 3724,
+      "sha256": "c27926d21e65395ec0808023aac108661ceeddf6eda2f99b9176ed5116401bcb"
+    },
+    {
+      "path": "src\\equity_engine\\setups\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\setups\\breakout.py",
+      "size": 2488,
+      "sha256": "d6a8004cd7e9dc2b29522991f9acea756d34bf95973356a3bbc470a64cbb81fd"
+    },
+    {
+      "path": "src\\equity_engine\\setups\\vcb.py",
+      "size": 2028,
+      "sha256": "32697898b1791d01ed071b7ae7ea736bba49422d44a8edf11478d89100f3adc7"
+    },
+    {
+      "path": "src\\equity_engine\\universe\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src\\equity_engine\\universe\\builder.py",
+      "size": 2295,
+      "sha256": "713f9245a4235a9a3396ac173f4b4e2a53e00514fe8e5ebb0347450ea77042ff"
+    },
+    {
+      "path": "src\\equity_evidence_engine.egg-info\\dependency_links.txt",
+      "size": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src\\equity_evidence_engine.egg-info\\PKG-INFO",
+      "size": 1177,
+      "sha256": "42f2e86bfa46ca5a3111dca6799d0a7de8c6cbe8f25978e235cf22c84207d21a"
+    },
+    {
+      "path": "src\\equity_evidence_engine.egg-info\\requires.txt",
+      "size": 100,
+      "sha256": "8c7ed6474e21b14c54c8a4ac89a81456f99a9b09fd4498c16bae99f47605e04b"
+    },
+    {
+      "path": "src\\equity_evidence_engine.egg-info\\SOURCES.txt",
+      "size": 991,
+      "sha256": "ea4896a27bb4d7dc9e2d40999481823c2eef21e5fcb96fa876342759080e9090"
+    },
+    {
+      "path": "src\\equity_evidence_engine.egg-info\\top_level.txt",
+      "size": 14,
+      "sha256": "0e9404d42e50acb2f03e64115a467ce5b74324636a9101974489bef08e8e5d3e"
+    },
+    {
+      "path": "tests\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\e2e\\test_synthetic_e2e.py",
+      "size": 3263,
+      "sha256": "ed23944fa0f563633b5023c35a3f8a7daddf317c052e8bf0a104971aced6145f"
+    },
+    {
+      "path": "tests\\integration\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\leakage\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\leakage\\test_ca.py",
+      "size": 685,
+      "sha256": "bf0b73999157d401f63f0b85f801e9ae5b5372e75c669ee2498b4ff5e0acfb9b"
+    },
+    {
+      "path": "tests\\leakage\\test_leakage.py",
+      "size": 1438,
+      "sha256": "1827351a6be93e470989c9d2038ea0c5e7397dd3f82ee5a9c6aadb0f544cef23"
+    },
+    {
+      "path": "tests\\leakage\\test_truncation_deep.py",
+      "size": 2119,
+      "sha256": "f85cc4df76063ddb9e94d8b30c2441c7479e443a6fceff1831a2ef0065e7fa8b"
+    },
+    {
+      "path": "tests\\property\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\unit\\__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests\\unit\\test_breakout.py",
+      "size": 1283,
+      "sha256": "cf73aae3329fba5f6ef6b4ee7d447114a80fae3a85d6dbdc698e7687875ecd47"
+    },
+    {
+      "path": "tests\\unit\\test_controls.py",
+      "size": 896,
+      "sha256": "530cd468439bf13e6999979beccb5e6628ededb29b57bf8bae7f7660d82abbb8"
+    },
+    {
+      "path": "tests\\unit\\test_corporate_actions.py",
+      "size": 1578,
+      "sha256": "2272ec905cac638fed7a5cd30278a686408f3ba232b110b3757930f45a7139ae"
+    },
+    {
+      "path": "tests\\unit\\test_dashboard.py",
+      "size": 214,
+      "sha256": "f3a211f6747b1f5fe79533da202f75fa4bf6f4bc5eadfbd3d49ed5e154f46d6e"
+    },
+    {
+      "path": "tests\\unit\\test_env.py",
+      "size": 46,
+      "sha256": "67479ce6982b7d73762a0aef154cb03274428c6b10620bffe93df642838bcff7"
+    },
+    {
+      "path": "tests\\unit\\test_evidence.py",
+      "size": 882,
+      "sha256": "3edf39487a530450f2b1d6025dac41aedb0833bdec1a5fd797f7a56f1adde695"
+    },
+    {
+      "path": "tests\\unit\\test_features.py",
+      "size": 1516,
+      "sha256": "73fb26f474a6a732dc119a5ce0263de0082d627265d4acbbfb62e3c9a994e80c"
+    },
+    {
+      "path": "tests\\unit\\test_ingestion.py",
+      "size": 1911,
+      "sha256": "50ffc8a898141fc99514017076b4f9191f80d1b464cece8083be94deb4b1fe15"
+    },
+    {
+      "path": "tests\\unit\\test_outcomes.py",
+      "size": 1755,
+      "sha256": "ba9163834c86ee49846dd2f06ed986dba374a197c90d6cde94c1f6ebf90ce019"
+    },
+    {
+      "path": "tests\\unit\\test_regime.py",
+      "size": 1709,
+      "sha256": "6707ef8cb48c5715df4a38be40103bed2992afb469a2fd569f32bc2e6d31fb06"
+    },
+    {
+      "path": "tests\\unit\\test_research.py",
+      "size": 1601,
+      "sha256": "ca39fd5378afcd674c2a8c1e37bd46ee31caefc3822c2b38269e795671e81bf7"
+    },
+    {
+      "path": "tests\\unit\\test_security_master.py",
+      "size": 1684,
+      "sha256": "0f44fe82085625ded604d4de4bbdd5842e061cf813d21a3982fb3164a9963498"
+    },
+    {
+      "path": "tests\\unit\\test_telegram.py",
+      "size": 734,
+      "sha256": "84eac2abeff8dc06b97b92c02aca166a36a94991784798cd9fef7538f371eb72"
+    },
+    {
+      "path": "tests\\unit\\test_universe.py",
+      "size": 1698,
+      "sha256": "940392c1b85af1d7e2d2a36486005ce45eccf33c02475ac0d10a92d384e85389"
+    },
+    {
+      "path": "tests\\unit\\test_vcb.py",
+      "size": 1259,
+      "sha256": "21fdacf35edb63b069a07b4758cf5dfc29846e14df02b98aa3c377935560b213"
+    },
+    {
+      "path": "V1_AUDIT_REPORT.md",
+      "size": 7079,
+      "sha256": "486338e40529e9df1e28997c8704b9c3a774b0ec772008b0eebb7964e91fefea"
+    },
+    {
+      "path": "V1_COMPLETION_REPORT.md",
+      "size": 2117,
+      "sha256": "6659876fca2e262234562631d52e589adc4a28057ffce5e23f70e079bef9bf84"
+    }
+  ]
+}

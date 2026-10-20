@@ -1,0 +1,28 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.168.2, platformdirs-4.12.1
+collecting ... collected 17 items
+
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_nonvacuous_component_chain_and_snapshot_roundtrip PASSED [  5%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_full_chain_has_failed_setup_state PASSED [ 11%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_full_chain_has_both_target_touch_labels PASSED [ 17%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_snapshot_records_complete_trial_metadata PASSED [ 23%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_bootstrap_is_deterministic_and_baseline_is_static PASSED [ 29%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_statistics_report_dependence_limitations PASSED [ 35%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_mixed_families_not_silently_pooled PASSED [ 41%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_event_identity_is_deterministic PASSED [ 47%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_split_basis_is_consistent_through_detection_and_outcomes PASSED [ 52%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_discovery_outcomes_do_not_overlap_validation PASSED [ 58%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_zip_input_supported PASSED [ 64%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_html_input_rejected_without_processed_output PASSED [ 70%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_importer_rejects_invalid_ohlc_before_publication PASSED [ 76%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_importer_preserves_market_date_provenance PASSED [ 82%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_dashboard_has_no_hardcoded_validated_overview PASSED [ 88%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_alert_consumes_frozen_evidence PASSED [ 94%]
+research/reviews/2026-09-28/reverification/test_pipeline_gates.py::test_actual_pilot_executes_partitions_and_snapshots PASSED [100%]
+
+============================= 17 passed in 2.53s ==============================

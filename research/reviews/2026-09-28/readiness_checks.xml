@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="13" time="0.950" timestamp="2026-09-28T13:18:31.679398+05:30" hostname="LOQ"><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_validator_rejects_missing_nonfinite_or_zero_prices[open-None]" time="0.005"><failure message="Failed: DID NOT RAISE ValueError">research\reviews\2026-09-28\test_v1_readiness.py:33: in test_validator_rejects_missing_nonfinite_or_zero_prices
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE ValueError</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_validator_rejects_missing_nonfinite_or_zero_prices[volume-inf]" time="0.002"><failure message="Failed: DID NOT RAISE ValueError">research\reviews\2026-09-28\test_v1_readiness.py:33: in test_validator_rejects_missing_nonfinite_or_zero_prices
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE ValueError</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_validator_rejects_missing_nonfinite_or_zero_prices[close-0.0]" time="0.002"><failure message="Failed: DID NOT RAISE ValueError">research\reviews\2026-09-28\test_v1_readiness.py:33: in test_validator_rejects_missing_nonfinite_or_zero_prices
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE ValueError</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_multi_instrument_bars_are_not_duplicate_dates" time="0.006"><failure message="ValueError: Found duplicate dates: shape: (1, 2)&#10;┌────────────┬─────┐&#10;│ date       ┆ len │&#10;│ ---        ┆ --- │&#10;│ date       ┆ u32 │&#10;╞════════════╪═════╡&#10;│ 2024-01-01 ┆ 2   │&#10;└────────────┴─────┘">research\reviews\2026-09-28\test_v1_readiness.py:40: in test_multi_instrument_bars_are_not_duplicate_dates
+    DataValidator.validate_ohlcv(df)
+src\equity_engine\ingestion\validator.py:34: in validate_ohlcv
+    raise ValueError(f"Found duplicate dates: {duplicates}")
+E   ValueError: Found duplicate dates: shape: (1, 2)
+E   ┌────────────┬─────┐
+E   │ date       ┆ len │
+E   │ ---        ┆ --- │
+E   │ date       ┆ u32 │
+E   ╞════════════╪═════╡
+E   │ 2024-01-01 ┆ 2   │
+E   └────────────┴─────┘</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_importer_preserves_available_delivery" time="0.008"><failure message="polars.exceptions.ColumnNotFoundError: unable to find column &quot;DlvblQty&quot;; valid columns: [&quot;date&quot;, &quot;instrument_id&quot;, &quot;exchange&quot;, &quot;symbol&quot;, &quot;series&quot;, &quot;open&quot;, &quot;high&quot;, &quot;low&quot;, &quot;close&quot;, &quot;volume&quot;, &quot;traded_value&quot;]">research\reviews\2026-09-28\test_v1_readiness.py:53: in test_importer_preserves_available_delivery
+    normalized = importer._parse_consolidated(df)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\equity_engine\ingestion\nse_importer.py:82: in _parse_consolidated
+    normalized = normalized.with_columns(pl.col("DlvblQty").alias("deliverable_quantity"))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\dataframe\frame.py:10751: in with_columns
+    ._collect_eager(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\lazyframe\frame.py:2240: in _collect_eager
+    return _eager_engine().collect(
+.venv\Lib\site-packages\polars\lazyframe\engine.py:443: in collect
+    return wrap_df(ldf.collect(self.name, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: unable to find column "DlvblQty"; valid columns: ["date", "instrument_id", "exchange", "symbol", "series", "open", "high", "low", "close", "volume", "traded_value"]</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_universe_excludes_stale_history_outside_window" time="0.010"><failure message="assert 'STALE' not in ['ACTIVE', 'STALE']&#10; +  where ['ACTIVE', 'STALE'] = to_list()&#10; +    where to_list = shape: (2,)\nSeries: 'symbol' [str]\n[\n&#09;&quot;ACTIVE&quot;\n&#09;&quot;STALE&quot;\n].to_list">research\reviews\2026-09-28\test_v1_readiness.py:72: in test_universe_excludes_stale_history_outside_window
+    assert "STALE" not in result["symbol"].to_list()
+E   assert 'STALE' not in ['ACTIVE', 'STALE']
+E    +  where ['ACTIVE', 'STALE'] = to_list()
+E    +    where to_list = shape: (2,)\nSeries: 'symbol' [str]\n[\n	"ACTIVE"\n	"STALE"\n].to_list</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_universe_uses_reported_turnover" time="0.002"><failure message="assert False&#10; +  where False = is_empty()&#10; +    where is_empty = shape: (1, 2)\n┌────────┬────────┐\n│ symbol ┆ tier   │\n│ ---    ┆ ---    │\n│ str    ┆ str    │\n╞════════╪════════╡\n│ A      ┆ tier_1 │\n└────────┴────────┘.is_empty">research\reviews\2026-09-28\test_v1_readiness.py:82: in test_universe_uses_reported_turnover
+    assert result.is_empty()
+E   assert False
+E    +  where False = is_empty()
+E    +    where is_empty = shape: (1, 2)\n┌────────┬────────┐\n│ symbol ┆ tier   │\n│ ---    ┆ ---    │\n│ str    ┆ str    │\n╞════════╪════════╡\n│ A      ┆ tier_1 │\n└────────┴────────┘.is_empty</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_incomplete_watch_is_censored_not_expired" time="0.001"><failure message="AssertionError: assert 'EXPIRED' == 'WATCH'&#10;  &#10;  - WATCH&#10;  + EXPIRED">research\reviews\2026-09-28\test_v1_readiness.py:88: in test_incomplete_watch_is_censored_not_expired
+    assert outcome["final_state"] == "WATCH"
+E   AssertionError: assert 'EXPIRED' == 'WATCH'
+E     
+E     - WATCH
+E     + EXPIRED</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_stop_uses_confirmation_atr" time="0.002"><failure message="assert 98.0 == 95.0">research\reviews\2026-09-28\test_v1_readiness.py:98: in test_stop_uses_confirmation_atr
+    assert outcome["stop_price"] == 95.  # 100 - 0.5 * confirmation ATR 10
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 98.0 == 95.0</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_one_profitable_observation_cannot_validate_evidence" time="0.001"><failure message="AssertionError: assert 'VALIDATED' == 'INSUFFICIENT EVIDENCE'&#10;  &#10;  - INSUFFICIENT EVIDENCE&#10;  + VALIDATED">research\reviews\2026-09-28\test_v1_readiness.py:103: in test_one_profitable_observation_cannot_validate_evidence
+    assert stats["status"] == "INSUFFICIENT EVIDENCE"
+E   AssertionError: assert 'VALIDATED' == 'INSUFFICIENT EVIDENCE'
+E     
+E     - INSUFFICIENT EVIDENCE
+E     + VALIDATED</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_existing_adjustment_to_feature_composition_uses_adjusted_prices" time="0.004"><failure message="assert 50.0 == 0.0">research\reviews\2026-09-28\test_v1_readiness.py:118: in test_existing_adjustment_to_feature_composition_uses_adjusted_prices
+    assert features["tr"][15] == 0.
+E   assert 50.0 == 0.0</failure></testcase><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_next_session_entry_and_executable_gap_stop_work" time="0.001" /><testcase classname="research.reviews.2026-09-28.test_v1_readiness" name="test_confirm_requires_strict_close_above_level" time="0.001" /></testsuite></testsuites>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="14" skipped="0" tests="17" time="1.964" timestamp="2026-09-28T23:48:03.735258+05:30" hostname="LOQ"><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_nonvacuous_component_chain_and_snapshot_roundtrip" time="0.226" /><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_full_chain_has_failed_setup_state" time="0.001"><failure message="AssertionError: Only EXPIRED/INVALIDATED are implemented for these failure paths; FAILED is not emitted.&#10;assert 'FAILED' in {'COMPLETED': 2, 'EXPIRED': 1, 'WATCH': 1, 'INVALIDATED': 1}">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:140: in test_full_chain_has_failed_setup_state
+    assert "FAILED" in chain["summary"]["states"], "Only EXPIRED/INVALIDATED are implemented for these failure paths; FAILED is not emitted."
+E   AssertionError: Only EXPIRED/INVALIDATED are implemented for these failure paths; FAILED is not emitted.
+E   assert 'FAILED' in {'COMPLETED': 2, 'EXPIRED': 1, 'WATCH': 1, 'INVALIDATED': 1}</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_full_chain_has_both_target_touch_labels" time="0.001"><failure message="AssertionError: ['event_id', 'instrument_id', 'setup', 'detection_date', 'final_state', 'confirmation_date', ...]&#10;assert (False)&#10; +  where False = any(&lt;generator object test_full_chain_has_both_target_touch_labels.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000018BFEAD3D30&gt;)">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:145: in test_full_chain_has_both_target_touch_labels
+    assert any("1r" in c for c in fields) and any("2r" in c for c in fields), fields
+E   AssertionError: ['event_id', 'instrument_id', 'setup', 'detection_date', 'final_state', 'confirmation_date', ...]
+E   assert (False)
+E    +  where False = any(&lt;generator object test_full_chain_has_both_target_touch_labels.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000018BFEAD3D30&gt;)</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_snapshot_records_complete_trial_metadata" time="0.001"><failure message="AssertionError: Missing trial fields: ['configuration', 'cost_model', 'date_boundaries', 'input_hash', 'output_hash', 'random_seed']&#10;assert {'configurati...ut_hash', ...} &lt;= {'created_at'...tistics', ...}&#10;  &#10;  Extra items in the left set:&#10;  'date_boundaries'&#10;  'output_hash'&#10;  'configuration'&#10;  'input_hash'&#10;  'cost_model'&#10;  'random_seed'">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:152: in test_snapshot_records_complete_trial_metadata
+    assert required &lt;= set(metadata), f"Missing trial fields: {sorted(required - set(metadata))}"
+E   AssertionError: Missing trial fields: ['configuration', 'cost_model', 'date_boundaries', 'input_hash', 'output_hash', 'random_seed']
+E   assert {'configurati...ut_hash', ...} &lt;= {'created_at'...tistics', ...}
+E     
+E     Extra items in the left set:
+E     'date_boundaries'
+E     'output_hash'
+E     'configuration'
+E     'input_hash'
+E     'cost_model'
+E     'random_seed'</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_bootstrap_is_deterministic_and_baseline_is_static" time="0.019" /><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_statistics_report_dependence_limitations" time="0.001"><failure message="AssertionError: {'effective_n': 1, 'distinct_time_blocks': 1, 'mean_r': -0.16835774117647026, 'ci_lower': -0.16835774117647026, ...}&#10;assert False&#10; +  where False = any(&lt;generator object test_statistics_report_dependence_limitations.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000018BFEC68860&gt;)">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:165: in test_statistics_report_dependence_limitations
+    assert any("dependence" in key or "limitation" in key for key in stats), stats
+E   AssertionError: {'effective_n': 1, 'distinct_time_blocks': 1, 'mean_r': -0.16835774117647026, 'ci_lower': -0.16835774117647026, ...}
+E   assert False
+E    +  where False = any(&lt;generator object test_statistics_report_dependence_limitations.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000018BFEC68860&gt;)</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_mixed_families_not_silently_pooled" time="0.002"><failure message="AssertionError: Two setup families silently returned as one aggregate.&#10;assert 'by_setup' in {'effective_n': 2, 'distinct_time_blocks': 1, 'mean_r': -0.33475987058823514, 'ci_lower': -0.501162, ...}">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:175: in test_mixed_families_not_silently_pooled
+    assert "by_setup" in stats, "Two setup families silently returned as one aggregate."
+E   AssertionError: Two setup families silently returned as one aggregate.
+E   assert 'by_setup' in {'effective_n': 2, 'distinct_time_blocks': 1, 'mean_r': -0.33475987058823514, 'ci_lower': -0.501162, ...}</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_event_identity_is_deterministic" time="0.001"><failure message="AssertionError: assert '0138e07a-b5f...-62f8e8600b57' == '8287f8ac-0a0...-1364fb35f650'&#10;  &#10;  - 8287f8ac-0a02-4589-af38-1364fb35f650&#10;  + 0138e07a-b5fc-4821-8290-62f8e8600b57">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:180: in test_event_identity_is_deterministic
+    assert SetupEvent(*args).event_id == SetupEvent(*args).event_id
+E   AssertionError: assert '0138e07a-b5f...-62f8e8600b57' == '8287f8ac-0a0...-1364fb35f650'
+E     
+E     - 8287f8ac-0a02-4589-af38-1364fb35f650
+E     + 0138e07a-b5fc-4821-8290-62f8e8600b57</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_split_basis_is_consistent_through_detection_and_outcomes" time="0.011"><failure message="AssertionError: {'actual_confirmation': '2020-12-30', 'raw_close': 100.0, 'adjusted_close': 50.0, 'breakout_level': 50.5}&#10;assert datetime.date(2020, 12, 30) is None">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:204: in test_split_basis_is_consistent_through_detection_and_outcomes
+    assert actual["confirmation_date"] is None, {
+E   AssertionError: {'actual_confirmation': '2020-12-30', 'raw_close': 100.0, 'adjusted_close': 50.0, 'breakout_level': 50.5}
+E   assert datetime.date(2020, 12, 30) is None</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_discovery_outcomes_do_not_overlap_validation" time="0.003"><failure message="AssertionError: {'detection': '2020-12-02', 'validation_start': '2020-12-28', 'outcome_exit': '2021-01-05', 'holdout_start': '2021-04-19'}&#10;assert datetime.date(2021, 1, 5) &lt; datetime.date(2020, 12, 28)&#10; +  where datetime.date(2020, 12, 28) = min()&#10; +    where min = shape: (63,)\nSeries: 'date' [date]\n[\n&#09;2020-12-28\n&#09;2020-12-29\n&#09;2020-12-30\n&#09;2020-12-31\n&#09;2021-01-01\n&#09;…\n&#09;2021-03-18\n&#09;2021-03-19\n&#09;2021-03-22\n&#09;2021-03-23\n&#09;2021-03-24\n].min">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:222: in test_discovery_outcomes_do_not_overlap_validation
+    assert result["exit_date"] &lt; validation["date"].min(), {
+E   AssertionError: {'detection': '2020-12-02', 'validation_start': '2020-12-28', 'outcome_exit': '2021-01-05', 'holdout_start': '2021-04-19'}
+E   assert datetime.date(2021, 1, 5) &lt; datetime.date(2020, 12, 28)
+E    +  where datetime.date(2020, 12, 28) = min()
+E    +    where min = shape: (63,)\nSeries: 'date' [date]\n[\n	2020-12-28\n	2020-12-29\n	2020-12-30\n	2020-12-31\n	2021-01-01\n	…\n	2021-03-18\n	2021-03-19\n	2021-03-22\n	2021-03-23\n	2021-03-24\n].min</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_zip_input_supported" time="0.017"><failure message="polars.exceptions.ComputeError: invalid utf-8 sequence">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:232: in test_zip_input_supported
+    output = importer.process_bhavcopy(str(path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\equity_engine\ingestion\nse_importer.py:39: in process_bhavcopy
+    df = pl.read_csv(path)
+         ^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\_utils\deprecation.py:132: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\_utils\deprecation.py:132: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\_utils\deprecation.py:132: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\_utils\deprecation.py:132: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\polars\io\csv\functions.py:592: in read_csv
+    df = _read_csv_impl(
+.venv\Lib\site-packages\polars\io\csv\functions.py:743: in _read_csv_impl
+    pydf = PyDataFrame.read_csv(
+E   polars.exceptions.ComputeError: invalid utf-8 sequence</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_html_input_rejected_without_processed_output" time="0.013" /><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_importer_rejects_invalid_ohlc_before_publication" time="0.012"><failure message="Failed: DID NOT RAISE ValueError">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:249: in test_importer_rejects_invalid_ohlc_before_publication
+    with pytest.raises(ValueError):
+E   Failed: DID NOT RAISE ValueError</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_importer_preserves_market_date_provenance" time="0.026"><failure message="AssertionError: [{'source_file': 'synthetic.csv', 'market_date': '2026-09-28', 'downloaded_at': '2026-09-28 23:48:05.011439', 'file_size': 158, ...}]&#10;assert '2026-09-28' == '2020-01-01'&#10;  &#10;  - 2020-01-01&#10;  + 2026-09-28">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:261: in test_importer_preserves_market_date_provenance
+    assert manifest["market_date"][0] == "2020-01-01", manifest.to_dicts()
+E   AssertionError: [{'source_file': 'synthetic.csv', 'market_date': '2026-09-28', 'downloaded_at': '2026-09-28 23:48:05.011439', 'file_size': 158, ...}]
+E   assert '2026-09-28' == '2020-01-01'
+E     
+E     - 2020-01-01
+E     + 2026-09-28</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_dashboard_has_no_hardcoded_validated_overview" time="0.525"><failure message="AssertionError: [('Market Regime', 'UPTREND'), ('Detected Setups', '5'), ('Data Quality', 'VALID')]&#10;assert ('Data Quality', 'VALID') not in [('Market Regime', 'UPTREND'), ('Detected Setups', '5'), ('Data Quality', 'VALID')]">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:278: in test_dashboard_has_no_hardcoded_validated_overview
+    assert ("Data Quality", "VALID") not in captured, captured
+E   AssertionError: [('Market Regime', 'UPTREND'), ('Detected Setups', '5'), ('Data Quality', 'VALID')]
+E   assert ('Data Quality', 'VALID') not in [('Market Regime', 'UPTREND'), ('Detected Setups', '5'), ('Data Quality', 'VALID')]</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_alert_consumes_frozen_evidence" time="0.026"><failure message="AssertionError: send_alert accepts caller text without loading frozen evidence.&#10;assert False&#10; +  where False = &lt;MagicMock name='load_snapshot' id='1700171987664'&gt;.called">research\reviews\2026-09-28\reverification\test_pipeline_gates.py:289: in test_alert_consumes_frozen_evidence
+    assert load.called, "send_alert accepts caller text without loading frozen evidence."
+E   AssertionError: send_alert accepts caller text without loading frozen evidence.
+E   assert False
+E    +  where False = &lt;MagicMock name='load_snapshot' id='1700171987664'&gt;.called</failure></testcase><testcase classname="research.reviews.2026-09-28.reverification.test_pipeline_gates" name="test_actual_pilot_executes_partitions_and_snapshots" time="0.095"><failure message="AssertionError: {'split_calls': 0, 'snapshot_calls': 0, 'states': {'COMPLETED': 2, 'EXPIRED': 1, 'WATCH': 1, 'INVALIDATED': 1}, 'setup_families': ['BREAKOUT_V1.0', 'VCB_V1.0']}&#10;assert (False)&#10; +  where False = &lt;function split_data at 0x0000018BDB857F60&gt;.called">C:\Users\mitul\Downloads\Stock Screener\equity-evidence-engine\research\reviews\2026-09-28\reverification\test_pipeline_gates.py:316: in test_actual_pilot_executes_partitions_and_snapshots
+    assert split.called and snapshot.called, summary
+E   AssertionError: {'split_calls': 0, 'snapshot_calls': 0, 'states': {'COMPLETED': 2, 'EXPIRED': 1, 'WATCH': 1, 'INVALIDATED': 1}, 'setup_families': ['BREAKOUT_V1.0', 'VCB_V1.0']}
+E   assert (False)
+E    +  where False = &lt;function split_data at 0x0000018BDB857F60&gt;.called</failure></testcase></testsuite></testsuites>

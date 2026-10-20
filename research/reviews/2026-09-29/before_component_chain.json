@@ -1,0 +1,110 @@
+{
+  "stages": {
+    "watch": "WATCH",
+    "confirmed": "CONFIRMED",
+    "completed": "COMPLETED"
+  },
+  "events": 6,
+  "states": {
+    "COMPLETED": 2,
+    "EXPIRED": 1,
+    "WATCH": 1,
+    "INVALIDATED": 1,
+    "FAILED": 1
+  },
+  "completed_by_setup": [
+    {
+      "setup": "BREAKOUT_V1.0",
+      "len": 1
+    },
+    {
+      "setup": "VCB_V1.0",
+      "len": 1
+    }
+  ],
+  "metrics": {
+    "BREAKOUT_V1.0": {
+      "effective_n": 1,
+      "distinct_time_blocks": 1,
+      "mean_r": -0.16835774117647026,
+      "ci_lower": -0.16835774117647026,
+      "ci_upper": -0.16835774117647026,
+      "win_rate": 0.0,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": -0.16835774117647026,
+      "status": "INSUFFICIENT EVIDENCE",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    },
+    "VCB_V1.0": {
+      "effective_n": 1,
+      "distinct_time_blocks": 1,
+      "mean_r": -0.501162,
+      "ci_lower": -0.501162,
+      "ci_upper": -0.501162,
+      "win_rate": 0.0,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": -0.501162,
+      "status": "INSUFFICIENT EVIDENCE",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    }
+  },
+  "snapshots": {
+    "BREAKOUT_V1.0": {
+      "evidence_snapshot_id": "97a45893-fb4d-4c07-98d7-9bd3d8a30a81",
+      "setup_version": "BREAKOUT_V1.0",
+      "universe_version": "review-fixture-only",
+      "methodology_version": "review-probe",
+      "data_cutoff": "2021-04-20",
+      "created_at": "2026-09-29T00:39:33.758398",
+      "statistics": {
+        "effective_n": 1,
+        "distinct_time_blocks": 1,
+        "mean_r": -0.16835774117647026,
+        "ci_lower": -0.16835774117647026,
+        "ci_upper": -0.16835774117647026,
+        "win_rate": 0.0,
+        "baseline_mean_r": 0.0,
+        "baseline_type": "STATIC",
+        "lift": -0.16835774117647026,
+        "status": "INSUFFICIENT EVIDENCE",
+        "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+      },
+      "configuration": {},
+      "cost_model": {},
+      "date_boundaries": {},
+      "input_hash": "",
+      "output_hash": "",
+      "random_seed": 42
+    },
+    "VCB_V1.0": {
+      "evidence_snapshot_id": "7169aae3-df2b-4e37-83be-c048f9555977",
+      "setup_version": "VCB_V1.0",
+      "universe_version": "review-fixture-only",
+      "methodology_version": "review-probe",
+      "data_cutoff": "2021-04-20",
+      "created_at": "2026-09-29T00:39:33.774431",
+      "statistics": {
+        "effective_n": 1,
+        "distinct_time_blocks": 1,
+        "mean_r": -0.501162,
+        "ci_lower": -0.501162,
+        "ci_upper": -0.501162,
+        "win_rate": 0.0,
+        "baseline_mean_r": 0.0,
+        "baseline_type": "STATIC",
+        "lift": -0.501162,
+        "status": "INSUFFICIENT EVIDENCE",
+        "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+      },
+      "configuration": {},
+      "cost_model": {},
+      "date_boundaries": {},
+      "input_hash": "",
+      "output_hash": "",
+      "random_seed": 42
+    }
+  },
+  "note": "Review-assembled component chain, not proof that the production pilot calls research/snapshots."
+}

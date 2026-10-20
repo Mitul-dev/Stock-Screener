@@ -1,0 +1,286 @@
+[
+  {
+    "path": "src/equity_engine/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/alerts/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/alerts/telegram.py",
+    "sha256": "278447514732b4626562128246678b65b1b34483b03d7984778683dd9b623864"
+  },
+  {
+    "path": "src/equity_engine/backtest/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/backtest/controls.py",
+    "sha256": "0f2ce079485eab2d9b4df47dbc73b21add895f30dcc8c3ae52b3ce7e334e02ad"
+  },
+  {
+    "path": "src/equity_engine/backtest/engine.py",
+    "sha256": "ba2a94db9f9afe16caaa596c2b6f6990b743f30b12ca1a5738fe1d8f3b1ac11c"
+  },
+  {
+    "path": "src/equity_engine/corporate_actions/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/corporate_actions/adjustor.py",
+    "sha256": "d9f53c005988b1e71c0356622bd3d66b2eeb893d95938e1082329ed31372d797"
+  },
+  {
+    "path": "src/equity_engine/dashboard/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/dashboard/app.py",
+    "sha256": "092d4b140031470c460a5ff3f296b825680fb8c5b93a883d5be6d57d7e237413"
+  },
+  {
+    "path": "src/equity_engine/evidence/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/evidence/snapshot.py",
+    "sha256": "f9587cac7e3463362d79eedf248db975e10cb3b3da443b644b940b1d8671902c"
+  },
+  {
+    "path": "src/equity_engine/features/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/features/calculator.py",
+    "sha256": "94479f8ec08119f36ad91d0643ef85e70f4c2fd68b1514ae8c143c92c269ebf5"
+  },
+  {
+    "path": "src/equity_engine/ingestion/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/ingestion/csv_provider.py",
+    "sha256": "bff292212e7ad129ebd66c47dec74f6c4f1f80c955d24a45f3fb4a0be3046513"
+  },
+  {
+    "path": "src/equity_engine/ingestion/nse_importer.py",
+    "sha256": "79fea54ef6eda2668ec39201f9f16b97864e555d9ab281cbe6e3518709880a10"
+  },
+  {
+    "path": "src/equity_engine/ingestion/provider.py",
+    "sha256": "d92dbe77e35cfbdfcc4fd7e57e07f2981a8b0cdb634ece48bd2661ed68dd24b3"
+  },
+  {
+    "path": "src/equity_engine/ingestion/storage.py",
+    "sha256": "855b6872e9832916ebfb9632e1cd3f9c9e67c8beba21df8f73cfd839fdd5b624"
+  },
+  {
+    "path": "src/equity_engine/ingestion/validator.py",
+    "sha256": "3fd0f3afc2f3f5d3d3dbd0faf9f051a335b5937b580821462e67ed4f365dda4e"
+  },
+  {
+    "path": "src/equity_engine/notifications/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/outcomes/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/outcomes/engine.py",
+    "sha256": "1c368bf7aa1da2f34b59d18bed2897e223d06772d1f0d7e2abe568ac019fbdeb"
+  },
+  {
+    "path": "src/equity_engine/regime/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/regime/classifier.py",
+    "sha256": "4b5bda8d22a1669fa3294fcfce74f6276bb6e72a4f017479708253112819d4f0"
+  },
+  {
+    "path": "src/equity_engine/security_master/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/security_master/master.py",
+    "sha256": "c27926d21e65395ec0808023aac108661ceeddf6eda2f99b9176ed5116401bcb"
+  },
+  {
+    "path": "src/equity_engine/setups/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/setups/breakout.py",
+    "sha256": "8572fcd568c5354436f4fdc4a6ed91fe595ad1dc336bf91777e6f82f20ee65a8"
+  },
+  {
+    "path": "src/equity_engine/setups/vcb.py",
+    "sha256": "32697898b1791d01ed071b7ae7ea736bba49422d44a8edf11478d89100f3adc7"
+  },
+  {
+    "path": "src/equity_engine/universe/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/equity_engine/universe/builder.py",
+    "sha256": "1708db843f6647a4dfcc815b3c4fbcf5f495f2c6261d22d70a50728f3631fb73"
+  },
+  {
+    "path": "scripts/fetch_nifty.py",
+    "sha256": "0e20392c34fe85fdbe8684dce3d4c3417b8b83ef594a5bffff819966c6a08e4e"
+  },
+  {
+    "path": "scripts/fetch_pilot_data.py",
+    "sha256": "c64f4cae4670b432af3be4ea239501d1ed956723f2fe4810236be0bebc22c0e4"
+  },
+  {
+    "path": "scripts/run_pilot_pipeline.py",
+    "sha256": "063c209e68b5b999fba9456ccc44c492c57abe969408f322e73c0531fe9c84de"
+  },
+  {
+    "path": "tests/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/e2e/test_synthetic_e2e.py",
+    "sha256": "ed23944fa0f563633b5023c35a3f8a7daddf317c052e8bf0a104971aced6145f"
+  },
+  {
+    "path": "tests/integration/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/leakage/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/leakage/test_ca.py",
+    "sha256": "bf0b73999157d401f63f0b85f801e9ae5b5372e75c669ee2498b4ff5e0acfb9b"
+  },
+  {
+    "path": "tests/leakage/test_leakage.py",
+    "sha256": "1827351a6be93e470989c9d2038ea0c5e7397dd3f82ee5a9c6aadb0f544cef23"
+  },
+  {
+    "path": "tests/leakage/test_truncation_deep.py",
+    "sha256": "f85cc4df76063ddb9e94d8b30c2441c7479e443a6fceff1831a2ef0065e7fa8b"
+  },
+  {
+    "path": "tests/property/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/unit/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tests/unit/test_breakout.py",
+    "sha256": "cf73aae3329fba5f6ef6b4ee7d447114a80fae3a85d6dbdc698e7687875ecd47"
+  },
+  {
+    "path": "tests/unit/test_controls.py",
+    "sha256": "530cd468439bf13e6999979beccb5e6628ededb29b57bf8bae7f7660d82abbb8"
+  },
+  {
+    "path": "tests/unit/test_corporate_actions.py",
+    "sha256": "2272ec905cac638fed7a5cd30278a686408f3ba232b110b3757930f45a7139ae"
+  },
+  {
+    "path": "tests/unit/test_dashboard.py",
+    "sha256": "f3a211f6747b1f5fe79533da202f75fa4bf6f4bc5eadfbd3d49ed5e154f46d6e"
+  },
+  {
+    "path": "tests/unit/test_env.py",
+    "sha256": "67479ce6982b7d73762a0aef154cb03274428c6b10620bffe93df642838bcff7"
+  },
+  {
+    "path": "tests/unit/test_evidence.py",
+    "sha256": "3edf39487a530450f2b1d6025dac41aedb0833bdec1a5fd797f7a56f1adde695"
+  },
+  {
+    "path": "tests/unit/test_features.py",
+    "sha256": "73fb26f474a6a732dc119a5ce0263de0082d627265d4acbbfb62e3c9a994e80c"
+  },
+  {
+    "path": "tests/unit/test_ingestion.py",
+    "sha256": "50ffc8a898141fc99514017076b4f9191f80d1b464cece8083be94deb4b1fe15"
+  },
+  {
+    "path": "tests/unit/test_outcomes.py",
+    "sha256": "ba9163834c86ee49846dd2f06ed986dba374a197c90d6cde94c1f6ebf90ce019"
+  },
+  {
+    "path": "tests/unit/test_regime.py",
+    "sha256": "6707ef8cb48c5715df4a38be40103bed2992afb469a2fd569f32bc2e6d31fb06"
+  },
+  {
+    "path": "tests/unit/test_research.py",
+    "sha256": "54a794ca7a270ac31db5a4a497445f6cfbcaea76295ec65919e65d52f79d9773"
+  },
+  {
+    "path": "tests/unit/test_security_master.py",
+    "sha256": "0f44fe82085625ded604d4de4bbdd5842e061cf813d21a3982fb3164a9963498"
+  },
+  {
+    "path": "tests/unit/test_telegram.py",
+    "sha256": "84eac2abeff8dc06b97b92c02aca166a36a94991784798cd9fef7538f371eb72"
+  },
+  {
+    "path": "tests/unit/test_universe.py",
+    "sha256": "940392c1b85af1d7e2d2a36486005ce45eccf33c02475ac0d10a92d384e85389"
+  },
+  {
+    "path": "tests/unit/test_vcb.py",
+    "sha256": "21fdacf35edb63b069a07b4758cf5dfc29846e14df02b98aa3c377935560b213"
+  },
+  {
+    "path": "config/costs.yaml",
+    "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+  },
+  {
+    "path": "config/regime.yaml",
+    "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+  },
+  {
+    "path": "config/setups.yaml",
+    "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+  },
+  {
+    "path": "config/universe.yaml",
+    "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+  },
+  {
+    "path": "data/processed/normalized_NSE_Pilot_Bhavcopy.parquet",
+    "sha256": "d2fd40138fe4f176b1bc6ebb9e2aa8a67092a9da1b0129718612d0be1b9a21d1"
+  },
+  {
+    "path": "data/processed/pilot_outcomes.parquet",
+    "sha256": "58d17c34d7ab4440b6e9f309501968220917122b4737621d84776ee631026297"
+  },
+  {
+    "path": "data/raw/manifest.csv",
+    "sha256": "ce4816e54a1699d331d917d5359fb0d9a84b2af9caea0796d074959985ecf233"
+  },
+  {
+    "path": "data/raw/NIFTY50.csv",
+    "sha256": "adedfe2bb3db62223d2d253e09139ac5f913e050b9280686b7f5cb7a8e84476e"
+  },
+  {
+    "path": "data/raw/NSE_Pilot_Bhavcopy.csv",
+    "sha256": "9b8d9473f6d36b30f27c55110d30b2e16d52f5b0252f842b7cc191e2855ab73a"
+  },
+  {
+    "path": "data/raw/NSE_Pilot_CorpActions.csv",
+    "sha256": "83260ba79355d39845c987212a81ac0f88e307ef7c56765ebb93481a67976b3c"
+  },
+  {
+    "path": "research/reviews/2026-09-28/reverification/test_pipeline_gates.py",
+    "sha256": "c8321ffa6a4cd94569302061489f5b9b01f82581b336d77065d23e57db15b6f9"
+  },
+  {
+    "path": "research/reviews/2026-09-28/test_v1_readiness.py",
+    "sha256": "82d9db81aa8befcc5b3968d0fb916210bea78d846f8b9bcf04ebf3c7db357d8f"
+  }
+]

@@ -1,0 +1,306 @@
+{
+  "code_hash": "a8543e1cd3b50016455701069aaa7482c9b39e07d033386eb4d8d8b51a8bf06a",
+  "configuration": {
+    "cohort": null,
+    "costs": {
+      "costs": {
+        "brokerage_pct": 0.0003,
+        "exchange_charges_pct": 3.25e-05,
+        "gst_pct": 0.18,
+        "sebi_charges_pct": 1e-06,
+        "slippage_pct": 0.001,
+        "stamp_duty_pct": 0.00015,
+        "stt_pct": 0.001
+      }
+    },
+    "regime": {
+      "regimes": {
+        "NEUTRAL": null,
+        "RISK_OFF": {
+          "nifty_below_200_dma": true,
+          "vix_min": 25.0
+        },
+        "UPTREND": {
+          "breadth_pct_above_50_dma_min": 0.5,
+          "nifty_above_200_dma": true
+        }
+      }
+    },
+    "research": {
+      "discovery_pct": 0.6,
+      "timeout_days": 20,
+      "validation_pct": 0.2,
+      "watch_expiry_days": 5
+    },
+    "setups": {
+      "setups": {
+        "BREAKOUT_V1": {
+          "parameters": {
+            "close_near_high_pct": 0.02,
+            "lookback_days": 252,
+            "min_volume_relative": 1.5
+          },
+          "version": "1.0"
+        },
+        "VCB_V1": {
+          "parameters": {
+            "lookback_days": 60,
+            "max_atr_percentile": 0.2,
+            "min_consolidation_days": 10
+          },
+          "version": "1.0"
+        }
+      }
+    },
+    "universe": {
+      "liquidity_tiers": {
+        "tier_1": {
+          "min_median_traded_value": 500000000,
+          "min_price": 50.0,
+          "min_trading_days_coverage": 0.95
+        },
+        "tier_2": {
+          "min_median_traded_value": 100000000,
+          "min_price": 20.0,
+          "min_trading_days_coverage": 0.9
+        }
+      },
+      "version": "1.0"
+    }
+  },
+  "configuration_files": {
+    "costs": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\config\\costs.yaml",
+      "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+    },
+    "regime": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\config\\regime.yaml",
+      "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+    },
+    "setups": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\config\\setups.yaml",
+      "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+    },
+    "universe": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\config\\universe.yaml",
+      "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+    }
+  },
+  "configuration_hash": "80fc38215f2e6fe01e6330b7e4b2b7643f8a5da17ed8929bfcf20591032c6c9f",
+  "cost_model": {
+    "brokerage_pct": 0.0003,
+    "exchange_charges_pct": 3.25e-05,
+    "gst_pct": 0.18,
+    "sebi_charges_pct": 1e-06,
+    "slippage_pct": 0.001,
+    "stamp_duty_pct": 0.00015,
+    "stt_pct": 0.001
+  },
+  "cost_rate_per_side": 0.00254353,
+  "counts": {
+    "candidate_events": 11,
+    "eligible_outcomes": 6,
+    "evaluated_events": 8
+  },
+  "created_at": "2026-10-20T08:39:09.436125+00:00",
+  "date_boundaries": {
+    "discovery": {
+      "end": "2020-10-05",
+      "sessions": 721,
+      "start": "2018-01-01"
+    },
+    "holdout": {
+      "end": "2022-08-05",
+      "sessions": 215,
+      "start": "2021-10-11"
+    },
+    "validation": {
+      "end": "2021-09-06",
+      "sessions": 216,
+      "start": "2020-11-09"
+    }
+  },
+  "execution_status": "COMPLETED",
+  "input_hash": "6c756980ee7f7b8e87315bcad31f680e5ed8aa1c1733bdb69a59a22e1f7e97dd",
+  "inputs": [
+    {
+      "acquisition": {},
+      "acquisition_receipt": null,
+      "archived_raw": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\raw_archive\\archive\\db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7\\synthetic_nse.csv",
+        "sha256": "db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7"
+      },
+      "ingestion_receipt": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\normalized\\receipts\\normalized_db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7_NSE_CONSOLIDATED_V2.json",
+        "sha256": "7806a5c96877b1cb73ed227074ea6b0cad394140acb1863c6179772bb451045b"
+      },
+      "kind": "ohlcv",
+      "normalized": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\normalized\\normalized_db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7_NSE_CONSOLIDATED_V2.parquet",
+        "sha256": "cecc170e5c7ec1aaf2c20e2f82e61e89c82d33f8818d63981b6a9a4dc5121792"
+      },
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\synthetic_nse.csv",
+      "sha256": "db73bae7bbe3355ae997315300fc18e748357137cc26b05c37d740ca6dff86b7"
+    },
+    {
+      "kind": "corporate_actions",
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\actions.csv",
+      "sha256": "eb7b5866e8a3489a978531f1c9fa4f1da662e3c69acee2b34054f4e797d829df"
+    },
+    {
+      "kind": "index",
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_inputs\\nifty.csv",
+      "sha256": "c47ec4ff205f7548f9886ee44a734d32f097d922a0b0093e96e7fd9a9d8c8288"
+    }
+  ],
+  "manifest_path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\manifest.json",
+  "methodology_version": "V1-partitioned-pilot-1",
+  "outcome_boundary_policy": "censor_incomplete_windows_at_each_partition_end",
+  "outputs": {
+    "events": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\events.parquet",
+      "sha256": "8d8a2578940ebfbef909f2555c628747a65d2be06bf1d3896694fcf86d66bc9f"
+    },
+    "features": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\features.parquet",
+      "sha256": "b094e356a0e3f2b8184d0ff9e83f4f32f78d2f10af2a0bf18b5f9ca2270bf524"
+    },
+    "outcomes": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\outcomes.parquet",
+      "sha256": "7299974f8ece4bf0f2d8cdc20af3c2d5d1b4de7d449f0f9efa31afb093dcff89"
+    },
+    "regime": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\regime.parquet",
+      "sha256": "c43b1e88d881e093566949d3d6c7ac9e7fbaee43f396d4b26806f6baf22ff022"
+    },
+    "statistics": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\statistics.json",
+      "sha256": "a7c6c5adccc4562f0ef562209c89ce49847609dbd319d2b7ef874a2e2e2351cc"
+    },
+    "universe": {
+      "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\universe.parquet",
+      "sha256": "b5a4fbf8d0fc3cd33004e5122273411d4e63a0933c9e443eea1f59e3336b51ef"
+    }
+  },
+  "paper_research_approved": false,
+  "partition_results": {
+    "discovery": {
+      "censored": 2,
+      "eligible": 2,
+      "events": 4,
+      "status": "EXECUTED"
+    },
+    "holdout": {
+      "censored": 0,
+      "eligible": 2,
+      "events": 2,
+      "status": "EXECUTED"
+    },
+    "validation": {
+      "censored": 0,
+      "eligible": 2,
+      "events": 2,
+      "status": "EXECUTED"
+    }
+  },
+  "price_basis": {
+    "cutoff": "2022-08-05",
+    "method": "backward_split_bonus_adjustment",
+    "raw_ohlcv_retained": true
+  },
+  "random_seed": 42,
+  "regime_breadth_population": "eligible_instruments_in_supplied_pilot_cohort",
+  "run_dir": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2",
+  "run_fingerprint": "e963cbb8e3aa9ca51ab9ec11ae266d126ecec2f559743758369e8e980506a6d3",
+  "setup_versions": [
+    "BREAKOUT_V1.0",
+    "VCB_V1.0"
+  ],
+  "snapshots": [
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\80e41da6-6d20-44d4-b03e-f3f866dfb61b_meta.json",
+        "sha256": "2b50b365bbb7a6e55813bd63cd2280bdc51f9d6fc30b017520a95fe6dc2f762d"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\80e41da6-6d20-44d4-b03e-f3f866dfb61b_outcomes.parquet",
+        "sha256": "d41c4c97372ac634b0eef772189a7aa23dc7c778ac0788668c8b1ed18ff8fcdb"
+      },
+      "partition": "discovery",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "80e41da6-6d20-44d4-b03e-f3f866dfb61b"
+    },
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\adb2db60-3560-473c-85d3-45dcdb6d1569_meta.json",
+        "sha256": "a191c2709517e889a9a58fae52d18c328b9ed681ddb71c6d52a80d4c1cd8847b"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\adb2db60-3560-473c-85d3-45dcdb6d1569_outcomes.parquet",
+        "sha256": "9c965e3cb8f2153bbd21e6c0e2f667ac603a6336e006121a32b2e9a1efbd562d"
+      },
+      "partition": "discovery",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "adb2db60-3560-473c-85d3-45dcdb6d1569"
+    },
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\aa33deb6-d18e-4390-96fc-10575785d654_meta.json",
+        "sha256": "c0b3280bfdda1f004272a3e9680a66dcfbdda9386f00d7d31d4fa7703f6ae00b"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\aa33deb6-d18e-4390-96fc-10575785d654_outcomes.parquet",
+        "sha256": "48a3af71825cf74c23d2bc846d7a1ab017a80e42d24ad57d706180fa4fbd9e29"
+      },
+      "partition": "validation",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "aa33deb6-d18e-4390-96fc-10575785d654"
+    },
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\5a87dc96-81be-4a56-82cd-6da90fa9ec64_meta.json",
+        "sha256": "1529aafe54fa743434113fc304249f44f9ea65d7405b779c7c8f902bea710a58"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\5a87dc96-81be-4a56-82cd-6da90fa9ec64_outcomes.parquet",
+        "sha256": "8cf8f74f03d65f0d97a0a3289cd88ef4127246d444d9602af43a48415699e949"
+      },
+      "partition": "validation",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "5a87dc96-81be-4a56-82cd-6da90fa9ec64"
+    },
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\c028a623-95ce-4107-a842-d241e3f14230_meta.json",
+        "sha256": "284f114c7970708ddacaa20e2b6bc3cefa43194f7c91f54f97dca4bc4b66ddec"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\c028a623-95ce-4107-a842-d241e3f14230_outcomes.parquet",
+        "sha256": "2efeef26c3ebb92c3b0edac50bb87405b6e43d634ee9f804a4b766cc277dab17"
+      },
+      "partition": "holdout",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "c028a623-95ce-4107-a842-d241e3f14230"
+    },
+    {
+      "metadata": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\3c63ae2e-a8d9-444b-aa13-c026d570cd9e_meta.json",
+        "sha256": "d29d449d98e5dbb2fb278e58011a4639d190d966bf931d3e05731d1e372a6321"
+      },
+      "outcomes": {
+        "path": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reports\\production_acceptance_2026-10-20\\synthetic_runs\\pilot-e963cbb8e3aa9ca5-bf9b48b2\\snapshots\\3c63ae2e-a8d9-444b-aa13-c026d570cd9e_outcomes.parquet",
+        "sha256": "dd071219626f48a26421a1320d50a91bc692e10bf5df103267d5230a46f6805e"
+      },
+      "partition": "holdout",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "3c63ae2e-a8d9-444b-aa13-c026d570cd9e"
+    }
+  ],
+  "status": "EXPERIMENTAL",
+  "trial_id": "pilot-e963cbb8e3aa9ca5-bf9b48b2",
+  "universe_evaluation": "as_of_each_candidate_detection_date_using_reported_turnover",
+  "universe_version": "universe-1.0",
+  "warnings": [
+    "Some source files have no recorded acquisition provenance."
+  ]
+}

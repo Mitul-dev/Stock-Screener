@@ -1,0 +1,120 @@
+{
+  "report": "C:\\Users\\mitul\\Downloads\\Stock Screener\\equity-evidence-engine\\research\\reviews\\2026-09-29\\observations.json",
+  "source_changes": [],
+  "split_watch_false_candidate": {
+    "split_date": "2021-01-01",
+    "event_date": "2020-12-30",
+    "raw_close": 94.0,
+    "adjusted_close": 47.0,
+    "actual": [
+      {
+        "breakout_level": 50.5,
+        "result": {
+          "event_id": "710cb3191eab0a189cdb92f05cd11c4e",
+          "instrument_id": "TEST_EXPIRED",
+          "setup": "BREAKOUT_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "EXPIRED",
+          "confirmation_date": null,
+          "entry_price": null,
+          "stop_price": null,
+          "exit_date": null,
+          "exit_price": null,
+          "gross_realized_r": null,
+          "net_realized_r": null,
+          "mfe": null,
+          "mae": null,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ],
+    "consistent_basis_reference": []
+  },
+  "split_watch_vcb": {
+    "split_date": "2020-12-31",
+    "event_date": "2020-12-30",
+    "raw_close": 100.75,
+    "adjusted_close": 50.375,
+    "actual": [
+      {
+        "breakout_level": 100.5,
+        "result": {
+          "event_id": "3b99a7f172372801173be7031355d5a9",
+          "instrument_id": "TEST_VCB",
+          "setup": "VCB_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "EXPIRED",
+          "confirmation_date": null,
+          "entry_price": null,
+          "stop_price": null,
+          "exit_date": null,
+          "exit_price": null,
+          "gross_realized_r": null,
+          "net_realized_r": null,
+          "mfe": null,
+          "mae": null,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ],
+    "consistent_basis_reference": [
+      {
+        "breakout_level": 50.25,
+        "result": {
+          "event_id": "3b99a7f172372801173be7031355d5a9",
+          "instrument_id": "TEST_VCB",
+          "setup": "VCB_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "COMPLETED",
+          "confirmation_date": "2020-12-30",
+          "entry_price": 50.5,
+          "stop_price": 50.0,
+          "exit_date": "2021-01-27",
+          "exit_price": 50.5,
+          "gross_realized_r": 0.0,
+          "net_realized_r": -0.501162,
+          "mfe": 1.0,
+          "mae": -0.25,
+          "hit_1r": true,
+          "hit_2r": false
+        }
+      }
+    ]
+  },
+  "double_adjustment": {
+    "first_before": 50.0,
+    "second_before": 25.0,
+    "first_after": 50.0,
+    "second_after": 50.0,
+    "rejected": false
+  },
+  "n2": {
+    "effective_n": 2,
+    "distinct_time_blocks": 1,
+    "mean_r": 1.0,
+    "ci_lower": 1.0,
+    "ci_upper": 1.0,
+    "win_rate": 1.0,
+    "baseline_mean_r": 0.0,
+    "baseline_type": "STATIC",
+    "lift": 1.0,
+    "status": "VALIDATED",
+    "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+  },
+  "dashboard": [
+    [
+      "Market Regime",
+      "UPTREND"
+    ],
+    [
+      "Detected Setups",
+      "5"
+    ],
+    [
+      "Data Quality",
+      "UNKNOWN"
+    ]
+  ]
+}

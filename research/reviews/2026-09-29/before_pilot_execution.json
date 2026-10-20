@@ -1,0 +1,14 @@
+{
+  "split_calls": 1,
+  "snapshot_calls": 2,
+  "states": {
+    "COMPLETED": 2,
+    "EXPIRED": 1,
+    "WATCH": 1,
+    "INVALIDATED": 1
+  },
+  "setup_families": [
+    "BREAKOUT_V1.0",
+    "VCB_V1.0"
+  ]
+}

@@ -1,0 +1,9 @@
+regimes:
+  UPTREND:
+    nifty_above_200_dma: true
+    breadth_pct_above_50_dma_min: 0.50
+  RISK_OFF:
+    vix_min: 25.0
+    nifty_below_200_dma: true
+  NEUTRAL:
+    # fallback

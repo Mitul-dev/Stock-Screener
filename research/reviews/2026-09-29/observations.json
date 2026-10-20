@@ -1,0 +1,780 @@
+{
+  "notice": "Synthetic diagnostic inputs only. No official NSE fixture used.",
+  "production_acceptance": {
+    "split_calls": [
+      {
+        "discovery": {
+          "rows": 1230,
+          "sessions": 205,
+          "first": "2020-01-01",
+          "last": "2020-10-13"
+        },
+        "validation": {
+          "rows": 264,
+          "sessions": 44,
+          "first": "2020-11-17",
+          "last": "2021-01-15"
+        },
+        "holdout": {
+          "rows": 258,
+          "sessions": 43,
+          "first": "2021-02-19",
+          "last": "2021-04-20"
+        }
+      }
+    ],
+    "backtest_calls": [
+      {
+        "data": {
+          "rows": 2040,
+          "sessions": 340,
+          "first": "2020-01-01",
+          "last": "2021-04-20"
+        },
+        "events": 6,
+        "event_dates": [
+          "2020-12-30",
+          "2020-12-30",
+          "2020-12-30",
+          "2020-12-30",
+          "2020-12-30",
+          "2021-04-20"
+        ],
+        "instrument_ids": [
+          "INEBREAKOUT01010",
+          "INECENSORED01010",
+          "INEEXPIRED01010",
+          "INEFAILED01010",
+          "INEINVALID01010",
+          "INEVCB01010"
+        ]
+      }
+    ],
+    "snapshots": [
+      {
+        "metadata": {
+          "evidence_snapshot_id": "0812c092-6554-462c-80f4-1752a2c1bc65",
+          "setup_version": "VCB_V1.0",
+          "universe_version": "pilot-universe-v1",
+          "methodology_version": "pilot-methodology-v1",
+          "data_cutoff": "2020-10-13",
+          "created_at": "2026-09-29T13:41:49.857069",
+          "statistics": {
+            "effective_n": 1,
+            "distinct_time_blocks": 1,
+            "mean_r": -0.501162,
+            "ci_lower": -0.501162,
+            "ci_upper": -0.501162,
+            "win_rate": 0.0,
+            "baseline_mean_r": 0.0,
+            "baseline_type": "STATIC",
+            "lift": -0.501162,
+            "status": "INSUFFICIENT EVIDENCE",
+            "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+          },
+          "configuration": {},
+          "cost_model": {},
+          "date_boundaries": {
+            "discovery_end": "2020-10-13"
+          },
+          "input_hash": "pilot-input",
+          "output_hash": "pilot-output",
+          "random_seed": 42
+        },
+        "outcomes": [
+          {
+            "event_id": "9660306f28bfb297059a246c24a99c1a",
+            "instrument_id": "INEVCB01010",
+            "setup": "VCB_V1.0",
+            "detection_date": "2020-12-30",
+            "final_state": "COMPLETED",
+            "confirmation_date": "2020-12-30",
+            "entry_price": 101.0,
+            "stop_price": 100.0,
+            "exit_date": "2021-01-27",
+            "exit_price": 101.0,
+            "gross_realized_r": 0.0,
+            "net_realized_r": -0.501162,
+            "mfe": 1.0,
+            "mae": -0.25,
+            "hit_1r": true,
+            "hit_2r": false
+          }
+        ]
+      },
+      {
+        "metadata": {
+          "evidence_snapshot_id": "e680ab2f-a460-4ff7-974e-7f52c294be38",
+          "setup_version": "BREAKOUT_V1.0",
+          "universe_version": "pilot-universe-v1",
+          "methodology_version": "pilot-methodology-v1",
+          "data_cutoff": "2020-10-13",
+          "created_at": "2026-09-29T13:41:49.899948",
+          "statistics": {
+            "effective_n": 2,
+            "distinct_time_blocks": 1,
+            "mean_r": -0.8248786464503026,
+            "ci_lower": -1.481399551724135,
+            "ci_upper": -0.16835774117647026,
+            "win_rate": 0.0,
+            "baseline_mean_r": 0.0,
+            "baseline_type": "STATIC",
+            "lift": -0.8248786464503026,
+            "status": "NEGATIVE EDGE",
+            "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+          },
+          "configuration": {},
+          "cost_model": {},
+          "date_boundaries": {
+            "discovery_end": "2020-10-13"
+          },
+          "input_hash": "pilot-input",
+          "output_hash": "pilot-output",
+          "random_seed": 42
+        },
+        "outcomes": [
+          {
+            "event_id": "1ed7a5b5336838aadfb018ba11b60c07",
+            "instrument_id": "INEFAILED01010",
+            "setup": "BREAKOUT_V1.0",
+            "detection_date": "2020-12-30",
+            "final_state": "FAILED",
+            "confirmation_date": "2020-12-31",
+            "entry_price": 101.0,
+            "stop_price": 99.96428571428571,
+            "exit_date": "2021-01-01",
+            "exit_price": 99.96428571428571,
+            "gross_realized_r": -1.0,
+            "net_realized_r": -1.481399551724135,
+            "mfe": 0.9655172413793046,
+            "mae": -5.793103448275828,
+            "hit_1r": false,
+            "hit_2r": false
+          },
+          {
+            "event_id": "3a0c1db4f1a0e302a7b31628b037d66f",
+            "instrument_id": "INEBREAKOUT01010",
+            "setup": "BREAKOUT_V1.0",
+            "detection_date": "2020-12-30",
+            "final_state": "COMPLETED",
+            "confirmation_date": "2020-12-31",
+            "entry_price": 103.0,
+            "stop_price": 99.96428571428571,
+            "exit_date": "2021-01-28",
+            "exit_price": 103.0,
+            "gross_realized_r": 0.0,
+            "net_realized_r": -0.16835774117647026,
+            "mfe": 0.3294117647058817,
+            "mae": -0.3294117647058817,
+            "hit_1r": false,
+            "hit_2r": false
+          }
+        ]
+      }
+    ],
+    "outcomes": [
+      {
+        "event_id": "1ed7a5b5336838aadfb018ba11b60c07",
+        "instrument_id": "INEFAILED01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2020-12-30",
+        "final_state": "FAILED",
+        "confirmation_date": "2020-12-31",
+        "entry_price": 101.0,
+        "stop_price": 99.96428571428571,
+        "exit_date": "2021-01-01",
+        "exit_price": 99.96428571428571,
+        "gross_realized_r": -1.0,
+        "net_realized_r": -1.481399551724135,
+        "mfe": 0.9655172413793046,
+        "mae": -5.793103448275828,
+        "hit_1r": false,
+        "hit_2r": false
+      },
+      {
+        "event_id": "9660306f28bfb297059a246c24a99c1a",
+        "instrument_id": "INEVCB01010",
+        "setup": "VCB_V1.0",
+        "detection_date": "2020-12-30",
+        "final_state": "COMPLETED",
+        "confirmation_date": "2020-12-30",
+        "entry_price": 101.0,
+        "stop_price": 100.0,
+        "exit_date": "2021-01-27",
+        "exit_price": 101.0,
+        "gross_realized_r": 0.0,
+        "net_realized_r": -0.501162,
+        "mfe": 1.0,
+        "mae": -0.25,
+        "hit_1r": true,
+        "hit_2r": false
+      },
+      {
+        "event_id": "d266917916e61b434578718839943d3d",
+        "instrument_id": "INEINVALID01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2020-12-30",
+        "final_state": "INVALIDATED",
+        "confirmation_date": "2020-12-31",
+        "entry_price": 90.0,
+        "stop_price": 99.96428571428571,
+        "exit_date": null,
+        "exit_price": null,
+        "gross_realized_r": null,
+        "net_realized_r": null,
+        "mfe": null,
+        "mae": null,
+        "hit_1r": false,
+        "hit_2r": false
+      },
+      {
+        "event_id": "ae0da3cd7b7a77111535e19268562d9c",
+        "instrument_id": "INEEXPIRED01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2020-12-30",
+        "final_state": "EXPIRED",
+        "confirmation_date": null,
+        "entry_price": null,
+        "stop_price": null,
+        "exit_date": null,
+        "exit_price": null,
+        "gross_realized_r": null,
+        "net_realized_r": null,
+        "mfe": null,
+        "mae": null,
+        "hit_1r": false,
+        "hit_2r": false
+      },
+      {
+        "event_id": "3a0c1db4f1a0e302a7b31628b037d66f",
+        "instrument_id": "INEBREAKOUT01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2020-12-30",
+        "final_state": "COMPLETED",
+        "confirmation_date": "2020-12-31",
+        "entry_price": 103.0,
+        "stop_price": 99.96428571428571,
+        "exit_date": "2021-01-28",
+        "exit_price": 103.0,
+        "gross_realized_r": 0.0,
+        "net_realized_r": -0.16835774117647026,
+        "mfe": 0.3294117647058817,
+        "mae": -0.3294117647058817,
+        "hit_1r": false,
+        "hit_2r": false
+      },
+      {
+        "event_id": "7dfbf51d22594fe80d83b79afb0657bc",
+        "instrument_id": "INECENSORED01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2021-04-20",
+        "final_state": "WATCH",
+        "confirmation_date": null,
+        "entry_price": null,
+        "stop_price": null,
+        "exit_date": null,
+        "exit_price": null,
+        "gross_realized_r": null,
+        "net_realized_r": null,
+        "mfe": null,
+        "mae": null,
+        "hit_1r": false,
+        "hit_2r": false
+      }
+    ],
+    "artifacts": [
+      "data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet",
+      "data\\processed\\pilot_outcomes.parquet",
+      "data\\processed\\snapshots\\0812c092-6554-462c-80f4-1752a2c1bc65_meta.json",
+      "data\\processed\\snapshots\\0812c092-6554-462c-80f4-1752a2c1bc65_outcomes.parquet",
+      "data\\processed\\snapshots\\e680ab2f-a460-4ff7-974e-7f52c294be38_meta.json",
+      "data\\processed\\snapshots\\e680ab2f-a460-4ff7-974e-7f52c294be38_outcomes.parquet",
+      "data\\raw\\NIFTY50.csv",
+      "data\\raw\\NSE_Pilot_Bhavcopy.csv",
+      "data\\raw\\NSE_Pilot_CorpActions.csv",
+      "data\\raw\\manifest.csv"
+    ],
+    "stdout": "Normalized data saved to data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet\nCalculating features...\nBuilding Universe...\nRunning Detectors...\nTotal events detected: 6\nEvaluating Outcomes...\nOutcomes evaluated.\nCompleted events: 3\nMetrics for VCB_V1.0: {'effective_n': 1, 'distinct_time_blocks': 1, 'mean_r': -0.501162, 'ci_lower': -0.501162, 'ci_upper': -0.501162, 'win_rate': 0.0, 'baseline_mean_r': 0.0, 'baseline_type': 'STATIC', 'lift': -0.501162, 'status': 'INSUFFICIENT EVIDENCE', 'dependence_limitation': 'Assumes detection blocks are independent; does not model holding period overlap.'}\nMetrics for BREAKOUT_V1.0: {'effective_n': 2, 'distinct_time_blocks': 1, 'mean_r': -0.8248786464503026, 'ci_lower': -1.481399551724135, 'ci_upper': -0.16835774117647026, 'win_rate': 0.0, 'baseline_mean_r': 0.0, 'baseline_type': 'STATIC', 'lift': -0.8248786464503026, 'status': 'NEGATIVE EDGE', 'dependence_limitation': 'Assumes detection blocks are independent; does not model holding period overlap.'}\n"
+  },
+  "production_boundary": {
+    "split_calls": [
+      {
+        "discovery": {
+          "rows": 361,
+          "sessions": 361,
+          "first": "2020-01-01",
+          "last": "2021-05-19"
+        },
+        "validation": {
+          "rows": 96,
+          "sessions": 96,
+          "first": "2021-06-23",
+          "last": "2021-11-03"
+        },
+        "holdout": {
+          "rows": 95,
+          "sessions": 95,
+          "first": "2021-12-08",
+          "last": "2022-04-19"
+        }
+      }
+    ],
+    "backtest_calls": [
+      {
+        "data": {
+          "rows": 600,
+          "sessions": 600,
+          "first": "2020-01-01",
+          "last": "2022-04-19"
+        },
+        "events": 1,
+        "event_dates": [
+          "2021-05-20"
+        ],
+        "instrument_ids": [
+          "INEBOUNDARY01010"
+        ]
+      }
+    ],
+    "snapshots": [
+      {
+        "metadata": {
+          "evidence_snapshot_id": "73ca396c-f696-4f18-a729-b19469b786fa",
+          "setup_version": "BREAKOUT_V1.0",
+          "universe_version": "pilot-universe-v1",
+          "methodology_version": "pilot-methodology-v1",
+          "data_cutoff": "2021-05-19",
+          "created_at": "2026-09-29T13:41:50.016228",
+          "statistics": {
+            "effective_n": 1,
+            "distinct_time_blocks": 1,
+            "mean_r": -0.16835774117647026,
+            "ci_lower": -0.16835774117647026,
+            "ci_upper": -0.16835774117647026,
+            "win_rate": 0.0,
+            "baseline_mean_r": 0.0,
+            "baseline_type": "STATIC",
+            "lift": -0.16835774117647026,
+            "status": "INSUFFICIENT EVIDENCE",
+            "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+          },
+          "configuration": {},
+          "cost_model": {},
+          "date_boundaries": {
+            "discovery_end": "2021-05-19"
+          },
+          "input_hash": "pilot-input",
+          "output_hash": "pilot-output",
+          "random_seed": 42
+        },
+        "outcomes": [
+          {
+            "event_id": "d8832f570e390f483c5e6b5f7ee564f3",
+            "instrument_id": "INEBOUNDARY01010",
+            "setup": "BREAKOUT_V1.0",
+            "detection_date": "2021-05-20",
+            "final_state": "COMPLETED",
+            "confirmation_date": "2021-05-26",
+            "entry_price": 103.0,
+            "stop_price": 99.96428571428571,
+            "exit_date": "2021-06-23",
+            "exit_price": 103.0,
+            "gross_realized_r": 0.0,
+            "net_realized_r": -0.16835774117647026,
+            "mfe": 0.3294117647058817,
+            "mae": -0.3294117647058817,
+            "hit_1r": false,
+            "hit_2r": false
+          }
+        ]
+      }
+    ],
+    "outcomes": [
+      {
+        "event_id": "d8832f570e390f483c5e6b5f7ee564f3",
+        "instrument_id": "INEBOUNDARY01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2021-05-20",
+        "final_state": "COMPLETED",
+        "confirmation_date": "2021-05-26",
+        "entry_price": 103.0,
+        "stop_price": 99.96428571428571,
+        "exit_date": "2021-06-23",
+        "exit_price": 103.0,
+        "gross_realized_r": 0.0,
+        "net_realized_r": -0.16835774117647026,
+        "mfe": 0.3294117647058817,
+        "mae": -0.3294117647058817,
+        "hit_1r": false,
+        "hit_2r": false
+      }
+    ],
+    "artifacts": [
+      "data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet",
+      "data\\processed\\pilot_outcomes.parquet",
+      "data\\processed\\snapshots\\73ca396c-f696-4f18-a729-b19469b786fa_meta.json",
+      "data\\processed\\snapshots\\73ca396c-f696-4f18-a729-b19469b786fa_outcomes.parquet",
+      "data\\raw\\NIFTY50.csv",
+      "data\\raw\\NSE_Pilot_Bhavcopy.csv",
+      "data\\raw\\NSE_Pilot_CorpActions.csv",
+      "data\\raw\\manifest.csv"
+    ],
+    "stdout": "Normalized data saved to data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet\nCalculating features...\nBuilding Universe...\nRunning Detectors...\nTotal events detected: 1\nEvaluating Outcomes...\nOutcomes evaluated.\nCompleted events: 1\nMetrics for BREAKOUT_V1.0: {'effective_n': 1, 'distinct_time_blocks': 1, 'mean_r': -0.16835774117647026, 'ci_lower': -0.16835774117647026, 'ci_upper': -0.16835774117647026, 'win_rate': 0.0, 'baseline_mean_r': 0.0, 'baseline_type': 'STATIC', 'lift': -0.16835774117647026, 'status': 'INSUFFICIENT EVIDENCE', 'dependence_limitation': 'Assumes detection blocks are independent; does not model holding period overlap.'}\n"
+  },
+  "production_discovery_crosses_validation": {
+    "split_calls": [
+      {
+        "discovery": {
+          "rows": 722,
+          "sessions": 361,
+          "first": "2020-01-01",
+          "last": "2021-05-19"
+        },
+        "validation": {
+          "rows": 187,
+          "sessions": 96,
+          "first": "2021-06-23",
+          "last": "2021-11-03"
+        },
+        "holdout": {
+          "rows": 190,
+          "sessions": 95,
+          "first": "2021-12-08",
+          "last": "2022-04-19"
+        }
+      }
+    ],
+    "backtest_calls": [
+      {
+        "data": {
+          "rows": 1180,
+          "sessions": 600,
+          "first": "2020-01-01",
+          "last": "2022-04-19"
+        },
+        "events": 1,
+        "event_dates": [
+          "2021-05-19"
+        ],
+        "instrument_ids": [
+          "INESPARSE01010"
+        ]
+      }
+    ],
+    "snapshots": [
+      {
+        "metadata": {
+          "evidence_snapshot_id": "bdb9ced1-5dd3-4454-be41-05601f53bb46",
+          "setup_version": "BREAKOUT_V1.0",
+          "universe_version": "pilot-universe-v1",
+          "methodology_version": "pilot-methodology-v1",
+          "data_cutoff": "2021-05-19",
+          "created_at": "2026-09-29T13:41:50.135255",
+          "statistics": {
+            "effective_n": 1,
+            "distinct_time_blocks": 1,
+            "mean_r": -0.16835774117647026,
+            "ci_lower": -0.16835774117647026,
+            "ci_upper": -0.16835774117647026,
+            "win_rate": 0.0,
+            "baseline_mean_r": 0.0,
+            "baseline_type": "STATIC",
+            "lift": -0.16835774117647026,
+            "status": "INSUFFICIENT EVIDENCE",
+            "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+          },
+          "configuration": {},
+          "cost_model": {},
+          "date_boundaries": {
+            "discovery_end": "2021-05-19"
+          },
+          "input_hash": "pilot-input",
+          "output_hash": "pilot-output",
+          "random_seed": 42
+        },
+        "outcomes": [
+          {
+            "event_id": "3d24f0aa8ad43cc80bf845063ac9fbd8",
+            "instrument_id": "INESPARSE01010",
+            "setup": "BREAKOUT_V1.0",
+            "detection_date": "2021-05-19",
+            "final_state": "COMPLETED",
+            "confirmation_date": "2021-05-25",
+            "entry_price": 103.0,
+            "stop_price": 99.96428571428571,
+            "exit_date": "2021-07-20",
+            "exit_price": 103.0,
+            "gross_realized_r": 0.0,
+            "net_realized_r": -0.16835774117647026,
+            "mfe": 0.3294117647058817,
+            "mae": -0.3294117647058817,
+            "hit_1r": false,
+            "hit_2r": false
+          }
+        ]
+      }
+    ],
+    "outcomes": [
+      {
+        "event_id": "3d24f0aa8ad43cc80bf845063ac9fbd8",
+        "instrument_id": "INESPARSE01010",
+        "setup": "BREAKOUT_V1.0",
+        "detection_date": "2021-05-19",
+        "final_state": "COMPLETED",
+        "confirmation_date": "2021-05-25",
+        "entry_price": 103.0,
+        "stop_price": 99.96428571428571,
+        "exit_date": "2021-07-20",
+        "exit_price": 103.0,
+        "gross_realized_r": 0.0,
+        "net_realized_r": -0.16835774117647026,
+        "mfe": 0.3294117647058817,
+        "mae": -0.3294117647058817,
+        "hit_1r": false,
+        "hit_2r": false
+      }
+    ],
+    "artifacts": [
+      "data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet",
+      "data\\processed\\pilot_outcomes.parquet",
+      "data\\processed\\snapshots\\bdb9ced1-5dd3-4454-be41-05601f53bb46_meta.json",
+      "data\\processed\\snapshots\\bdb9ced1-5dd3-4454-be41-05601f53bb46_outcomes.parquet",
+      "data\\raw\\NIFTY50.csv",
+      "data\\raw\\NSE_Pilot_Bhavcopy.csv",
+      "data\\raw\\NSE_Pilot_CorpActions.csv",
+      "data\\raw\\manifest.csv"
+    ],
+    "stdout": "Normalized data saved to data\\processed\\normalized_NSE_Pilot_Bhavcopy.parquet\nCalculating features...\nBuilding Universe...\nRunning Detectors...\nTotal events detected: 1\nEvaluating Outcomes...\nOutcomes evaluated.\nCompleted events: 1\nMetrics for BREAKOUT_V1.0: {'effective_n': 1, 'distinct_time_blocks': 1, 'mean_r': -0.16835774117647026, 'ci_lower': -0.16835774117647026, 'ci_upper': -0.16835774117647026, 'win_rate': 0.0, 'baseline_mean_r': 0.0, 'baseline_type': 'STATIC', 'lift': -0.16835774117647026, 'status': 'INSUFFICIENT EVIDENCE', 'dependence_limitation': 'Assumes detection blocks are independent; does not model holding period overlap.'}\n"
+  },
+  "split_watch_false_candidate": {
+    "split_date": "2021-01-01",
+    "event_date": "2020-12-30",
+    "raw_close": 94.0,
+    "adjusted_close": 47.0,
+    "actual": [
+      {
+        "breakout_level": 50.5,
+        "result": {
+          "event_id": "710cb3191eab0a189cdb92f05cd11c4e",
+          "instrument_id": "TEST_EXPIRED",
+          "setup": "BREAKOUT_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "EXPIRED",
+          "confirmation_date": null,
+          "entry_price": null,
+          "stop_price": null,
+          "exit_date": null,
+          "exit_price": null,
+          "gross_realized_r": null,
+          "net_realized_r": null,
+          "mfe": null,
+          "mae": null,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ],
+    "consistent_basis_reference": []
+  },
+  "split_watch_vcb": {
+    "split_date": "2020-12-31",
+    "event_date": "2020-12-30",
+    "raw_close": 100.75,
+    "adjusted_close": 50.375,
+    "actual": [
+      {
+        "breakout_level": 100.5,
+        "result": {
+          "event_id": "3b99a7f172372801173be7031355d5a9",
+          "instrument_id": "TEST_VCB",
+          "setup": "VCB_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "EXPIRED",
+          "confirmation_date": null,
+          "entry_price": null,
+          "stop_price": null,
+          "exit_date": null,
+          "exit_price": null,
+          "gross_realized_r": null,
+          "net_realized_r": null,
+          "mfe": null,
+          "mae": null,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ],
+    "consistent_basis_reference": [
+      {
+        "breakout_level": 50.25,
+        "result": {
+          "event_id": "3b99a7f172372801173be7031355d5a9",
+          "instrument_id": "TEST_VCB",
+          "setup": "VCB_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "COMPLETED",
+          "confirmation_date": "2020-12-30",
+          "entry_price": 50.5,
+          "stop_price": 50.0,
+          "exit_date": "2021-01-27",
+          "exit_price": 50.5,
+          "gross_realized_r": 0.0,
+          "net_realized_r": -0.501162,
+          "mfe": 1.0,
+          "mae": -0.25,
+          "hit_1r": true,
+          "hit_2r": false
+        }
+      }
+    ]
+  },
+  "split_holding_breakout": {
+    "split_date": "2021-01-13",
+    "event_date": "2020-12-30",
+    "raw_close": 100.0,
+    "adjusted_close": 50.0,
+    "actual": [
+      {
+        "breakout_level": 50.5,
+        "result": {
+          "event_id": "660830959d32b15153b46e2810bd938c",
+          "instrument_id": "TEST_BREAKOUT",
+          "setup": "BREAKOUT_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "COMPLETED",
+          "confirmation_date": "2020-12-31",
+          "entry_price": 51.5,
+          "stop_price": 49.982142857142854,
+          "exit_date": "2021-01-28",
+          "exit_price": 51.5,
+          "gross_realized_r": 0.0,
+          "net_realized_r": -0.16835774117647026,
+          "mfe": 0.3294117647058817,
+          "mae": -0.3294117647058817,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ],
+    "consistent_basis_reference": [
+      {
+        "breakout_level": 50.5,
+        "result": {
+          "event_id": "660830959d32b15153b46e2810bd938c",
+          "instrument_id": "TEST_BREAKOUT",
+          "setup": "BREAKOUT_V1.0",
+          "detection_date": "2020-12-30",
+          "final_state": "COMPLETED",
+          "confirmation_date": "2020-12-31",
+          "entry_price": 51.5,
+          "stop_price": 49.982142857142854,
+          "exit_date": "2021-01-28",
+          "exit_price": 51.5,
+          "gross_realized_r": 0.0,
+          "net_realized_r": -0.16835774117647026,
+          "mfe": 0.3294117647058817,
+          "mae": -0.3294117647058817,
+          "hit_1r": false,
+          "hit_2r": false
+        }
+      }
+    ]
+  },
+  "double_adjustment": {
+    "first_before": 50.0,
+    "second_before": 25.0,
+    "first_after": 50.0,
+    "second_after": 50.0,
+    "rejected": false
+  },
+  "statistics": {
+    "n1": {
+      "effective_n": 1,
+      "distinct_time_blocks": 1,
+      "mean_r": 1.0,
+      "ci_lower": 1.0,
+      "ci_upper": 1.0,
+      "win_rate": 1.0,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": 1.0,
+      "status": "INSUFFICIENT EVIDENCE",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    },
+    "n2_same_date_without_oos": {
+      "effective_n": 2,
+      "distinct_time_blocks": 1,
+      "mean_r": 1.0,
+      "ci_lower": 1.0,
+      "ci_upper": 1.0,
+      "win_rate": 1.0,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": 1.0,
+      "status": "VALIDATED",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    },
+    "bootstrap_n5_first": {
+      "effective_n": 5,
+      "distinct_time_blocks": 1,
+      "mean_r": 0.54,
+      "ci_lower": -0.4,
+      "ci_upper": 1.34,
+      "win_rate": 0.8,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": 0.54,
+      "status": "NO EDGE FOUND / INSUFFICIENT EVIDENCE",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    },
+    "bootstrap_n5_second": {
+      "effective_n": 5,
+      "distinct_time_blocks": 1,
+      "mean_r": 0.54,
+      "ci_lower": -0.4,
+      "ci_upper": 1.34,
+      "win_rate": 0.8,
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "lift": 0.54,
+      "status": "NO EDGE FOUND / INSUFFICIENT EVIDENCE",
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap."
+    }
+  },
+  "immutability": {
+    "same_output_path": true,
+    "original_hash": "3017fb601ed3623f3e88055bf5ddeb42818660b8430c96aa897257e8e94cd359",
+    "replacement_hash": "41e106f7e93a28a0c9c61c0ccd990b956652a30ae944fa617336bcab5dc8fd57",
+    "overwrite_rejected": false
+  },
+  "alerts": {
+    "missing_evidence_accepted": true,
+    "valid_snapshot_accepted": true,
+    "outbox": [
+      [
+        "19616f11-18b0-4eee-81ce-a9c07c1aec2d",
+        "Existing snapshot\n\nEvidence: Edge 1.0, Status INSUFFICIENT EVIDENCE"
+      ],
+      [
+        "missing-snapshot-event",
+        "Caller supplied text"
+      ]
+    ],
+    "network_requests": 0
+  },
+  "dashboard_metrics": [
+    [
+      "Market Regime",
+      "UPTREND"
+    ],
+    [
+      "Detected Setups",
+      "5"
+    ],
+    [
+      "Data Quality",
+      "UNKNOWN"
+    ]
+  ],
+  "source_changes_since_review_started": []
+}

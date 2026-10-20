@@ -1,0 +1,150 @@
+[
+  {
+    "path": "src\\equity_engine\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\alerts\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\alerts\\telegram.py",
+    "sha256": "4d2b4885d40648d07917c68dd0e7a3ca93a68010c152bda4aebd0083da598fae"
+  },
+  {
+    "path": "src\\equity_engine\\backtest\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\backtest\\controls.py",
+    "sha256": "38006d6b8a6066d3e8489ee50024b30f3828ff735bf740582810bef9b150c582"
+  },
+  {
+    "path": "src\\equity_engine\\backtest\\engine.py",
+    "sha256": "391381b2d94f34c11517c987e41f1418fd0e60459b3e885c0fd41ae0bd02cf49"
+  },
+  {
+    "path": "src\\equity_engine\\corporate_actions\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\corporate_actions\\adjustor.py",
+    "sha256": "36ce59fc05158c1dbeb0ca86bbd3b70b69a8d00ceb61f328779281094eb2bce3"
+  },
+  {
+    "path": "src\\equity_engine\\dashboard\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\dashboard\\app.py",
+    "sha256": "12b54fccf2a921dc170f8490ab5025c0bbd62dce0c736b062cbba4dcffbcc46d"
+  },
+  {
+    "path": "src\\equity_engine\\evidence\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\evidence\\snapshot.py",
+    "sha256": "80adb9a0b81ccfdfb50697c49b93ab3b7c6ad4689be19d9309ddb1f63e1d7c13"
+  },
+  {
+    "path": "src\\equity_engine\\features\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\features\\calculator.py",
+    "sha256": "94479f8ec08119f36ad91d0643ef85e70f4c2fd68b1514ae8c143c92c269ebf5"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\csv_provider.py",
+    "sha256": "bff292212e7ad129ebd66c47dec74f6c4f1f80c955d24a45f3fb4a0be3046513"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\nse_importer.py",
+    "sha256": "c2fcc6da60b0070c6a16dd902083a77e1742da40bc2b716e913d897afd337ca1"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\provider.py",
+    "sha256": "d92dbe77e35cfbdfcc4fd7e57e07f2981a8b0cdb634ece48bd2661ed68dd24b3"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\storage.py",
+    "sha256": "855b6872e9832916ebfb9632e1cd3f9c9e67c8beba21df8f73cfd839fdd5b624"
+  },
+  {
+    "path": "src\\equity_engine\\ingestion\\validator.py",
+    "sha256": "4691a0b6a671767c9ef09fa345a36b45524bff62063cd89f309d1ddc1a04dc62"
+  },
+  {
+    "path": "src\\equity_engine\\notifications\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\outcomes\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\outcomes\\engine.py",
+    "sha256": "6d0d8a71f034bb166db0ca2098083b428a78a83145131cc91ad4ecc694b4e6f9"
+  },
+  {
+    "path": "src\\equity_engine\\regime\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\regime\\classifier.py",
+    "sha256": "4b5bda8d22a1669fa3294fcfce74f6276bb6e72a4f017479708253112819d4f0"
+  },
+  {
+    "path": "src\\equity_engine\\security_master\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\security_master\\master.py",
+    "sha256": "c27926d21e65395ec0808023aac108661ceeddf6eda2f99b9176ed5116401bcb"
+  },
+  {
+    "path": "src\\equity_engine\\setups\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\setups\\breakout.py",
+    "sha256": "2ef510ecf42f94733d6be4a7068058498e963ea4a7c86824dcf44a01e811fbfc"
+  },
+  {
+    "path": "src\\equity_engine\\setups\\vcb.py",
+    "sha256": "949c2874028bd28de1d17a08750d77cacfde58a9a9cd5957714c27c9776ef194"
+  },
+  {
+    "path": "src\\equity_engine\\universe\\__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src\\equity_engine\\universe\\builder.py",
+    "sha256": "4ad5fa5de7db7f7edeb23c0c618d8a6eadac6469eb6678ee5d73204f569384d4"
+  },
+  {
+    "path": "scripts\\run_pilot_pipeline.py",
+    "sha256": "a261cea530bca7bd4f73a1881d95e71e4db1901ca45b74832a5dd12f1ef168d1"
+  },
+  {
+    "path": "config\\costs.yaml",
+    "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+  },
+  {
+    "path": "config\\regime.yaml",
+    "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+  },
+  {
+    "path": "config\\setups.yaml",
+    "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+  },
+  {
+    "path": "config\\universe.yaml",
+    "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+  }
+]
