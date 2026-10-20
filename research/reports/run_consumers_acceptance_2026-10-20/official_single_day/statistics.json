@@ -1,0 +1,26 @@
+[
+  {
+    "partition": "discovery",
+    "setup_version": "BREAKOUT_V1.0",
+    "statistics": {
+      "baseline_type": "STATIC",
+      "dependence_limitation": "No completed eligible observations; no edge inference is available.",
+      "distinct_time_blocks": 0,
+      "effective_n": 0,
+      "mean_r": null,
+      "status": "INSUFFICIENT EVIDENCE"
+    }
+  },
+  {
+    "partition": "discovery",
+    "setup_version": "VCB_V1.0",
+    "statistics": {
+      "baseline_type": "STATIC",
+      "dependence_limitation": "No completed eligible observations; no edge inference is available.",
+      "distinct_time_blocks": 0,
+      "effective_n": 0,
+      "mean_r": null,
+      "status": "INSUFFICIENT EVIDENCE"
+    }
+  }
+]

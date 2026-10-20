@@ -32,8 +32,12 @@ are logged without publishing normalized output. Empty EQ results are rejected.
 
 Validation includes OHLCV, duplicate instrument/date keys, missing dates/identity fields,
 finite nonnegative reported turnover, and delivery bounds when supplied. Missing optional
-delivery values remain null. Historical calendar completeness, corporate-action
-reconciliation and abnormal-return review still require the pilot quality checks.
+delivery values remain null. New pilot runs persist engineering quality checks
+in `quality.json`, including source identity, cohort gaps/staleness, adjusted-return
+flags, optional calendar comparison and unavailable source/history gates.
+Critical failures withhold evidence. Counts against the supplied cohort/calendar
+do not certify official historical completeness or corporate-action reconciliation.
+See `docs/pilot_pipeline.md` for the quality and consumer contract.
 
 ## Import and Replay
 

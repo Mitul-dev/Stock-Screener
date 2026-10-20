@@ -1,0 +1,290 @@
+{
+  "artifact_path_contract": "run-relative-v1",
+  "code_hash": "f31ebed61fbf38e85f6c56e098dcf56cd8c32cccc466d41f983cefa81fe39b52",
+  "configuration": {
+    "cohort": [
+      "ASIANPAINT",
+      "AXISBANK",
+      "BAJFINANCE",
+      "BHARTIARTL",
+      "HDFCBANK",
+      "HINDUNILVR",
+      "ICICIBANK",
+      "INFY",
+      "ITC",
+      "KOTAKBANK",
+      "LT",
+      "MARUTI",
+      "RELIANCE",
+      "SBIN",
+      "SUNPHARMA",
+      "TATASTEEL",
+      "TCS",
+      "TITAN",
+      "ULTRACEMCO",
+      "WIPRO"
+    ],
+    "costs": {
+      "costs": {
+        "brokerage_pct": 0.0003,
+        "exchange_charges_pct": 3.25e-05,
+        "gst_pct": 0.18,
+        "sebi_charges_pct": 1e-06,
+        "slippage_pct": 0.001,
+        "stamp_duty_pct": 0.00015,
+        "stt_pct": 0.001
+      }
+    },
+    "regime": {
+      "regimes": {
+        "NEUTRAL": null,
+        "RISK_OFF": {
+          "nifty_below_200_dma": true,
+          "vix_min": 25.0
+        },
+        "UPTREND": {
+          "breadth_pct_above_50_dma_min": 0.5,
+          "nifty_above_200_dma": true
+        }
+      }
+    },
+    "research": {
+      "discovery_pct": 0.6,
+      "timeout_days": 20,
+      "validation_pct": 0.2,
+      "watch_expiry_days": 5
+    },
+    "setups": {
+      "setups": {
+        "BREAKOUT_V1": {
+          "parameters": {
+            "close_near_high_pct": 0.02,
+            "lookback_days": 252,
+            "min_volume_relative": 1.5
+          },
+          "version": "1.0"
+        },
+        "VCB_V1": {
+          "parameters": {
+            "lookback_days": 60,
+            "max_atr_percentile": 0.2,
+            "min_consolidation_days": 10
+          },
+          "version": "1.0"
+        }
+      }
+    },
+    "universe": {
+      "liquidity_tiers": {
+        "tier_1": {
+          "min_median_traded_value": 500000000,
+          "min_price": 50.0,
+          "min_trading_days_coverage": 0.95
+        },
+        "tier_2": {
+          "min_median_traded_value": 100000000,
+          "min_price": 20.0,
+          "min_trading_days_coverage": 0.9
+        }
+      },
+      "version": "1.0"
+    }
+  },
+  "configuration_files": {
+    "costs": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/costs.yaml",
+      "sha256": "d6af0d356a2d4a052b3e1ccf4c38b316686da9d8a87e3f34157ae3b321ff315f"
+    },
+    "regime": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/regime.yaml",
+      "sha256": "9152668f9ccb3b7ed10637e2d1b318512c6d0449042cd70ae6b2d11a68ff9364"
+    },
+    "setups": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/setups.yaml",
+      "sha256": "339839bbd0de88b65729333e9178b8b0e876767dd981f82f5a9024d22f4c77d8"
+    },
+    "universe": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/config/universe.yaml",
+      "sha256": "e749498cd189cdb967c0887102d840e8cc0efaf8471338420f9c5da70ab8ed73"
+    }
+  },
+  "configuration_hash": "a3d48af8bddeb919faf61765c21b72b838e106cc5bd73e5218873ba496b7ea91",
+  "cost_model": {
+    "brokerage_pct": 0.0003,
+    "exchange_charges_pct": 3.25e-05,
+    "gst_pct": 0.18,
+    "sebi_charges_pct": 1e-06,
+    "slippage_pct": 0.001,
+    "stamp_duty_pct": 0.00015,
+    "stt_pct": 0.001
+  },
+  "cost_rate_per_side": 0.00254353,
+  "counts": {
+    "candidate_events": 0,
+    "eligible_outcomes": 0,
+    "evaluated_events": 0
+  },
+  "created_at": "2026-10-20T13:20:21.274081+00:00",
+  "date_boundaries": {
+    "discovery": {
+      "end": "2026-10-08",
+      "sessions": 1,
+      "start": "2026-10-08"
+    },
+    "holdout": {
+      "end": null,
+      "sessions": 0,
+      "start": null
+    },
+    "validation": {
+      "end": null,
+      "sessions": 0,
+      "start": null
+    }
+  },
+  "execution_status": "COMPLETED",
+  "input_hash": "6566da09dac23ab2d982914ba536a0d1e65cba2990935ba7aeaf0ae57b369b82",
+  "inputs": [
+    {
+      "acquisition": {
+        "downloaded_at": "2026-10-20T04:23:25.690707+00:00",
+        "source_url": "https://nsearchives.nseindia.com/content/cm/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip"
+      },
+      "acquisition_receipt": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip.provenance.json",
+        "sha256": "2b43dbb8e07062e532c407e25c7ead49c1bcced2d5d4230a3d5d92fd62506c57"
+      },
+      "archived_raw": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/raw/consumer_acceptance_official/archive/07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip",
+        "sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39"
+      },
+      "ingestion_receipt": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/normalized/receipts/normalized_07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39_NSE_CONSOLIDATED_V2.json",
+        "sha256": "6e4a4925fc3ef6beb287c31add4dcf778faea8afae4d47ee11c0c54c5911a8d7"
+      },
+      "kind": "ohlcv",
+      "normalized": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/normalized/normalized_07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39_NSE_CONSOLIDATED_V2.parquet",
+        "sha256": "956e229ed7c3ac3bbdbc9a9ebd62d6933739e832f12821a741783ca6f4579962"
+      },
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/tests/fixtures/nse/BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv.zip",
+      "sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39"
+    }
+  ],
+  "manifest_path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/manifest.json",
+  "methodology_version": "V1-partitioned-pilot-1",
+  "outcome_boundary_policy": "censor_incomplete_windows_at_each_partition_end",
+  "outputs": {
+    "events": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/events.parquet",
+      "relative_path": "events.parquet",
+      "sha256": "6a4594683adaadd677eab570b66d1b953efe3bc14245fa6e9f7d3f0e975c0e0d"
+    },
+    "features": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/features.parquet",
+      "relative_path": "features.parquet",
+      "sha256": "c9b926479a950677072b6dedb6cc16a729630c2c32e2f4b59cc3d4decc143497"
+    },
+    "outcomes": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/outcomes.parquet",
+      "relative_path": "outcomes.parquet",
+      "sha256": "e646ae86a243e164daaaaae87ce31188fc71f5d81e710c8865c38c3c642240ae"
+    },
+    "quality": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/quality.json",
+      "relative_path": "quality.json",
+      "sha256": "283a9708af2db490f6cc9694032c91ec695aa947babb89b499961ae50669f62d"
+    },
+    "regime": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/regime.parquet",
+      "relative_path": "regime.parquet",
+      "sha256": "4cc304fd0b02b5a29eda42ad068a8d7960f8f0efe4ba70e3f063c8a504666fce"
+    },
+    "statistics": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/statistics.json",
+      "relative_path": "statistics.json",
+      "sha256": "1c45034c3aa951e2cb006cf72de7ca3bd9c597695cbfc29fbc5f92fa738cdb97"
+    },
+    "universe": {
+      "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/universe.parquet",
+      "relative_path": "universe.parquet",
+      "sha256": "c5979300b95f264f672845f19670d2749aa36485dab33413f2e29b9e6f1d22ae"
+    }
+  },
+  "paper_research_approved": false,
+  "partition_results": {
+    "discovery": {
+      "censored": 0,
+      "eligible": 0,
+      "events": 0,
+      "status": "EXECUTED"
+    },
+    "holdout": {
+      "censored": 0,
+      "eligible": 0,
+      "events": 0,
+      "status": "NO_SESSIONS"
+    },
+    "validation": {
+      "censored": 0,
+      "eligible": 0,
+      "events": 0,
+      "status": "NO_SESSIONS"
+    }
+  },
+  "price_basis": {
+    "cutoff": "2026-10-08",
+    "method": "backward_split_bonus_adjustment",
+    "raw_ohlcv_retained": true
+  },
+  "quality_status": "PASSED_WITH_WARNINGS",
+  "random_seed": 42,
+  "regime_breadth_population": "eligible_instruments_in_supplied_pilot_cohort",
+  "run_dir": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab",
+  "run_fingerprint": "d6dd9f7fc7064bf8c00a8e904f18dab83ae41506f0d64fc192ea6f8195a3c0eb",
+  "schema_version": 2,
+  "setup_versions": [
+    "BREAKOUT_V1.0",
+    "VCB_V1.0"
+  ],
+  "snapshots": [
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/snapshots/2b9bc05f-ca57-48c9-848e-04468c64e901_meta.json",
+        "relative_path": "snapshots/2b9bc05f-ca57-48c9-848e-04468c64e901_meta.json",
+        "sha256": "ea4a3accc38ec655f27f926701fcebdb921681e449e227ff5635cd898e48f1c6"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/snapshots/2b9bc05f-ca57-48c9-848e-04468c64e901_outcomes.parquet",
+        "relative_path": "snapshots/2b9bc05f-ca57-48c9-848e-04468c64e901_outcomes.parquet",
+        "sha256": "e646ae86a243e164daaaaae87ce31188fc71f5d81e710c8865c38c3c642240ae"
+      },
+      "partition": "discovery",
+      "setup_version": "BREAKOUT_V1.0",
+      "snapshot_id": "2b9bc05f-ca57-48c9-848e-04468c64e901"
+    },
+    {
+      "metadata": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/snapshots/ea85a6e8-2966-4f7b-adb6-a08e5db03fcc_meta.json",
+        "relative_path": "snapshots/ea85a6e8-2966-4f7b-adb6-a08e5db03fcc_meta.json",
+        "sha256": "1ab6681c1f8b671dff3a9a1bda73274ef8eb3c219bb5ebbe2d0898d8a9b5d3c5"
+      },
+      "outcomes": {
+        "path": "/workspace/scratch/ec497becb930/Stock-Screener/data/processed/consumer_acceptance_official/pilot-d6dd9f7fc7064bf8-acf99bab/snapshots/ea85a6e8-2966-4f7b-adb6-a08e5db03fcc_outcomes.parquet",
+        "relative_path": "snapshots/ea85a6e8-2966-4f7b-adb6-a08e5db03fcc_outcomes.parquet",
+        "sha256": "e646ae86a243e164daaaaae87ce31188fc71f5d81e710c8865c38c3c642240ae"
+      },
+      "partition": "discovery",
+      "setup_version": "VCB_V1.0",
+      "snapshot_id": "ea85a6e8-2966-4f7b-adb6-a08e5db03fcc"
+    }
+  ],
+  "status": "INSUFFICIENT EVIDENCE",
+  "trial_id": "pilot-d6dd9f7fc7064bf8-acf99bab",
+  "universe_evaluation": "as_of_each_candidate_detection_date_using_reported_turnover",
+  "universe_version": "universe-1.0",
+  "warnings": [
+    "No corporate-action source supplied; this is not proof of action-free history.",
+    "No index source supplied; event regime is UNKNOWN."
+  ]
+}

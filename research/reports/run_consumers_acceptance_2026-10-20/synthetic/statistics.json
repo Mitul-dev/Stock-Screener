@@ -1,0 +1,104 @@
+[
+  {
+    "partition": "discovery",
+    "setup_version": "BREAKOUT_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.17260095341176435,
+      "ci_upper": -0.17260095341176435,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.17260095341176435,
+      "mean_r": -0.17260095341176435,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  },
+  {
+    "partition": "discovery",
+    "setup_version": "VCB_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.51379306,
+      "ci_upper": -0.51379306,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.51379306,
+      "mean_r": -0.51379306,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  },
+  {
+    "partition": "validation",
+    "setup_version": "BREAKOUT_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.17260095341176435,
+      "ci_upper": -0.17260095341176435,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.17260095341176435,
+      "mean_r": -0.17260095341176435,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  },
+  {
+    "partition": "validation",
+    "setup_version": "VCB_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.51379306,
+      "ci_upper": -0.51379306,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.51379306,
+      "mean_r": -0.51379306,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  },
+  {
+    "partition": "holdout",
+    "setup_version": "BREAKOUT_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.17260095341176435,
+      "ci_upper": -0.17260095341176435,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.17260095341176435,
+      "mean_r": -0.17260095341176435,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  },
+  {
+    "partition": "holdout",
+    "setup_version": "VCB_V1.0",
+    "statistics": {
+      "baseline_mean_r": 0.0,
+      "baseline_type": "STATIC",
+      "ci_lower": -0.51379306,
+      "ci_upper": -0.51379306,
+      "dependence_limitation": "Assumes detection blocks are independent; does not model holding period overlap.",
+      "distinct_time_blocks": 1,
+      "effective_n": 1,
+      "lift": -0.51379306,
+      "mean_r": -0.51379306,
+      "status": "NEGATIVE EDGE",
+      "win_rate": 0.0
+    }
+  }
+]
