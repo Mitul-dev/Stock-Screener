@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-10-20",
+  "base_commit": "02915d7c1e292c2405f403810ecb369ad2f0e021",
+  "execution_context": "JavaScript code runtime; memory-only verification of GitHub-retained original bytes. Python/execution workspace unavailable.",
+  "raw_fixture": {
+    "git_blob_sha": "db83fb98b50b428b06057b85826bdbd446b3b438",
+    "zip_sha256": "07fdfc3409b83fac6ee4a736ceb4fde20069c5d1a490d960b332c178cb703e39",
+    "zip_bytes": 208947,
+    "member": "BhavCopy_NSE_CM_0_0_0_20261008_F_0000.csv",
+    "member_sha256": "3bfb33cd4a0eb55b77ed2b24fd95cac6803edf00256bee65796ede4ee7549e53",
+    "member_crc32": "12e2ccf7",
+    "source_rows": 3733,
+    "eq_rows": 2681
+  },
+  "checks": {
+    "sha256_and_crc": "PASSED",
+    "whole_eq_market_identity_and_ohlcv": "PASSED",
+    "eq_rows_checked": 2681,
+    "cohort_members_checked": 20,
+    "distinct_cohort_ids": 20,
+    "cohort_matches_prior_smoke": "PASSED",
+    "historical_interval_backfill": "NOT_ACQUIRED",
+    "python_tests": "NOT_RUN_ENVIRONMENT_UNAVAILABLE",
+    "readiness": "NOT READY FOR REAL-DATA PILOT",
+    "paper_research_approved": false,
+    "additional_checks": [
+      {
+        "name": "source_columns_match_original_receipt",
+        "status": "PASSED"
+      },
+      {
+        "name": "cohort_rows_and_identifiers_match_original_csv",
+        "status": "PASSED"
+      },
+      {
+        "name": "proposed_window_does_not_claim_complete_coverage",
+        "status": "PASSED"
+      },
+      {
+        "name": "checkpoint_and_reconciliation_references_are_consistent",
+        "status": "PASSED"
+      },
+      {
+        "name": "inventory_schema_and_unknown_coverage_are_consistent",
+        "status": "PASSED"
+      }
+    ]
+  },
+  "derived_artifact_hashes": [
+    {
+      "path": "research/pilot/cohort_v1.json",
+      "sha256": "2c68a8c2e52764a700be26ac9815e3988bffdf66c0fcb78550f9c100dab7c214"
+    },
+    {
+      "path": "research/pilot/source_catalog_2026-10-20.json",
+      "sha256": "7cd01c096c2dcdf98cc9aaceb04d722d07aa8cee281e8fc025f3b10d7e6ea024"
+    },
+    {
+      "path": "research/pilot/historical_inventory_v1.json",
+      "sha256": "4f4f2a21ae4fecd7a14fb57050de1ae498e0581de2ed9ea99b08e052b59a2a50"
+    },
+    {
+      "path": "research/pilot/README.md",
+      "sha256": "435cec8385d17276810368b00c769324b4078f7af46f859cb22848c3575c804c"
+    },
+    {
+      "path": "docs/historical_sources.md",
+      "sha256": "144603287ed98270bc979a5f125563bf7adf899a44fb96a5b839bab2c79a7a39"
+    },
+    {
+      "path": "BUILD_STATUS.md",
+      "sha256": "7b7d7ceb154396695ec27f7b150f4a9ee53c2ad0d4edb87afb33d23a5b896dbc"
+    },
+    {
+      "path": "research/reports/historical_source_preparation_2026-10-20.md",
+      "sha256": "9fb9f0b27a55e9b9ee1e465ac32d0d91f40fc52085d48ca170dade01507ac152"
+    }
+  ],
+  "original_source_acquisition": "No new NSE market/archive download was retained in this step. The existing acquisition receipt remains authoritative for its earlier download.",
+  "official_document_retrieval": "Page/PDF text and link discovery only; no new original document/CSV bytes or acquisition hashes are claimed.",
+  "not_executed": [
+    "Python regression suite",
+    "historical archive downloads to disk",
+    "calendar derivation",
+    "multi-year ingestion",
+    "historical production pilot",
+    "real Telegram delivery"
+  ],
+  "prior_test_evidence": {
+    "commit": "02915d7c1e292c2405f403810ecb369ad2f0e021",
+    "path": "research/reports/run_consumers_full_tests_2026-10-20.xml",
+    "reported_passed": 189,
+    "status": "PRIOR_MILESTONE_NOT_RERUN"
+  },
+  "runtime_code_changed": false,
+  "strategy_parameters_changed": false,
+  "readiness": "NOT READY FOR REAL-DATA PILOT",
+  "paper_research_approved": false
+}
